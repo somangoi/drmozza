@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import SiginUp from "./pages/SignUp/SignUp";
-import Login from "./pages/Login/Login";
-import Main from "./pages/Main/Main";
-import Shop from "./pages/Shop/Shop";
-import Detail from "./pages/Detail/Detail";
+import SiginUp from './pages/SignUp/SignUp';
+import Login from './pages/Login/Login';
+import Main from './pages/Main/Main';
+import Shop from './pages/Shop/Shop';
+import Detail from './pages/Detail/Detail';
 
-import "./styles/common.scss";
-import "./styles/reset.scss";
+import './styles/common.scss';
+import './styles/reset.scss';
 
 class Routes extends Component {
   render() {
