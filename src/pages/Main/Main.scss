@@ -1,1 +1,22 @@
-1
+.nav {
+  height: 80px;
+  width: 100%;
+  background-color: aqua;
+}
+
+.slideFst {
+  display: flex;
+  justify-content: center;
+  width: 1320px;
+  height: 277px;
+  padding: 85px 60px;
+  margin: 0 120px;
+  background-color: beige;
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  background-color: aquamarine;
+}
