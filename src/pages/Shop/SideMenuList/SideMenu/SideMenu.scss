@@ -1,0 +1,19 @@
+.sideMenuGroup {
+  .sideMenuTitle {
+    padding: 10px 0;
+    a {
+      text-decoration: none;
+      font-weight: 500;
+      color: black;
+      .sideMenuCaret {
+        padding-left: 10px;
+      }
+    }
+  }
+  ul {
+    li {
+      padding: 10px 20px;
+      color: rgb(113, 113, 113);
+    }
+  }
+}
