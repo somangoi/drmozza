@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import '../Login/Login.scss';
 
-export default class Login extends Component {
+class Login extends Component {
   render() {
-    return (
-      <div className="wholePage">
-        <header className="Nav"></header>
-      </div>
-    );
+    return <div></div>;
   }
 }
+
+export default Login;

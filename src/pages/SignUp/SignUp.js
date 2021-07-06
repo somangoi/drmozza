@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { chkEmail, chkPwd, chkName, chkAddress } from './Validation';
 import '../SignUp/SignUp.scss';
 
 export default class Login extends Component {
@@ -37,50 +38,33 @@ export default class Login extends Component {
   };
 
   checkAll = e => {
-    // e.preventDefault();
-
-    const { name, address } = this.state;
-    const nameChk = function (str) {
-      if (name === '') {
-        return false;
-      } else {
-        return true;
-      }
-    };
-    if (nameChk(this.state.name) === false) {
+    if (chkName(this.state.name) === false) {
       alert('이름을 입력해주세요.');
     }
-
-    const chkEmail = function (str) {
-      var regExp =
-        /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-      return regExp.test(str) ? true : false;
-    };
 
     if (chkEmail(this.state.email) === false) {
       alert('이메일 형식이 유효하지 않습니다.');
       this.emailRef.current.value = '';
     }
 
-    const chkPwd = function (str) {
-      var reg_pwd = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
-      return !reg_pwd.test(str) ? false : true;
-    };
-
     if (chkPwd(this.state.pw) === false) {
       alert('영문,숫자를 혼합하여 6~12자 이내로 만들어주세요.');
       this.pwRef.current.value = '';
     }
 
-    const addressChk = function (str) {
-      if (address === '') {
-        return false;
-      } else {
-        return true;
-      }
-    };
-    if (addressChk(this.state.address) === false) {
+    if (chkAddress(this.state.address) === false) {
       alert('주소를 입력해주세요.');
+    }
+
+    if (
+      chkName(this.state.name) &&
+      chkEmail(this.state.email) &&
+      chkPwd(this.state.pw) &&
+      chkAddress(this.state.address) === true
+    ) {
+      alert('회원가입 완료');
+    } else {
+      alert('입력란을 다시 확인하세요.');
     }
   };
 
