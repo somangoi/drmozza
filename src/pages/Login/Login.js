@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import { chkEmail, chkPwd } from "./Validation";
 import '../Login/Login.scss';
 
 class Login extends Component {
@@ -54,12 +53,6 @@ class Login extends Component {
     ) {
       alert('로그인 성공');
       this.goToMain();
-      return true;
-    } else if (
-      this.chkEmail(this.state.email) &&
-      this.chkPwd(this.state.pw) === false
-    ) {
-      return false;
     }
   };
 
