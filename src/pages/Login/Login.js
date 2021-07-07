@@ -1,24 +1,17 @@
 import React, { Component } from 'react';
+import { chkEmail, chkPwd } from '../../Validation/Validation';
 import '../Login/Login.scss';
 
 class Login extends Component {
-  emailRef = React.createRef();
-  pwRef = React.createRef();
-
   state = {
     email: '',
-    pw: '',
+    password: '',
   };
 
-  emailInput = email => {
+  handleInput = e => {
+    const { name, value } = e.target;
     this.setState({
-      email: email.target.value,
-    });
-  };
-
-  pwInput = pw => {
-    this.setState({
-      pw: pw.target.value,
+      [name]: value,
     });
   };
 
@@ -26,33 +19,13 @@ class Login extends Component {
     this.props.history.push('/main');
   };
 
-  chkEmail = email => {
-    var regExp =
-      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-    return regExp.test(email) ? true : false;
-  };
-
-  chkPwd = pw => {
-    var reg_pwd = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
-    return !reg_pwd.test(pw) ? false : true;
-  };
   checkAll = e => {
-    if (this.chkEmail(this.state.email) === false) {
-      alert('이메일 형식이 유효하지 않습니다.');
-      this.emailRef.current.value = '';
-    }
-
-    if (this.chkPwd(this.state.pw) === false) {
-      alert('비밀번호를 확인해주세요.');
-      this.pwRef.current.value = '';
-    }
-
-    if (
-      this.chkEmail(this.state.email) &&
-      this.chkPwd(this.state.pw) === true
-    ) {
-      alert('로그인 성공');
-      this.goToMain();
+    const { email, password } = this.state;
+    if (chkEmail(email) && chkPwd(password) === true) {
+      alert('로그인 완료');
+    } else {
+      alert('입력하신 정보를 다시 확인해주세요.');
+      this.setState({ email: '', password: '' });
     }
   };
 
@@ -63,6 +36,7 @@ class Login extends Component {
   };
 
   render() {
+    const { email, password } = this.state;
     return (
       <div className="loginPage">
         <header className="Nav">임시헤더</header>
@@ -76,8 +50,10 @@ class Login extends Component {
             </label>
             <input
               className="loginInput"
-              ref={this.emailRef}
-              onChange={this.emailInput}
+              type="text"
+              name="email"
+              onChange={this.handleInput}
+              value={email}
               onKeyPress={this.handleKeyPress}
             ></input>
           </div>
@@ -89,8 +65,9 @@ class Login extends Component {
             <input
               className="loginInput"
               type="password"
-              ref={this.pwRef}
-              onChange={this.pwInput}
+              name="password"
+              onChange={this.handleInput}
+              value={password}
               onKeyPress={this.handleKeyPress}
             ></input>
           </div>
