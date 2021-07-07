@@ -3,6 +3,6 @@ import './CardLarge.scss';
 
 export default class CardLage extends Component {
   render() {
-    return <div>여기는 카드!</div>;
+    return <div className="cardContainer">여기는 카드!</div>;
   }
 }
