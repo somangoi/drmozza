@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { chkEmail, chkPwd, chkName, chkAddress } from './Validation';
+import {
+  chkEmail,
+  chkPwd,
+  chkName,
+  chkAddress,
+} from '../../Validation/Validation';
 import '../SignUp/SignUp.scss';
 
 export default class Login extends Component {
-  emailRef = React.createRef();
-  pwRef = React.createRef();
-
   state = {
     name: '',
     email: '',
@@ -13,58 +15,25 @@ export default class Login extends Component {
     address: '',
   };
 
-  emailInput = email => {
+  handleInput = e => {
+    const { name, value } = e.target;
     this.setState({
-      email: email.target.value,
-    });
-  };
-
-  pwInput = pw => {
-    this.setState({
-      pw: pw.target.value,
-    });
-  };
-
-  nameInput = name => {
-    this.setState({
-      name: name.target.value,
-    });
-  };
-
-  addressInput = address => {
-    this.setState({
-      address: address.target.value,
+      [name]: value,
     });
   };
 
   checkAll = e => {
-    if (chkName(this.state.name) === false) {
-      alert('이름을 입력해주세요.');
-    }
-
-    if (chkEmail(this.state.email) === false) {
-      alert('이메일 형식이 유효하지 않습니다.');
-      this.emailRef.current.value = '';
-    }
-
-    if (chkPwd(this.state.pw) === false) {
-      alert('영문,숫자를 혼합하여 6~12자 이내로 만들어주세요.');
-      this.pwRef.current.value = '';
-    }
-
-    if (chkAddress(this.state.address) === false) {
-      alert('주소를 입력해주세요.');
-    }
+    const { name, email, pw, address } = this.state;
 
     if (
-      chkName(this.state.name) &&
-      chkEmail(this.state.email) &&
-      chkPwd(this.state.pw) &&
-      chkAddress(this.state.address) === true
+      chkName(name) &&
+      chkEmail(email) &&
+      chkPwd(pw) &&
+      chkAddress(address) === true
     ) {
       alert('회원가입 완료');
     } else {
-      alert('입력란을 다시 확인하세요.');
+      alert('입력하신 정보를 다시 확인해주세요.');
     }
   };
 
@@ -75,6 +44,7 @@ export default class Login extends Component {
   };
 
   render() {
+    const { name, email, pw, address } = this.state;
     return (
       <div className="wholePage">
         <header className="Nav">임시헤더</header>
@@ -89,9 +59,12 @@ export default class Login extends Component {
             <input
               className="userInput"
               type="text"
-              onChange={this.nameInput}
+              name="name"
+              placeholder="이름을 입력해주세요."
+              onChange={this.handleInput}
+              value={name}
               onKeyPress={this.handleKeyPress}
-            ></input>
+            />
           </div>
           <div className="signUpInput">
             <label className="info">
@@ -101,10 +74,12 @@ export default class Login extends Component {
             <input
               className="userInput"
               type="text"
-              ref={this.emailRef}
-              onChange={this.emailInput}
+              name="email"
+              placeholder="이메일을 입력해주세요."
+              onChange={this.handleInput}
+              value={email}
               onKeyPress={this.handleKeyPress}
-            ></input>
+            />
           </div>
           <div className="signUpInput">
             <label className="info">
@@ -114,10 +89,12 @@ export default class Login extends Component {
             <input
               className="userInput"
               type="password"
-              ref={this.pwRef}
-              onChange={this.pwInput}
+              placeholder="영문,숫자를 혼합하여 6~12자 이내"
+              name="pw"
+              onChange={this.handleInput}
+              value={pw}
               onKeyPress={this.handleKeyPress}
-            ></input>
+            />
           </div>
           <div className="signUpInput">
             <label className="info">
@@ -127,9 +104,12 @@ export default class Login extends Component {
             <input
               className="userInput"
               type="text"
-              onChange={this.addressInput}
+              name="address"
+              placeholder="주소를 입력해주세요."
+              onChange={this.handleInput}
+              value={address}
               onKeyPress={this.handleKeyPress}
-            ></input>
+            />
           </div>
         </div>
         <button className="signUpBtn" type="button" onClick={this.checkAll}>
