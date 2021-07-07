@@ -11,7 +11,7 @@ export default class Login extends Component {
   state = {
     name: '',
     email: '',
-    pw: '',
+    password: '',
     address: '',
   };
 
@@ -23,15 +23,25 @@ export default class Login extends Component {
   };
 
   checkAll = e => {
-    const { name, email, pw, address } = this.state;
+    const { name, email, password, address } = this.state;
 
     if (
       chkName(name) &&
       chkEmail(email) &&
-      chkPwd(pw) &&
+      chkPwd(password) &&
       chkAddress(address) === true
     ) {
-      alert('회원가입 완료');
+      fetch('http://10.58.3.41:8000/accounts/signup', {
+        method: 'POST',
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          password: password,
+          address: address,
+        }),
+      })
+        .then(alert('가입이 완료되었습니다.'))
+        .then(this.props.history.push('/login'));
     } else {
       alert('입력하신 정보를 다시 확인해주세요.');
     }
@@ -44,7 +54,7 @@ export default class Login extends Component {
   };
 
   render() {
-    const { name, email, pw, address } = this.state;
+    const { name, email, password, address } = this.state;
     return (
       <div className="wholePage">
         <header className="Nav">임시헤더</header>
@@ -90,9 +100,9 @@ export default class Login extends Component {
               className="userInput"
               type="password"
               placeholder="영문,숫자를 혼합하여 6~12자 이내"
-              name="pw"
+              name="password"
               onChange={this.handleInput}
-              value={pw}
+              value={password}
               onKeyPress={this.handleKeyPress}
             />
           </div>
