@@ -24,22 +24,19 @@ export default class Login extends Component {
 
   render() {
     const { carouselImg } = this.state;
-    console.log(carouselImg);
 
     return (
       <>
         <div className="nav">네브 컴포넌트 자리</div>
         <body>
           <div className="slideFstWrapper">
-            {carouselImg.map((img, idx) => {
-              if (idx > 0) return;
-
+            {carouselImg.map(eve => {
               return (
                 <Carousel
-                  key={img.id}
-                  title={img.title}
-                  subtitile={img.subtitile}
-                  img={img.src}
+                  key={eve.id}
+                  title={eve.title}
+                  subtitile={eve.subtitile}
+                  img={eve.img}
                 />
               );
             })}
