@@ -7,10 +7,10 @@ export default class Footer extends Component {
       <div className="footerWrapper">
         <footer className="footerContainer">
           <div className="snsIconSet">
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-youtube"></i>
-            <i class="fab fa-tiktok"></i>
+            <i className="fab fa-instagram"></i>
+            <i className="fab fa-facebook-f"></i>
+            <i className="fab fa-youtube"></i>
+            <i className="fab fa-tiktok"></i>
           </div>
           <ul className="footerList">
             <li>TAKE OUT QUIZ!</li>
@@ -25,11 +25,11 @@ export default class Footer extends Component {
             <div className="footerLabel">
               <input
                 type="text"
-                id="footerNews"
+                className="footerNews"
                 placeholder="NEWSLETTER SIGN UP *"
               />
             </div>
-            <i class="far fa-paper-plane"></i>
+            <i className="far fa-paper-plane"></i>
           </div>
         </footer>
         <div className="copyRight">

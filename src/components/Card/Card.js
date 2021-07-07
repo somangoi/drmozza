@@ -15,12 +15,12 @@ export default class Card extends Component {
           </div>
           <div className="cheesePrice">$15</div>
         </div>
-        <div className="starRatings" dataRate="3">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
+        <div className="starRatings">
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
+          <i className="fas fa-star"></i>
         </div>
         <button>ADD TO BAG</button>
       </div>

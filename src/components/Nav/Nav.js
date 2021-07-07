@@ -9,20 +9,20 @@ export default class Nav extends Component {
         <ul className="navList">
           <li>All</li>
           <li>
-            Milk <i class="fa fa-angle-down"></i>
+            Milk <i className="fa fa-angle-down"></i>
           </li>
           <li>
-            Style <i class="fa fa-angle-down"></i>
+            Style <i className="fa fa-angle-down"></i>
           </li>
           <li>
-            Countries <i class="fa fa-angle-down"></i>
+            Countries <i className="fa fa-angle-down"></i>
           </li>
           <li>Bestseller</li>
         </ul>
         <ul className="navRight">
           <li>Search</li>
           <li>
-            <i class="fa fa-shopping-bag"></i>
+            <i className="fa fa-shopping-bag"></i>
           </li>
         </ul>
       </div>

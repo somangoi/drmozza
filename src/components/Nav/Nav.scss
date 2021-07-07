@@ -2,13 +2,11 @@
 
 .navContainer {
   @include display-flex(space-between, center);
-  flex-direction: row;
   position: fixed;
   left: 0;
   right: 0;
   width: 1240px;
   margin: 0 auto;
-  height: 80px;
   font-size: 25px;
 
   .navLogo {
@@ -21,6 +19,7 @@
     @include display-flex;
     flex: 8;
     flex-direction: row;
+    height: 80px;
     font-size: 18px;
 
     li {

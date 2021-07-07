@@ -47,17 +47,21 @@
       flex: 1;
       position: relative;
       @include display-flex;
+
       .footerLabel {
         padding: 0 10px 0 20px;
-        #footerNews {
+
+        .footerNews {
           width: 300px;
           border-bottom: 1px solid #ccc;
           padding: 10px;
         }
-        #footerNews::placeholder {
+
+        &::placeholder {
           font-size: 10px;
         }
       }
+
       i {
         position: absolute;
         right: 10px;
