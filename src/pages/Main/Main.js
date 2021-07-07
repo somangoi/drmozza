@@ -30,17 +30,21 @@ export default class Login extends Component {
         <div className="nav">네브 컴포넌트 자리</div>
         <body>
           <div className="slideFstWrapper">
-            {carouselImg.map(eve => {
+            {carouselImg.map(img => {
               return (
                 <Carousel
-                  key={eve.id}
-                  title={eve.title}
-                  subtitile={eve.subtitile}
-                  img={eve.img}
+                  key={img.id}
+                  title={img.title}
+                  subtitile={img.subtitile}
+                  img={img.src}
                 />
               );
             })}
             {/* <div className="slideFst">슬라이드1</div> */}
+          </div>
+          <div>
+            <button onClick> Prev </button>
+            <button onClick> Next </button>
           </div>
           <div className="abc">
             <div className="cardLargeWrapper">
