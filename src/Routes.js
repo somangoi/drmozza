@@ -8,9 +8,6 @@ import Shop from './pages/Shop/Shop';
 import Detail from './pages/Detail/Detail';
 import Cart from './pages/Cart/Cart';
 
-import './styles/common.scss';
-import './styles/reset.scss';
-
 class Routes extends Component {
   render() {
     return (

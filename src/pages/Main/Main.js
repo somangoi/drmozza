@@ -67,23 +67,31 @@ export default class Main extends Component {
                 transform: `translateX(-${100 * this.state.index}vw)`,
               }}
             >
-              {carouselImg.map(img => {
+              {carouselImg.map(img => (
                 // console.log(`this.state`, this.state);
-                return <Carousel key={img.product_id} img={img.image_url} />;
-              })}
+                <Carousel key={img.product_id} img={img.image_url} />
+              ))}
             </ul>
             {/* //GET/users */}
-          </div>
 
-          <div>
-            <button onClick={() => this.handleClickPrev()}> prev </button>
-            <button onClick={() => this.handleClickNext()}> next </button>
-          </div>
-
-          <div className="abc">
-            <div className="cardLargeWrapper">
-              <CardLarge />
+            <div className="buttonWrapper">
+              <i
+                className="fas fa-chevron-left fa-4x"
+                onClick={() => this.handleClickPrev()}
+              ></i>
+              <i
+                className="fas fa-chevron-right fa-4x"
+                onClick={() => this.handleClickNext()}
+              ></i>
+              {/* <button onClick={() => this.handleClickPrev()}> prev </button>
+            <button onClick={() => this.handleClickNext()}> next </button> */}
             </div>
+          </div>
+
+          <div className="cardLargeBox">
+            <ul className="cardLargeWrapper">
+              <CardLarge />
+            </ul>
           </div>
           <div className="slogan">
             <p>HOLEY WEDGE</p>
@@ -100,7 +108,7 @@ export default class Main extends Component {
           <div className="slideScd">슬라이드2</div>
           <div className="cheeseAd">광고</div>
         </main>
-        <div className="footer">푸터 자리</div>
+        <Footer />
       </>
     );
   }

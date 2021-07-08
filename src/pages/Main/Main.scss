@@ -1,12 +1,8 @@
+@import '../../styles/variable.scss';
+
 .mainContainer {
   margin-top: 80px;
 }
-
-// .nav {
-//   height: 80px;
-//   width: 100%;
-//   background-color: aqua;
-// }
 
 .slideBox {
   width: 100vw;
@@ -18,17 +14,25 @@
     height: 446px;
     transition: 0.2s;
   }
+
+  .buttonWrapper {
+    @include display-flex(space-between, center);
+    padding: 0 30px;
+    color: #dfdfdf;
+  }
 }
 
-.abc {
+.cardLargeBox {
   display: flex;
   justify-content: space-around;
   width: 100%;
+  // height: 1200px;
 
   .cardLargeWrapper {
     display: flex;
     justify-content: space-between;
     width: 1320px;
+    height: 100%;
     padding: 60px 0;
   }
 }
@@ -39,7 +43,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 1680px;
+  width: 100vw;
   height: 567px;
   font-size: 30px;
   font-weight: 400;
@@ -55,11 +59,4 @@
     height: 100%;
     object-fit: cover;
   }
-}
-
-.footer {
-  bottom: 0;
-  width: 100%;
-  position: fixed;
-  background-color: aquamarine;
 }

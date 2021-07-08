@@ -1,5 +1,53 @@
-.cardContainer {
-  height: 776px;
+.cardLargeContainer {
+  height: 100%;
   width: 640px;
-  background-color: cadetblue;
+  border: 1px solid grey;
+  // position: relative;
+
+  .cardLargeImg {
+    cursor: pointer;
+
+    img {
+      width: 640px;
+      height: 640px;
+      object-fit: cover;
+    }
+  }
+
+  .cardLargeTitle {
+    border: 1px solid red;
+    width: 480px;
+    margin-bottom: 10px;
+    // position: absolute;
+    // left: 0;
+
+    h2 {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 140%;
+    }
+  }
+
+  .cardLargeDescription {
+    border: 1px solid yellow;
+    width: 480px;
+    margin-bottom: 10px;
+
+    span {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 150%;
+    }
+  }
+
+  .productDetailLink {
+    // border: 1px solid purple;
+    width: 100%;
+
+    span {
+      font-size: 15px;
+      font-weight: 400;
+      border-bottom: 1px solid black;
+    }
+  }
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Nav.scss';
-
 export default class Nav extends Component {
   render() {
     return (
@@ -10,18 +9,18 @@ export default class Nav extends Component {
           <ul className="navList">
             <li>All</li>
             <li>
-              Milk <i className="fa fa-angle-down"></i>
+              MILK <i className="fa fa-angle-down"></i>
             </li>
             <li>
-              Style <i className="fa fa-angle-down"></i>
+              STYLE <i className="fa fa-angle-down"></i>
             </li>
             <li>
-              Countries <i className="fa fa-angle-down"></i>
+              COUNTRIES <i className="fa fa-angle-down"></i>
             </li>
-            <li>Bestseller</li>
+            <li>BESTSELLER</li>
           </ul>
           <ul className="navRight">
-            <li>Search</li>
+            <li>SEARCH</li>
             <li>
               <i className="fa fa-shopping-bag"></i>
             </li>

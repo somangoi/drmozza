@@ -7,7 +7,7 @@ import {
   chkName,
   chkAddress,
 } from '../../Validation/Validation';
-import { LOGIN_API } from '../../config';
+import { SIGNUP_API } from '../../config';
 import '../SignUp/SignUp.scss';
 
 export default class Login extends Component {
@@ -34,7 +34,7 @@ export default class Login extends Component {
       chkPwd(password) &&
       chkAddress(address)
     ) {
-      fetch(`${LOGIN_API}/accounts/signup`, {
+      fetch(`${SIGNUP_API}/accounts/signup`, {
         method: 'POST',
         body: JSON.stringify({ name, email, password, address }),
       }).then(res => {
