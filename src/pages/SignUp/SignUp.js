@@ -7,13 +7,14 @@ import {
   chkName,
   chkAddress,
 } from '../../Validation/Validation';
+import { LOGIN_API } from '../../config';
 import '../SignUp/SignUp.scss';
 
 export default class Login extends Component {
   state = {
     name: '',
     email: '',
-    pw: '',
+    password: '',
     address: '',
   };
 
@@ -25,15 +26,23 @@ export default class Login extends Component {
   };
 
   checkAll = e => {
-    const { name, email, pw, address } = this.state;
+    const { name, email, password, address } = this.state;
 
     if (
       chkName(name) &&
       chkEmail(email) &&
-      chkPwd(pw) &&
-      chkAddress(address) === true
+      chkPwd(password) &&
+      chkAddress(address)
     ) {
-      alert('회원가입 완료');
+      fetch(`${LOGIN_API}/accounts/signup`, {
+        method: 'POST',
+        body: JSON.stringify({ name, email, password, address }),
+      }).then(res => {
+        if (res.ok) {
+          alert('가입이 완료되었습니다.');
+          this.props.history.push('/login');
+        }
+      });
     } else {
       alert('입력하신 정보를 다시 확인해주세요.');
     }
@@ -46,7 +55,7 @@ export default class Login extends Component {
   };
 
   render() {
-    const { name, email, pw, address } = this.state;
+    const { name, email, password, address } = this.state;
     return (
       <>
         <Nav />
@@ -93,9 +102,9 @@ export default class Login extends Component {
                 className="userInput"
                 type="password"
                 placeholder="영문,숫자를 혼합하여 6~12자 이내"
-                name="pw"
+                name="password"
                 onChange={this.handleInput}
-                value={pw}
+                value={password}
                 onKeyPress={this.handleKeyPress}
               />
             </div>
