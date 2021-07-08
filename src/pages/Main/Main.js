@@ -58,8 +58,8 @@ export default class Main extends Component {
 
     return (
       <>
-        <div className="nav">네브 컴포넌트 자리</div>
-        <body>
+        <Nav />
+        <main className="mainContainer">
           <div className="slideBox">
             <ul
               className="slideFstWrapper"
@@ -99,7 +99,7 @@ export default class Main extends Component {
           </div>
           <div className="slideScd">슬라이드2</div>
           <div className="cheeseAd">광고</div>
-        </body>
+        </main>
         <div className="footer">푸터 자리</div>
       </>
     );
