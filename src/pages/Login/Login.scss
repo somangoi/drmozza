@@ -4,18 +4,12 @@
   align-items: center;
   flex-direction: column;
 
-  .Nav {
-    height: 80px;
-  }
-
   .loginContents {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    margin-top: 130px;
 
     .loginTitle {
-      width: 425px;
-      height: 23px;
-      margin: 40px 0 40px 0;
+      margin: 40px 0;
       text-align: center;
       font-weight: 500;
       font-size: 17px;
@@ -23,17 +17,15 @@
     }
 
     .indicater {
-      width: 415px;
-      height: 30px;
-      margin: 12px 0 20px 0;
+      margin: 12px 0 30px 0;
       font-size: 13px;
       opacity: 0.6;
     }
   }
 
   .loginInput {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    margin-top: 10px;
     width: 415px;
     height: 71.094px;
     margin-bottom: 30px;
@@ -51,8 +43,8 @@
 
     .loginInput {
       width: 415px;
-      height: 43.09px;
-      padding: 1.13em;
+      height: 43px;
+      padding: 18px;
       margin-top: 8px;
       border: 1px solid #d3d3d3;
     }
@@ -104,9 +96,5 @@
     color: #0a0101ab;
     letter-spacing: 0.8px;
     text-decoration: underline;
-  }
-
-  .mainfooter {
-    height: 120.75px;
   }
 }

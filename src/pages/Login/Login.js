@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer/Footer';
 import { chkEmail, chkPwd } from '../../Validation/Validation';
 import '../Login/Login.scss';
 
@@ -21,7 +23,7 @@ class Login extends Component {
 
   checkAll = e => {
     const { email, password } = this.state;
-    if (chkEmail(email) && chkPwd(password) === true) {
+    if (chkEmail(email) && chkPwd(password)) {
       alert('로그인 완료');
       this.goToMain();
     } else {
@@ -39,54 +41,56 @@ class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <div className="loginPage">
-        <header className="Nav">임시헤더</header>
-        <div className="loginContents">
-          <h1 className="loginTitle">LOG IN</h1>
-          <span className="indicater">* indicates a required field</span>
-          <div className="loginInput">
-            <label className="loginInfo">
-              EMAIL ADDRESS
-              <span className="dot">*</span>
-            </label>
-            <input
-              className="loginInput"
-              type="text"
-              name="email"
-              onChange={this.handleInput}
-              value={email}
-              onKeyPress={this.handleKeyPress}
-            ></input>
+      <>
+        <Nav />
+        <div className="loginPage">
+          <div className="loginContents">
+            <h1 className="loginTitle">LOG IN</h1>
+            <span className="indicater">* indicates a required field</span>
+            <div className="loginInput">
+              <label className="loginInfo">
+                EMAIL ADDRESS
+                <span className="dot">*</span>
+              </label>
+              <input
+                className="loginInput"
+                type="text"
+                name="email"
+                onChange={this.handleInput}
+                value={email}
+                onKeyPress={this.handleKeyPress}
+              ></input>
+            </div>
+            <div className="loginInput">
+              <label className="loginInfo">
+                PASSWORD
+                <span className="dot">*</span>
+              </label>
+              <input
+                className="loginInput"
+                type="password"
+                name="password"
+                onChange={this.handleInput}
+                value={password}
+                onKeyPress={this.handleKeyPress}
+              ></input>
+            </div>
           </div>
-          <div className="loginInput">
-            <label className="loginInfo">
-              PASSWORD
-              <span className="dot">*</span>
-            </label>
-            <input
-              className="loginInput"
-              type="password"
-              name="password"
-              onChange={this.handleInput}
-              value={password}
-              onKeyPress={this.handleKeyPress}
-            ></input>
+          <button className="loginBtn" type="button" onClick={this.checkAll}>
+            <span className="btnText">SIGN IN</span>
+          </button>
+          <div className="signUpLink">
+            Don’t have an account?
+            <a className="goToSignUp" href="/SignUp">
+              Register Now
+            </a>
           </div>
-        </div>
-        <button className="loginBtn" type="button" onClick={this.checkAll}>
-          <span className="btnText">SIGN IN</span>
-        </button>
-        <div className="signUpLink">
-          Don’t have an account?
-          <a className="goToSignUp" href="/SignUp">
-            Register Now
+          <a className="goToMain" href="/main">
+            Return to Home
           </a>
+          <Footer />
         </div>
-        <a className="goToMain" href="/main">
-          Return to Home
-        </a>
-        <footer className="mainfooter">임시풋터</footer>
-      </div>
+      </>
     );
   }
 }
