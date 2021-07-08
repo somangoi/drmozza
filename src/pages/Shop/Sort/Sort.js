@@ -18,7 +18,6 @@ class Sort extends Component {
                 <option value="all">All</option>
                 <option value="price-descending">Price, High to Low</option>
                 <option value="price-descending">Price, Low to High</option>
-                <option value="price-descending">Newest</option>
               </select>
             </span>
           </div>
