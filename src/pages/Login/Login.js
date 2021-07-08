@@ -23,6 +23,7 @@ class Login extends Component {
     const { email, password } = this.state;
     if (chkEmail(email) && chkPwd(password) === true) {
       alert('로그인 완료');
+      this.goToMain();
     } else {
       alert('입력하신 정보를 다시 확인해주세요.');
       this.setState({ email: '', password: '' });
