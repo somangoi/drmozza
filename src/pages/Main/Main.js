@@ -18,7 +18,7 @@ export default class Login extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          carouselImg: data,
+          carouselImg: data.results.product_events,
         });
       });
   }
@@ -38,9 +38,9 @@ export default class Login extends Component {
   }
 
   handleClickNext() {
-    if (this.state.index === 2) {
+    if (this.state.index === 3) {
       this.setState({
-        index: 2,
+        index: 3,
       });
     } else {
       this.setState({
@@ -65,16 +65,11 @@ export default class Login extends Component {
               }}
             >
               {carouselImg.map(img => {
-                return (
-                  <Carousel
-                    key={img.id}
-                    title={img.title}
-                    subtitile={img.subtitile}
-                    img={img.src}
-                  />
-                );
+                // console.log(`this.state`, this.state);
+                return <Carousel key={img.product_id} img={img.image_url} />;
               })}
             </ul>
+            {/* //GET/users */}
           </div>
 
           <div>
@@ -85,7 +80,6 @@ export default class Login extends Component {
           <div className="abc">
             <div className="cardLargeWrapper">
               <CardLarge />
-              <div className="cardComponent"></div>
             </div>
           </div>
           <div className="slogan">

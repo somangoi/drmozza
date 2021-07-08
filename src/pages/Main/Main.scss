@@ -6,19 +6,19 @@
 
 .slideBox {
   width: 100vw;
+  overflow: hidden;
 
   .slideFstWrapper {
     display: flex;
-    width: 300vw;
+    width: fit-content;
     height: 446px;
-    overflow: hidden;
     transition: 0.2s;
   }
 }
 
 .abc {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
 
   .cardLargeWrapper {
@@ -26,12 +26,6 @@
     justify-content: space-between;
     width: 1320px;
     padding: 60px 0;
-
-    .cardComponent {
-      height: 776px;
-      width: 640px;
-      background-color: rgb(75, 189, 215);
-    }
   }
 }
 

@@ -1,20 +1,36 @@
-[
-  {
-    "id": "1",
-    "title": "Gouda Cheese",
-    "subtitle": "This is cheese!",
-    "src": "https://cdn.pixabay.com/photo/2020/05/03/13/23/cheese-5125021_1280.jpg"
-  },
-  {
-    "id": "2",
-    "title": "Chedar Cheese",
-    "subtitle": "With Wine",
-    "src": "https://cdn.pixabay.com/photo/2018/07/18/19/12/spaghetti-3547078_1280.jpg"
-  },
-  {
-    "id": "3",
-    "title": "Mozzarella Cheese",
-    "subtitle": "Tremendous flavor!",
-    "src": "https://cdn.pixabay.com/photo/2017/01/11/19/56/cheese-1972744_1280.jpg"
+{
+  "results": {
+    "product_events": [
+      {
+        "image_url": "https://images.unsplash.com/photo-1605466237780-80b87584957b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2689&q=80",
+        "product_id": 7
+      },
+      {
+        "image_url": "https://images.unsplash.com/photo-1565630067747-01820cc3a522?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+        "product_id": 6
+      },
+      {
+        "image_url": "https://images.unsplash.com/photo-1612544409881-b34e29453666?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+        "product_id": 5
+      },
+      {
+        "image_url": "https://images.unsplash.com/photo-1608666565775-65cb1097627f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1976&q=80",
+        "product_id": 4
+      }
+    ],
+    "category_events": [
+      {
+        "image_url": "https://images.unsplash.com/photo-1553653760-d787a53b4bbe?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+        "category_id": 10,
+        "title": "Dutch",
+        "description": "Dutch cheese production is currently in the hands of dairy factories, which produce and export hundreds of millions of tons of cheese every year. The cheese markets in Alkmaar, Gouda and Edam remind us of the origins of a flourishing cheese trade and have become popular tourist attractions. The Dutch still love cheese and eat about seven pounds of it annually per person. Just like Julius Caesar, let yourself be surprised about the many types of Dutch cheeses and sample the country's \"yellow gold\"."
+      },
+      {
+        "image_url": "https://images.unsplash.com/photo-1577917632595-70b90d4db7e9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2690&q=80",
+        "category_id": 4,
+        "title": "Fruit & Savoury",
+        "description": "Fruit and cheese platters are one of my favorites to make for a party! They are always a show stopper and it’s something I know everyone will love and will get eaten. I tend to stick with “safer” cheeses that I know kids will like too but the sky is the limit with cheese boards. I’ll share lots of variations below."
+      }
+    ]
   }
-]
+}
