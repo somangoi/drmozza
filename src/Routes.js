@@ -6,6 +6,7 @@ import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import Shop from './pages/Shop/Shop';
 import Detail from './pages/Detail/Detail';
+import Cart from './pages/Cart/Cart';
 
 import './styles/common.scss';
 import './styles/reset.scss';
@@ -20,6 +21,7 @@ class Routes extends Component {
           <Route exact path="/main" component={Main} />
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/detail" component={Detail} />
+          <Route exact path="/cart" component={Cart} />
         </Switch>
       </Router>
     );

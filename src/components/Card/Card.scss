@@ -1,2 +1,40 @@
-* {
+@import '../../styles/variable.scss';
+
+.cardContainer {
+  @include display-flex(center, stretch);
+  flex-direction: column;
+  width: 315px;
+  height: 380px;
+  background-color: #95dada;
+  cursor: pointer;
+
+  .cardImage {
+    width: 100%;
+    height: 300px;
+    background-color: coral;
+  }
+
+  .cardTag {
+    @include display-flex(space-between, center);
+    width: 100%;
+    padding-top: 10px;
+
+    .cheeseName {
+      width: 270px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .starRatings {
+    padding: 10px 0;
+  }
+
+  button {
+    width: 100%;
+    padding: 18px 0;
+    border: 1px solid black;
+    margin-bottom: 10px;
+  }
 }
