@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import CardLarge from './CardLarge/CardLarge';
 import Carousel from '../../components/Carousel/Carousel';
+import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer/Footer';
+import Card from '../../components/Card/Card';
 import './Main.scss';
 
-export default class Login extends Component {
+export default class Main extends Component {
   constructor() {
     super();
 

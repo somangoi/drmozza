@@ -1,1 +1,88 @@
-1
+.wholePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .signUpContents {
+    display: block;
+    margin-top: 74px;
+
+    .signUpTitle {
+      margin: 40px 0;
+      text-align: center;
+      font-weight: 500;
+      font-size: 17px;
+      letter-spacing: 0.6px;
+    }
+
+    .indicater {
+      margin: 7.8px 0 12px 0;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+  }
+
+  .signUpInput {
+    display: block;
+    width: 415px;
+    margin-bottom: 60px;
+
+    .info {
+      margin: 0 2px 2px 1.5px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+
+      .dot {
+        margin-left: 4px;
+      }
+    }
+
+    .userInput {
+      width: 415px;
+      height: 43px;
+      padding: 18px;
+      margin-top: 8px;
+      border: 1px solid #d3d3d3;
+    }
+  }
+
+  .signUpBtn {
+    width: 250px;
+    height: 38px;
+    margin: 22px 0 30px 0;
+    border: 1px solid #000;
+    cursor: pointer;
+
+    .btnText {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .linkContain {
+    margin: 10px 0 18px 0;
+    font-size: 13px;
+    color: #0a0101ab;
+
+    a {
+      &:hover,
+      &:visited,
+      &:link {
+        color: black;
+        text-decoration: underline;
+      }
+    }
+
+    .goToSignIn {
+      margin-left: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      color: black;
+      text-decoration: underline;
+    }
+  }
+}

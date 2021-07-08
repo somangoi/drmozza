@@ -1,0 +1,16 @@
+.productGrid {
+  display: grid;
+  align-items: stretch;
+  justify-items: stretch;
+  justify-content: space-between;
+  justify-self: stretch;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  margin-top: 30px;
+
+  .box {
+    width: 100%;
+    height: 380px;
+    background: #ccc;
+  }
+}
