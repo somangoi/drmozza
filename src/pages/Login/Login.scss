@@ -1,1 +1,101 @@
+.loginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 80px;
 
+  .loginContents {
+    display: block;
+    margin-top: 70px;
+
+    .loginTitle {
+      margin: 40px 0;
+      text-align: center;
+      font-weight: 500;
+      font-size: 17px;
+      letter-spacing: 0.6px;
+    }
+
+    .indicater {
+      margin: 12px 0 30px 0;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+  }
+
+  .loginInput {
+    display: block;
+    margin-top: 10px;
+    width: 415px;
+    height: 71.094px;
+    margin-bottom: 30px;
+
+    .loginInfo {
+      margin: 0 2px 2px 1.5px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+
+      .dot {
+        margin-left: 4px;
+      }
+    }
+
+    .loginInput {
+      width: 415px;
+      height: 43px;
+      padding: 18px;
+      margin-top: 8px;
+      border: 1px solid #d3d3d3;
+    }
+  }
+
+  .loginBtn {
+    width: 230px;
+    height: 33px;
+    margin: 22px 0 30px 0;
+    border: 1px solid #000;
+    cursor: pointer;
+
+    .btnText {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+  }
+
+  .signUpLink {
+    margin: 20px 0 18px 0;
+    font-size: 13px;
+    color: #0a0101ab;
+
+    a {
+      &:hover,
+      &:visited,
+      &:link {
+        color: black;
+        text-decoration: underline;
+      }
+    }
+
+    .goToSignUp {
+      margin-left: 8px;
+      margin: 10px 0 18px 10px;
+      font-size: 12px;
+      opacity: 0.6;
+      color: #0a0101ab;
+      letter-spacing: 0.8px;
+      text-decoration: underline;
+    }
+  }
+
+  .goToMain {
+    margin-left: 8px;
+    margin: 50px 0 180px 10px;
+    font-size: 12px;
+    color: #0a0101ab;
+    letter-spacing: 0.8px;
+    text-decoration: underline;
+  }
+}
