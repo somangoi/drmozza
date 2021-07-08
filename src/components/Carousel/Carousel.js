@@ -3,13 +3,13 @@ import './Carousel.scss';
 
 export default class Carousel extends Component {
   render() {
-    console.log(`this.props`, this.props);
+    console.log(`this.props`, this.props.index);
     return (
-      <div className="carousel">
+      <li className="carousel">
         <div className="carouselInner">
           <img alt="cheese" src={this.props.img} />
         </div>
-      </div>
+      </li>
     );
   }
 }

@@ -9,6 +9,7 @@ export default class Login extends Component {
 
     this.state = {
       carouselImg: [],
+      index: 0,
     };
   }
 
@@ -22,6 +23,33 @@ export default class Login extends Component {
       });
   }
 
+  handleClickPrev() {
+    if (this.state.index === 0) {
+      this.setState({
+        index: 0,
+      });
+    } else {
+      this.setState({
+        index: this.state.index - 1,
+      });
+    }
+
+    console.log('this prev', this.state.index);
+  }
+
+  handleClickNext() {
+    if (this.state.index === 2) {
+      this.setState({
+        index: 2,
+      });
+    } else {
+      this.setState({
+        index: this.state.index + 1,
+      });
+    }
+    console.log('this next', this.state.index);
+  }
+
   render() {
     const { carouselImg } = this.state;
 
@@ -29,23 +57,31 @@ export default class Login extends Component {
       <>
         <div className="nav">네브 컴포넌트 자리</div>
         <body>
-          <div className="slideFstWrapper">
-            {carouselImg.map(img => {
-              return (
-                <Carousel
-                  key={img.id}
-                  title={img.title}
-                  subtitile={img.subtitile}
-                  img={img.src}
-                />
-              );
-            })}
-            {/* <div className="slideFst">슬라이드1</div> */}
+          <div className="slideBox">
+            <ul
+              className="slideFstWrapper"
+              style={{
+                transform: `translateX(-${100 * this.state.index}vw)`,
+              }}
+            >
+              {carouselImg.map(img => {
+                return (
+                  <Carousel
+                    key={img.id}
+                    title={img.title}
+                    subtitile={img.subtitile}
+                    img={img.src}
+                  />
+                );
+              })}
+            </ul>
           </div>
+
           <div>
-            <button onClick> Prev </button>
-            <button onClick> Next </button>
+            <button onClick={() => this.handleClickPrev()}> prev </button>
+            <button onClick={() => this.handleClickNext()}> next </button>
           </div>
+
           <div className="abc">
             <div className="cardLargeWrapper">
               <CardLarge />

@@ -4,21 +4,15 @@
   background-color: aqua;
 }
 
-.slideFstWrapper {
-  display: flex;
-  justify-content: center;
-  width: 5040px;
-  overflow: hidden;
-  transform: translateX(-1680px);
+.slideBox {
+  width: 100vw;
 
-  .slideFst {
+  .slideFstWrapper {
     display: flex;
-    justify-content: center;
-    width: 100%;
+    width: 300vw;
     height: 446px;
-    // padding: 85px 60px;
-    margin: 0 80px;
-    background-color: beige;
+    overflow: hidden;
+    transition: 0.2s;
   }
 }
 
