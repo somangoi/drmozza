@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Card from '../../../components/Card/Card';
+import './Routine.scss';
 
 export default class Routine extends Component {
   constructor() {
@@ -26,9 +27,19 @@ export default class Routine extends Component {
     return (
       <div className="routineContainer">
         <h2>ROUTINE</h2>
-        <div className="cardWrapper">
+        <div className="cardsWrapper">
           {cardList.map(card => {
-            return <Card key={card.id} cardList={card} />;
+            return (
+              <div className="cardBox">
+                <Card
+                  key={card.id}
+                  thumbnail={card.thumbnail}
+                  name={card.name}
+                  price={card.price}
+                  rating={card.score}
+                />
+              </div>
+            );
           })}
         </div>
       </div>

@@ -1,0 +1,12 @@
+@import '../../../styles/variable.scss';
+
+.cardsWrapper {
+  @include display-flex(space-between);
+  padding: 30px 0 50px 0;
+  border-bottom: 1px solid #ccc;
+
+  .cardBox {
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+}

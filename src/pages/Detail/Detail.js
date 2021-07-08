@@ -3,6 +3,8 @@ import './Detail.scss';
 import Nav from '../../components/Nav/Nav';
 
 import Routine from './Routine/Routine';
+import Header from '../../components/CategoryHeader/Header';
+import Footer from '../../components/Footer/Footer';
 
 export default class Detail extends Component {
   constructor() {
@@ -57,9 +59,9 @@ export default class Detail extends Component {
                             alt="cheese"
                             style={{
                               border:
-                                idx === this.state.select
-                                  ? '3px solid black'
-                                  : 'none',
+                                idx === select ? '3px solid black' : 'none',
+                              width: '99%',
+                              height: '99%',
                             }}
                           />
                         </div>
@@ -70,7 +72,7 @@ export default class Detail extends Component {
                 <div className="productImgContainer">
                   {imgList.length > 0 && (
                     <img
-                      src={this.state.imgList[select].url}
+                      src={imgList[select].url}
                       alt="selected"
                       className="selectedImg"
                     />
@@ -158,7 +160,7 @@ export default class Detail extends Component {
               </div>
               <Routine />
               <div className="categoryImg">
-                {/* shop페이지 header 컴포넌트 삽입하기 */}
+                <Header />
               </div>
               <div className="compareItemWrapper">
                 <div className="compareItemGrid">
@@ -255,6 +257,7 @@ export default class Detail extends Component {
             </article>
           </div>
         </div>
+        <Footer />
       </>
     );
   }

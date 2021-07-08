@@ -15,7 +15,6 @@
     justify-content: center;
     flex-direction: column;
     width: 1240px;
-
     padding-top: 80px;
 
     .detailNav {
@@ -152,6 +151,8 @@
 
           h2 {
             font-size: 2rem;
+            font-weight: 500;
+            padding-bottom: 10px;
           }
         }
 
@@ -161,6 +162,17 @@
           justify-content: center;
 
           .productFunc {
+            padding: 30px;
+
+            h3 {
+              padding: 5px 0;
+              font-size: 1.5rem;
+              font-weight: 500;
+            }
+          }
+
+          i {
+            font-size: 2.5rem;
             padding: 30px;
           }
         }
