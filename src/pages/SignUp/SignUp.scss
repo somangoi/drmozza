@@ -4,18 +4,12 @@
   align-items: center;
   flex-direction: column;
 
-  .Nav {
-    height: 80px;
-  }
-
   .signUpContents {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    margin-top: 74px;
 
     .signUpTitle {
-      width: 425px;
-      height: 23px;
-      margin: 40px 0 40px 0;
+      margin: 40px 0;
       text-align: center;
       font-weight: 500;
       font-size: 17px;
@@ -23,8 +17,6 @@
     }
 
     .indicater {
-      width: 415px;
-      height: 20px;
       margin: 7.8px 0 12px 0;
       font-size: 13px;
       opacity: 0.6;
@@ -32,8 +24,7 @@
   }
 
   .signUpInput {
-    display: flex;
-    flex-direction: column;
+    display: block;
     width: 415px;
     margin-bottom: 60px;
 
@@ -93,9 +84,5 @@
       color: black;
       text-decoration: underline;
     }
-  }
-
-  .mainFooter {
-    height: 120.75px;
   }
 }

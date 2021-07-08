@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
+import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer/Footer';
 import {
   chkEmail,
   chkPwd,
   chkName,
   chkAddress,
 } from '../../Validation/Validation';
+import { LOGIN_API } from '../../config';
 import '../SignUp/SignUp.scss';
 
 export default class Login extends Component {
   state = {
     name: '',
     email: '',
-    pw: '',
+    password: '',
     address: '',
   };
 
@@ -23,15 +26,23 @@ export default class Login extends Component {
   };
 
   checkAll = e => {
-    const { name, email, pw, address } = this.state;
+    const { name, email, password, address } = this.state;
 
     if (
       chkName(name) &&
       chkEmail(email) &&
-      chkPwd(pw) &&
-      chkAddress(address) === true
+      chkPwd(password) &&
+      chkAddress(address)
     ) {
-      alert('회원가입 완료');
+      fetch(`${LOGIN_API}/accounts/signup`, {
+        method: 'POST',
+        body: JSON.stringify({ name, email, password, address }),
+      }).then(res => {
+        if (res.ok) {
+          alert('가입이 완료되었습니다.');
+          this.props.history.push('/login');
+        }
+      });
     } else {
       alert('입력하신 정보를 다시 확인해주세요.');
     }
@@ -44,85 +55,87 @@ export default class Login extends Component {
   };
 
   render() {
-    const { name, email, pw, address } = this.state;
+    const { name, email, password, address } = this.state;
     return (
-      <div className="wholePage">
-        <header className="Nav">임시헤더</header>
-        <div className="signUpContents">
-          <h1 className="signUpTitle">CREATE AN ACCOUNT</h1>
-          <span className="indicater">* indicates a required field</span>
-          <div className="signUpInput">
-            <label className="info">
-              FULL NAME
-              <span className="dot">*</span>
-            </label>
-            <input
-              className="userInput"
-              type="text"
-              name="name"
-              placeholder="이름을 입력해주세요."
-              onChange={this.handleInput}
-              value={name}
-              onKeyPress={this.handleKeyPress}
-            />
+      <>
+        <Nav />
+        <div className="wholePage">
+          <div className="signUpContents">
+            <h1 className="signUpTitle">CREATE AN ACCOUNT</h1>
+            <span className="indicater">* indicates a required field</span>
+            <div className="signUpInput">
+              <label className="info">
+                FULL NAME
+                <span className="dot">*</span>
+              </label>
+              <input
+                className="userInput"
+                type="text"
+                name="name"
+                placeholder="이름을 입력해주세요."
+                onChange={this.handleInput}
+                value={name}
+                onKeyPress={this.handleKeyPress}
+              />
+            </div>
+            <div className="signUpInput">
+              <label className="info">
+                EMAIL
+                <span className="dot">*</span>
+              </label>
+              <input
+                className="userInput"
+                type="text"
+                name="email"
+                placeholder="이메일을 입력해주세요."
+                onChange={this.handleInput}
+                value={email}
+                onKeyPress={this.handleKeyPress}
+              />
+            </div>
+            <div className="signUpInput">
+              <label className="info">
+                PASSWORD
+                <span className="dot">*</span>
+              </label>
+              <input
+                className="userInput"
+                type="password"
+                placeholder="영문,숫자를 혼합하여 6~12자 이내"
+                name="password"
+                onChange={this.handleInput}
+                value={password}
+                onKeyPress={this.handleKeyPress}
+              />
+            </div>
+            <div className="signUpInput">
+              <label className="info">
+                ADDRESS
+                <span className="dot">*</span>
+              </label>
+              <input
+                className="userInput"
+                type="text"
+                name="address"
+                placeholder="주소를 입력해주세요."
+                onChange={this.handleInput}
+                value={address}
+                onKeyPress={this.handleKeyPress}
+              />
+            </div>
           </div>
-          <div className="signUpInput">
-            <label className="info">
-              EMAIL
-              <span className="dot">*</span>
-            </label>
-            <input
-              className="userInput"
-              type="text"
-              name="email"
-              placeholder="이메일을 입력해주세요."
-              onChange={this.handleInput}
-              value={email}
-              onKeyPress={this.handleKeyPress}
-            />
+          <button className="signUpBtn" type="button" onClick={this.checkAll}>
+            <span className="btnText">CREATE ACCOUNT</span>
+          </button>
+          <div className="linkContain">
+            Already have an account?
+            <a className="goToSignIn" href="/Login">
+              SIGN IN HERE
+            </a>
           </div>
-          <div className="signUpInput">
-            <label className="info">
-              PASSWORD
-              <span className="dot">*</span>
-            </label>
-            <input
-              className="userInput"
-              type="password"
-              placeholder="영문,숫자를 혼합하여 6~12자 이내"
-              name="pw"
-              onChange={this.handleInput}
-              value={pw}
-              onKeyPress={this.handleKeyPress}
-            />
-          </div>
-          <div className="signUpInput">
-            <label className="info">
-              ADDRESS
-              <span className="dot">*</span>
-            </label>
-            <input
-              className="userInput"
-              type="text"
-              name="address"
-              placeholder="주소를 입력해주세요."
-              onChange={this.handleInput}
-              value={address}
-              onKeyPress={this.handleKeyPress}
-            />
-          </div>
+          <Footer />
         </div>
-        <button className="signUpBtn" type="button" onClick={this.checkAll}>
-          <span className="btnText">CREATE ACCOUNT</span>
-        </button>
-        <div className="linkContain">
-          Already have an account?
-          <a className="goToSignIn" href="/Login">
-            SIGN IN HERE
-          </a>
-        </div>
-        <footer className="mainFooter">임시풋터</footer>
-      </div>
+      </>
     );
   }
 }
