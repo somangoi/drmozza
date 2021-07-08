@@ -1,22 +1,18 @@
 .sortSection {
   display: flex;
   justify-content: space-between;
-  .sortContainer {
-    .sortWrap {
-      .sortText {
-        padding-right: 10px;
-        font-weight: 500;
-        font-size: 0.8rem;
-      }
-      .sortBar {
-        .sort {
-          padding: 8px;
-          width: 200px;
-          border: 1px solid #ccc;
-          outline: 0;
-          font-size: 0.8rem;
-        }
-      }
-    }
+
+  .sortText {
+    padding-right: 10px;
+    font-weight: 500;
+    font-size: 0.8rem;
+  }
+
+  .sort {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ccc;
+    outline: 0;
+    font-size: 0.8rem;
   }
 }

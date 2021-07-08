@@ -1,21 +1,18 @@
 .shopContainer {
-  height: 100vh;
-  padding-top: 80px;
-  display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 80px;
+  display: flex;
 
   .shopBody {
     display: flex;
-    flex-direction: row;
     width: 1240px;
     margin-top: 30px;
 
     .shopAside {
-      height: 100%;
+      flex: 2;
       background: white;
       font-size: 0.8rem;
-      flex: 2;
 
       .sideMenuTop {
         border-bottom: 1px solid #ccc;
@@ -30,7 +27,6 @@
     }
     .products {
       flex: 8;
-      height: 1000px;
       background: white;
       margin-left: 10px;
     }

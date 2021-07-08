@@ -3,10 +3,6 @@ import Card from '../../../components/Card/Card';
 import './ProductList.scss';
 
 class ProductList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
   render() {
     return (
       <div className="productGrid">

@@ -1,6 +1,7 @@
 .sideMenuGroup {
   .sideMenuTitle {
     padding: 10px 0;
+
     a {
       text-decoration: none;
       font-weight: 500;
@@ -10,10 +11,9 @@
       }
     }
   }
-  ul {
-    li {
-      padding: 10px 20px;
-      color: rgb(113, 113, 113);
-    }
+
+  li {
+    padding: 10px 20px;
+    color: rgb(113, 113, 113);
   }
 }
