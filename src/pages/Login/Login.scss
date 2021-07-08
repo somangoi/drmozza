@@ -77,17 +77,13 @@
     font-size: 13px;
     color: #0a0101ab;
 
-    a:link {
-      color: black;
-      text-decoration: underline;
-    }
-    a:visited {
-      color: black;
-      text-decoration: underline;
-    }
-    a:hover {
-      color: black;
-      text-decoration: underline;
+    a {
+      &:hover,
+      &:visited,
+      &:link {
+        color: black;
+        text-decoration: underline;
+      }
     }
 
     .goToSignUp {
@@ -108,19 +104,6 @@
     color: #0a0101ab;
     letter-spacing: 0.8px;
     text-decoration: underline;
-
-    a:link {
-      color: black;
-      text-decoration: underline;
-    }
-    a:visited {
-      color: black;
-      text-decoration: underline;
-    }
-    a:hover {
-      color: black;
-      text-decoration: underline;
-    }
   }
 
   .mainfooter {
