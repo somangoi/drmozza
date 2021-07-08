@@ -1,0 +1,79 @@
+@import '../../styles/variable.scss';
+
+.footerWrapper {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+
+  .footerContainer {
+    @include display-flex(space-around, center);
+    flex-direction: row;
+    width: 100%;
+    height: 60px;
+    padding: 0 90px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+
+    .snsIconSet {
+      flex: 1;
+      font-size: 20px;
+      color: rgb(147, 145, 145);
+
+      i {
+        padding-right: 10px;
+      }
+      i:last-child {
+        padding-right: 0;
+      }
+    }
+
+    .footerList {
+      flex: 8;
+      height: 100%;
+      @include display-flex;
+      border-right: 1px solid #ccc;
+      font-size: 11px;
+      font-weight: 600;
+
+      li {
+        padding-right: 10px;
+      }
+      li:last-child {
+        padding-right: 0;
+      }
+    }
+
+    .footerInput {
+      flex: 1;
+      position: relative;
+      @include display-flex;
+
+      .footerLabel {
+        padding: 0 10px 0 20px;
+
+        .footerNews {
+          width: 300px;
+          border-bottom: 1px solid #ccc;
+          padding: 10px;
+        }
+
+        &::placeholder {
+          font-size: 10px;
+        }
+      }
+
+      i {
+        position: absolute;
+        right: 10px;
+        color: rgb(147, 145, 145);
+      }
+    }
+  }
+
+  .copyRight {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 8px;
+    color: gray;
+  }
+}

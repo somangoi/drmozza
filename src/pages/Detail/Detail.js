@@ -33,6 +33,10 @@ export default class Detail extends Component {
     this.setState({ showDesc: !this.state.showDesc });
   };
 
+<<<<<<< HEAD
+=======
+export default class Detail extends Component {
+>>>>>>> master
   render() {
     const { imgList, select } = this.state;
     return (
