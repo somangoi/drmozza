@@ -35,6 +35,23 @@ export default class Cart extends Component {
     }).format(number);
   };
 
+  quantityInput = (e, idx) => {
+    if (+e.target.value > 99) {
+      return (e.target.value = 99);
+    } else if (+e.target.value === 0) {
+      return (e.target.value = 1);
+    }
+
+    const nextCartList = this.state.cartList.map((cart, index) => {
+      if (idx === index) {
+        return { ...cart, quantity: +e.target.value };
+      }
+      return cart;
+    });
+
+    return this.setState({ cartList: nextCartList });
+  };
+
   handleIncrement = cart => {
     const cartList = this.state.cartList.map(item => {
       if (item.id === cart.id) {
@@ -75,15 +92,17 @@ export default class Cart extends Component {
             <div className="titleQuantity">QUANTITY</div>
             <div className="titleTotal">TOTAL</div>
           </div>
-          {cartList.map(cartlist => {
+          {cartList.map((cartlist, idx) => {
             return (
               <CartList
                 key={cartlist.id}
+                idx={idx}
                 cartList={cartlist}
                 handleIncrement={this.handleIncrement}
                 handleDecrement={this.handleDecrement}
                 handleDelete={this.handleDelete}
-                handleInput={this.quantityInput}
+                quantityInput={this.quantityInput}
+                handleTotal={this.handleTotal}
                 currency={this.currency}
               />
             );

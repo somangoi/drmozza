@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './CartList.scss';
 
 class CartList extends Component {
+  inputValue = React.createRef();
+
   handleIncrement = () => {
     this.props.handleIncrement(this.props.cartList);
   };
@@ -14,8 +16,13 @@ class CartList extends Component {
     this.props.handleDelete(this.props.cartList);
   };
 
+  handleTotal = () => {
+    this.props.handleTotal(this.props.cartList);
+  };
+
   render() {
     const { name, img, price, quantity } = this.props.cartList;
+
     return (
       <div className="cartlist">
         <div className="product">
@@ -30,9 +37,12 @@ class CartList extends Component {
             </button>
             <input
               className="productNumber"
-              type="text"
-              onChange={this.quantityInput}
+              ref={this.inputValue}
+              type="number"
+              min="1"
+              max="99"
               value={quantity}
+              onChange={e => this.props.quantityInput(e, this.props.idx)}
             />
             <button className="quantityBtn" onClick={this.handleIncrement}>
               <i className="fas fa-plus"></i>

@@ -3,6 +3,11 @@
   flex-direction: row;
   border-bottom: 1px solid #d3d3d3;
 
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
   .product {
     display: flex;
     flex-direction: row;
