@@ -1,9 +1,6 @@
 @import '../../styles/variable.scss';
-
 .footerWrapper {
-  position: fixed;
   width: 100%;
-  bottom: 0;
 
   .footerContainer {
     @include display-flex(space-around, center);
@@ -22,6 +19,7 @@
       i {
         padding-right: 10px;
       }
+
       i:last-child {
         padding-right: 0;
       }
@@ -38,6 +36,7 @@
       li {
         padding-right: 10px;
       }
+
       li:last-child {
         padding-right: 0;
       }
