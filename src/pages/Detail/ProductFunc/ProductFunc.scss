@@ -1,0 +1,33 @@
+.productFuncDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    padding-bottom: 10px;
+  }
+}
+
+.productFuncIconBox {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+
+  .productFunc {
+    padding: 30px;
+
+    h3 {
+      padding: 5px 0;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+  }
+
+  i {
+    font-size: 2.5rem;
+    padding: 30px;
+  }
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Header.scss';
+import './CategoryImg.scss';
 
-export default class Header extends Component {
+export default class CategoryImg extends Component {
   render() {
     return (
       <div>
