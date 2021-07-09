@@ -6,14 +6,11 @@ export default class Card extends Component {
     return (
       <div className="cardContainer">
         <div className="cardImage">
-          <img src="" alt="" />
+          <img src={this.props.thumbnail} alt="" />
         </div>
         <div className="cardTag">
-          <div className="cheeseName">
-            Engelberg Cheddar (PRE-ORDER ONLY; Earliest expected delivery is Fri
-            9 Jul)
-          </div>
-          <div className="cheesePrice">$15</div>
+          <div className="cheeseName">{this.props.name}</div>
+          <div className="cheesePrice">{this.props.price}</div>
         </div>
         <div className="starRatings">
           <i className="fas fa-star"></i>

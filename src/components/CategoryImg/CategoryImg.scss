@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/components/CategoryImg/CategoryImg.scss
 .categoryWrapper {
   display: flex;
   justify-content: center;
@@ -7,13 +8,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+=======
+@import '../../styles/variable.scss';
+
+.categoryWrapper {
+  @include display-flex(center, center);
+>>>>>>> master:src/components/CategoryImg/CategoryImg.scss
   width: 1240px;
   margin-bottom: 20px;
   background: rgba(0, 0, 0, 0.1);
 
-  .headerDesc {
+  .categoryDesc {
     flex: 3;
-    height: 430px;
     background: rgba(0, 0, 0, 0.01);
     padding: 30px;
 
@@ -21,6 +27,7 @@
       font-size: 1.1rem;
       font-weight: 600;
     }
+
     p {
       padding-top: 10px;
       font-size: 0.8rem;
@@ -28,7 +35,7 @@
     }
   }
 
-  .headerPic {
+  .categoryPic {
     flex: 7;
     height: 430px;
 
