@@ -5,13 +5,16 @@ export default class ProductDetail extends Component {
   constructor() {
     super();
     this.state = {
+      categoryList: [],
       imgList: [],
       select: 0,
       showDesc: false,
       product_name: '',
       optionList: [],
+      summary: '',
       description: '',
       nutritionList: [],
+      showMoreClicked: false,
     };
   }
 
@@ -20,8 +23,10 @@ export default class ProductDetail extends Component {
       .then(res => res.json())
       .then(productDetail => {
         this.setState({
+          categoryList: productDetail.RESULT.categories,
           imgList: productDetail.RESULT.image_urls,
           product_name: productDetail.RESULT.product_name,
+          summary: productDetail.RESULT.summary,
           description: productDetail.RESULT.description,
           optionList: productDetail.RESULT.option,
           nutritionList: productDetail.RESULT.nutrition,
@@ -38,21 +43,37 @@ export default class ProductDetail extends Component {
     this.setState({ showDesc: !this.state.showDesc });
   };
 
+  showMore = () => {
+    this.setState({ showMoreClicked: !this.state.showMoreClicked });
+  };
+
   render() {
     const {
+      categoryList,
       imgList,
       select,
       product_name,
+      summary,
       description,
       optionList,
-      nutrition,
+      nutritionList,
+      showDesc,
+      showMoreClicked,
     } = this.state;
 
     return (
       <div className="detail">
         <nav className="detailNav">
           <span>
-            Products / <a href="#">Cheese</a> / Product Name
+            Products /{' '}
+            {categoryList.map(category => {
+              return (
+                <a href={'/products?category=' + category.id} key={category.id}>
+                  <span>{category.name} </span>
+                </a>
+              );
+            })}{' '}
+            / {product_name}
           </span>
         </nav>
         <div className="productMain">
@@ -61,18 +82,13 @@ export default class ProductDetail extends Component {
               {imgList.map((img, idx) => {
                 return (
                   <li key={idx} onClick={() => this.changeImg(idx)}>
-                    <div className="galleryImg">
+                    <div className="galleryImgBox">
                       <img
                         src={img}
                         alt="cheese"
-                        style={{
-                          border:
-                            idx === select
-                              ? '2px solid black'
-                              : '2px solid transparent',
-                          width: '100%',
-                          height: '100%',
-                        }}
+                        className={
+                          idx === select ? 'galleryImg border' : 'galleryImg'
+                        }
                       />
                     </div>
                   </li>
@@ -94,19 +110,29 @@ export default class ProductDetail extends Component {
               <div className="productMainPrice">
                 {optionList.map(option => {
                   return (
-                    <>
-                      <span key={option.id} className="price">
-                        ${option.price}
-                      </span>
+                    <span key={option.id} className="price">
+                      <span>${option.price}</span>
                       <span> | {option.weight}g </span>
-                    </>
+                    </span>
                   );
                 })}
               </div>
               <div className="productTitle">
-                <h1 className="productTitleH1">{product_name}</h1>
+                <h1>{product_name}</h1>
               </div>
-              <div className="productDesc">{description}</div>
+              <div className="productDescWrapper">
+                <div className="summary">{summary}</div>
+                <div
+                  className={
+                    showMoreClicked ? 'productDesc' : 'productDesc hide'
+                  }
+                >
+                  {description}
+                </div>
+                <button className="showMore" onClick={this.showMore}>
+                  {showMoreClicked ? 'Show Less' : 'Show More'}
+                </button>
+              </div>
               <button className="addToBag" type="button">
                 ADD TO BAG
               </button>
@@ -118,17 +144,21 @@ export default class ProductDetail extends Component {
                 >
                   <span className="descTitle">HOW TO USE</span>
                 </button>
-                <div
+                <ul
                   className="descContent"
                   style={{
-                    display: this.state.showDesc ? 'block' : 'none',
+                    display: showDesc ? 'block' : 'none',
                   }}
                 >
-                  {nutritionList.map(nutrition => {
-                    return(
-                      
+                  {nutritionList.map((nutrition, idx) => {
+                    return (
+                      <li key={idx} className="nutritionDetail">
+                        <span>{Object.keys(nutrition)} : </span>
+                        <span>{nutrition[Object.keys(nutrition)]}</span>
+                      </li>
+                    );
                   })}
-                </div>
+                </ul>
               </div>
               <div className="moreDetail">
                 <button className="moreDetailBtn">MORE DETAIL</button>

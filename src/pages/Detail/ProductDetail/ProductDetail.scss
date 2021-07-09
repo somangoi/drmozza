@@ -10,41 +10,47 @@
 
   .detailNav {
     padding-bottom: 20px;
-    color: #ccc;
+    color: rgb(128, 128, 128);
 
     a {
       text-decoration: none;
-      color: #ccc;
+      color: rgb(128, 128, 128);
     }
   }
 
   .productMain {
     display: flex;
-    align-items: center;
     justify-content: center;
     border-bottom: 1px solid #ccc;
     border-top: 1px solid #ccc;
 
     .productImgSection {
       display: flex;
+      align-items: flex-start;
+
       flex: 1;
       background: white;
 
       .gallery {
         margin-right: 30px;
 
-        .galleryImg {
+        .galleryImgBox {
           display: block;
           width: 100px;
           height: 100px;
           margin-bottom: 8px;
 
-          img {
+          .galleryImg {
             width: 100%;
             height: 100%;
+            border: 2px solid transparent;
+            box-sizing: border-box;
             object-fit: cover;
             cursor: pointer;
-            box-sizing: border-box;
+          }
+
+          .border {
+            border: 2px solid black;
           }
         }
       }
@@ -71,7 +77,11 @@
         width: 400px;
 
         .productMainPrice {
-          color: #ccc;
+          color: rgb(128, 128, 128);
+
+          .price {
+            padding-right: 20px;
+          }
         }
 
         .productTitle {
@@ -82,8 +92,29 @@
           }
         }
 
-        .productDesc {
-          padding-bottom: 50px;
+        .productDescWrapper {
+          padding-bottom: 15px;
+
+          .summary {
+            padding: 15px 0;
+          }
+
+          .productDesc {
+            margin-top: 15px;
+            background-color: white;
+            overflow: hidden;
+            margin-bottom: 10px;
+            height: 100%;
+          }
+
+          .hide {
+            height: 0;
+          }
+
+          .showMore {
+            cursor: pointer;
+            border-bottom: 1px solid black;
+          }
         }
 
         .addToBag {
@@ -100,10 +131,10 @@
           border-top: 1px solid #ccc;
           border-bottom: 1px solid #ccc;
           cursor: pointer;
-        }
 
-        .descTitleBtn::after {
-          content: '+';
+          &::after {
+            content: '+';
+          }
         }
 
         .descContent {

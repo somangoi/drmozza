@@ -1,7 +1,8 @@
 {
   "RESULT": {
     "product_name": "Engelberg Cheddar",
-    "description": "Our Just FreshDirect full-bodied cheddar comes courtesy of Grafton Village Cheese in Vermont. Grafton's cheese-making traditions date back more than a century, and their experience shows with this well-balanced, creamy cheddar. Made from the milk of local dairy cows and unpasteurized to create a complex, nuanced flavor, this is the product of passionate artisans who understand the subtleties of cheese-making. Aged for one year, this young cheddar has a mild flavor and soft texture that blends easily into your favorite dish. For a special treat, try pairing it with a Riesling or Chardonnay for a delectable combination that will bring out the complexities of both flavors.",
+    "summary": "Our Just FreshDirect full-bodied cheddar comes courtesy of Grafton Village Cheese in Vermont.",
+    "description": " Grafton's cheese-making traditions date back more than a century, and their experience shows with this well-balanced, creamy cheddar. Made from the milk of local dairy cows and unpasteurized to create a complex, nuanced flavor, this is the product of passionate artisans who understand the subtleties of cheese-making. Aged for one year, this young cheddar has a mild flavor and soft texture that blends easily into your favorite dish. For a special treat, try pairing it with a Riesling or Chardonnay for a delectable combination that will bring out the complexities of both flavors.",
     "stocks": 3207,
     "score": "3.7",
     "discription_image": "https://images.unsplash.com/photo-1480951759438-f39a376462f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8Mnx8Y2hlZXNlfHwwfDB8fHwxNjI1NjM5OTY3&ixlib=rb-1.2.1&q=80&w=1080",

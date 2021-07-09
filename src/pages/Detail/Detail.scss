@@ -6,8 +6,7 @@
   padding: 80px 0;
 
   .detailBody {
-    @include display-flex(center, center);
-    flex-direction: column;
+    margin: 0 auto;
     width: 1240px;
   }
 }
