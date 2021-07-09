@@ -1,3 +1,4 @@
+@import '../../../styles/variable.scss';
 @mixin btn {
   width: 100%;
   padding: 10px 0;
@@ -19,15 +20,12 @@
   }
 
   .productMain {
-    display: flex;
-    justify-content: center;
+    @include display-flex(center, center);
     border-bottom: 1px solid #ccc;
     border-top: 1px solid #ccc;
 
     .productImgSection {
-      display: flex;
-      align-items: flex-start;
-
+      @include display-flex(center, flex-start);
       flex: 1;
       background: white;
 
@@ -68,9 +66,7 @@
     }
 
     .productDescSection {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include display-flex(center, center);
       flex: 1;
 
       .productDescWrapper {
@@ -124,8 +120,7 @@
         }
 
         .descTitleBtn {
-          display: flex;
-          justify-content: space-between;
+          @include display-flex(space-between, center);
           width: 100%;
           padding: 10px;
           border-top: 1px solid #ccc;
@@ -142,8 +137,7 @@
         }
 
         .moreDetail {
-          display: flex;
-          justify-content: flex-end;
+          @include display-flex(flex-end, center);
           padding: 10px 0;
 
           .moreDetailBtn {

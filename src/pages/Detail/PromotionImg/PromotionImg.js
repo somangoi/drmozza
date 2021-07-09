@@ -6,7 +6,7 @@ export default class PromotionImg extends Component {
     return (
       <div>
         <div className="promotionImg">
-          <img src="/images/product.jpeg" alt="" />
+          <img src="/images/product.jpeg" alt="promotionImg" />
         </div>
       </div>
     );
