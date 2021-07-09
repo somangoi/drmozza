@@ -4,7 +4,7 @@ import './ProductFunc.scss';
 export default class ProductFunc extends Component {
   render() {
     return (
-      <div>
+      <div className="productFuncWrapper">
         <div className="productFuncDetail">
           <h2>DEEP MOISTURE FOR SERIOUSLY DRY CHEESE</h2>
           <p>

@@ -1,28 +1,30 @@
-.productFuncDetail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+@import '../../../styles/variable.scss';
 
-  h2 {
-    font-size: 2rem;
-    font-weight: 500;
-    padding-bottom: 10px;
-  }
-}
+.productFuncWrapper {
+  padding: 120px 0;
 
-.productFuncIconBox {
-  display: flex;
-  text-align: center;
-  justify-content: center;
+  .productFuncDetail {
+    @include display-flex(center, center);
+    flex-direction: column;
 
-  .productFunc {
-    padding: 30px;
-
-    h3 {
-      padding: 5px 0;
-      font-size: 1.5rem;
+    h2 {
+      font-size: 2rem;
       font-weight: 500;
+      padding-bottom: 10px;
+    }
+  }
+
+  .productFuncIconBox {
+    @include display-flex(center, center);
+
+    .productFunc {
+      padding: 30px;
+
+      h3 {
+        padding: 5px 0;
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
     }
   }
 

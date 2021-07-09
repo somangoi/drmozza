@@ -8,15 +8,22 @@ export default class ProductDetail extends Component {
       imgList: [],
       select: 0,
       showDesc: false,
+      product_name: '',
+      optionList: [],
+      description: '',
     };
   }
 
   componentDidMount() {
-    fetch('/data/productImages.json')
+    fetch('/data/productDetail.json')
       .then(res => res.json())
-      .then(imgData => {
+      .then(productDetail => {
         this.setState({
-          imgList: imgData,
+          imgList: productDetail.RESULT.image_urls,
+          product_name: productDetail.RESULT.product_name,
+          description: productDetail.RESULT.description,
+          optionList: productDetail.RESULT.option,
+          nutrition: productDetail.RESULT.nutrition,
         });
       });
   }
@@ -31,7 +38,14 @@ export default class ProductDetail extends Component {
   };
 
   render() {
-    const { imgList, select } = this.state;
+    const {
+      imgList,
+      select,
+      product_name,
+      description,
+      optionList,
+      nutrition,
+    } = this.state;
 
     return (
       <div className="detail">
@@ -45,18 +59,18 @@ export default class ProductDetail extends Component {
             <ul className="gallery">
               {imgList.map((img, idx) => {
                 return (
-                  <li key={img.id} onClick={() => this.changeImg(idx)}>
+                  <li key={idx} onClick={() => this.changeImg(idx)}>
                     <div className="galleryImg">
                       <img
-                        src={img.url}
+                        src={img}
                         alt="cheese"
                         style={{
                           border:
                             idx === select
                               ? '2px solid black'
                               : '2px solid transparent',
-                          width: '99%',
-                          height: '99%',
+                          width: '100%',
+                          height: '100%',
                         }}
                       />
                     </div>
@@ -67,7 +81,7 @@ export default class ProductDetail extends Component {
             <div className="productImgContainer">
               {imgList.length > 0 && (
                 <img
-                  src={imgList[select].url}
+                  src={imgList[select]}
                   alt="selected"
                   className="selectedImg"
                 />
@@ -77,17 +91,21 @@ export default class ProductDetail extends Component {
           <div className="productDescSection">
             <div className="productDescWrapper">
               <div className="productMainPrice">
-                <span className="price">$48</span>
-                <span> &nbsp; 1.69 oz/50 ml</span>
+                {optionList.map(option => {
+                  return (
+                    <>
+                      <span key={option.id} className="price">
+                        ${option.price}
+                      </span>
+                      <span> | {option.weight}g </span>
+                    </>
+                  );
+                })}
               </div>
               <div className="productTitle">
-                <h1 className="productTitleH1">Goat Cheese</h1>
+                <h1 className="productTitleH1">{product_name}</h1>
               </div>
-              <div className="productDesc">
-                Deeply moisturizing ceramidin cream supercharged with 5-Cera
-                Complex to strengthen the skin barrier and shield from water and
-                moisture loss.
-              </div>
+              <div className="productDesc">{description}</div>
               <button className="addToBag" type="button">
                 ADD TO BAG
               </button>
@@ -105,9 +123,7 @@ export default class ProductDetail extends Component {
                     display: this.state.showDesc ? 'block' : 'none',
                   }}
                 >
-                  For best results, use this cera cream after our Ceramidin
-                  Liquid. Warm Ceramidin Cream with your hands and gently press
-                  into your face for even better absorption.
+                  {}
                 </div>
               </div>
               <div className="moreDetail">

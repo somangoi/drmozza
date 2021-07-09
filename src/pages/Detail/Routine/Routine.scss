@@ -1,12 +1,26 @@
 @import '../../../styles/variable.scss';
 
-.cardsWrapper {
-  @include display-flex(space-between);
-  padding: 30px 0 50px 0;
-  border-bottom: 1px solid #ccc;
+.routineContainer {
+  width: 1240px;
+  padding: 50px 0;
 
-  .cardBox {
-    padding: 20px;
-    border: 1px solid #ccc;
+  h2 {
+    text-align: left;
+    font-size: 1.5rem;
+  }
+
+  .cardsWrapper {
+    @include display-flex(space-between);
+    padding: 30px 0 50px 0;
+    border-bottom: 1px solid #ccc;
+
+    .cardBox {
+      padding: 20px;
+      border: 1px solid transparent;
+    }
+
+    .currentProduct {
+      border: 1px solid #ccc;
+    }
   }
 }
