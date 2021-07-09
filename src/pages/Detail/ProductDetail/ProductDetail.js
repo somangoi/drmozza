@@ -11,6 +11,7 @@ export default class ProductDetail extends Component {
       product_name: '',
       optionList: [],
       description: '',
+      nutritionList: [],
     };
   }
 
@@ -23,7 +24,7 @@ export default class ProductDetail extends Component {
           product_name: productDetail.RESULT.product_name,
           description: productDetail.RESULT.description,
           optionList: productDetail.RESULT.option,
-          nutrition: productDetail.RESULT.nutrition,
+          nutritionList: productDetail.RESULT.nutrition,
         });
       });
   }
@@ -123,7 +124,10 @@ export default class ProductDetail extends Component {
                     display: this.state.showDesc ? 'block' : 'none',
                   }}
                 >
-                  {}
+                  {nutritionList.map(nutrition => {
+                    return(
+                      
+                  })}
                 </div>
               </div>
               <div className="moreDetail">
