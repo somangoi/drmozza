@@ -18,6 +18,7 @@ class CartList extends Component {
 
   handleTotal = () => {
     this.props.handleTotal(this.props.cartList);
+    console.log(this.handleTotal(this.props.cartList));
   };
 
   render() {
