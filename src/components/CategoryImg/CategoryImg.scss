@@ -1,19 +1,7 @@
-<<<<<<< HEAD:src/components/CategoryImg/CategoryImg.scss
-.categoryWrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.shopHeader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-=======
 @import '../../styles/variable.scss';
 
 .categoryWrapper {
   @include display-flex(center, center);
->>>>>>> master:src/components/CategoryImg/CategoryImg.scss
   width: 1240px;
   margin-bottom: 20px;
   background: rgba(0, 0, 0, 0.1);
