@@ -1,24 +1,34 @@
 @import '../../styles/variable.scss';
-
 .mainContainer {
-  margin-top: 80px;
+  padding-top: 80px;
 }
 
-.slideBox {
-  width: 100vw;
-  overflow: hidden;
+// @include display-flex(center, center);
+.abc {
+  @include display-flex(center, center);
 
-  .slideFstWrapper {
-    display: flex;
-    width: fit-content;
-    height: 446px;
-    transition: 0.2s;
+  .slideBox {
+    position: relative;
+    height: 70vh;
+    width: 100vw;
+    overflow: hidden;
+
+    .slideFstWrapper {
+      display: flex;
+      height: 100%;
+      width: fit-content;
+      transition: 0.2s;
+    }
   }
 
   .buttonWrapper {
     @include display-flex(space-between, center);
+    position: absolute;
+    height: 70vh;
+    width: 100vw;
     padding: 0 30px;
     color: #dfdfdf;
+    opacity: 60%;
   }
 }
 
@@ -44,13 +54,16 @@
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  height: 567px;
+  height: 530px;
   font-size: 30px;
   font-weight: 400;
   color: black;
   background-color: darkcyan;
   p {
     z-index: 999;
+    opacity: 50%;
+    font-weight: 400;
+    line-height: 145%;
   }
 
   img {

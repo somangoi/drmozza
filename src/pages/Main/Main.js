@@ -4,6 +4,7 @@ import Carousel from '../../components/Carousel/Carousel';
 import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import Card from '../../components/Card/Card';
+import CategoryImg from '../../components/CategoryImg/CategoryImg';
 import './Main.scss';
 
 export default class Main extends Component {
@@ -60,19 +61,21 @@ export default class Main extends Component {
       <>
         <Nav />
         <main className="mainContainer">
-          <div className="slideBox">
-            <ul
-              className="slideFstWrapper"
-              style={{
-                transform: `translateX(-${100 * this.state.index}vw)`,
-              }}
-            >
-              {carouselImg.map(img => (
-                // console.log(`this.state`, this.state);
-                <Carousel key={img.product_id} img={img.image_url} />
-              ))}
-            </ul>
-            {/* //GET/users */}
+          <div className="abc">
+            <div className="slideBox">
+              <ul
+                className="slideFstWrapper"
+                style={{
+                  transform: `translateX(-${100 * this.state.index}vw)`,
+                }}
+              >
+                {carouselImg.map(img => (
+                  // console.log(`this.state`, this.state);
+                  <Carousel key={img.product_id} img={img.image_url} />
+                ))}
+              </ul>
+              {/* //GET/users */}
+            </div>
 
             <div className="buttonWrapper">
               <i
@@ -83,8 +86,6 @@ export default class Main extends Component {
                 className="fas fa-chevron-right fa-4x"
                 onClick={() => this.handleClickNext()}
               ></i>
-              {/* <button onClick={() => this.handleClickPrev()}> prev </button>
-            <button onClick={() => this.handleClickNext()}> next </button> */}
             </div>
           </div>
 
@@ -102,10 +103,11 @@ export default class Main extends Component {
             <p>-ANNELIESZ</p>
             <img
               alt="cheese"
-              src="https://images.unsplash.com/photo-1480951759438-f39a376462f2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2098&q=80"
+              src="https://images.unsplash.com/photo-1482977036925-e8fcaa643657?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
             />
           </div>
           <div className="slideScd">슬라이드2</div>
+          <CategoryImg />
           <div className="cheeseAd">광고</div>
         </main>
         <Footer />
