@@ -3,7 +3,6 @@ import './Carousel.scss';
 
 export default class Carousel extends Component {
   render() {
-    console.log(`this.props`, this.props.index);
     return (
       <li className="carousel">
         <div className="carouselInner">

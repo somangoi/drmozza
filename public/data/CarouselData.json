@@ -3,18 +3,26 @@
     "product_events": [
       {
         "image_url": "https://images.unsplash.com/photo-1605466237780-80b87584957b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2689&q=80",
+        "product_name": "Cheese Lapis",
+        "product_description": "Cellars at Jasper Hill's master cheesemaker, Mateo Kehler, provides his expertise and his cheese cave for 60 quarterly wheels of this special-selected cave-matured 12-month-old clothbound cheddar. Kehler's climate-controlled caves and years of knowledge transform Cabot's cows' milk wheels into a things of beauty, full of sharp caramel notes.",
         "product_id": 7
       },
       {
         "image_url": "https://images.unsplash.com/photo-1565630067747-01820cc3a522?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+        "product_name": "Red Leicester with Cracked Black Pepper",
+        "product_description": "Shelburne Farms' farmstead cheddar is produced at the former Vanderbilt Estate just outside of Burlington, Vermont, on picturesque Lake Champlain. This cheese is made from the fresh, raw milk of a purebred herd of Brown Swiss cows that roam the meadows around the farm. Aged for over two years, you'll find it sharp, but not peppery, and full of milky goodness, with a delightful lingering fruity finish.",
         "product_id": 6
       },
       {
         "image_url": "https://images.unsplash.com/photo-1612544409881-b34e29453666?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+        "product_name": "Snowdonia Set of 3 Truckle Bundle",
+        "product_description": "Handcrafted in New York State, this cheese lives up to its triple-X rating with extra-extra-extra sharp flavor. Yancey's Fancy ages this lush white raw-milk cheddar over 18 months to ensure plenty of tangy flavor. Pair up with a bold red wine, a pint of porter or an oatmeal stout.",
         "product_id": 5
       },
       {
         "image_url": "https://images.unsplash.com/photo-1608666565775-65cb1097627f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1976&q=80",
+        "product_name": "Herb and Garlic Whirl",
+        "product_description": "Pale, creamy, and delicate. A true American original, invented, according to Gold Rush lore, by David Jacks in the 49er boomtown of Monterey, California. Monterey Jack melts beautifully on cheeseburgers, over nachos, and in quesadillas.",
         "product_id": 4
       }
     ],
@@ -31,6 +39,10 @@
         "title": "Fruit & Savoury",
         "description": "Fruit and cheese platters are one of my favorites to make for a party! They are always a show stopper and it’s something I know everyone will love and will get eaten. I tend to stick with “safer” cheeses that I know kids will like too but the sky is the limit with cheese boards. I’ll share lots of variations below."
       }
-    ]
+    ],
+    "slogan_events": {
+      "image_url": "https://images.unsplash.com/photo-1482977036925-e8fcaa643657?ixid=MnwxMjA3fDB8MHxwaG90[…]fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
+      "slogan": "HOLEY WEDGE MAKES ME MELT HOLY UNION OF MILK AND PATIENCE WE WAIT, YOU AGE -ANNELIESZ"
+    }
   }
 }

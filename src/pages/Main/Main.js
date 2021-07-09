@@ -5,6 +5,7 @@ import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import Card from '../../components/Card/Card';
 import CategoryImg from '../../components/CategoryImg/CategoryImg';
+import Slogan from './Slogan/Slogan';
 import './Main.scss';
 
 export default class Main extends Component {
@@ -13,6 +14,8 @@ export default class Main extends Component {
 
     this.state = {
       carouselImg: [],
+      sloganImg: [],
+      cardLarge: [],
       index: 0,
     };
   }
@@ -23,6 +26,8 @@ export default class Main extends Component {
       .then(data => {
         this.setState({
           carouselImg: data.results.product_events,
+          cardLarge: data.results.category_events,
+          sloganImg: data.results.slogan_events,
         });
       });
   }
@@ -55,7 +60,7 @@ export default class Main extends Component {
   }
 
   render() {
-    const { carouselImg } = this.state;
+    const { carouselImg, cardLarge, sloganImg } = this.state;
 
     return (
       <>
@@ -70,11 +75,9 @@ export default class Main extends Component {
                 }}
               >
                 {carouselImg.map(img => (
-                  // console.log(`this.state`, this.state);
                   <Carousel key={img.product_id} img={img.image_url} />
                 ))}
               </ul>
-              {/* //GET/users */}
             </div>
 
             <div className="buttonWrapper">
@@ -91,24 +94,26 @@ export default class Main extends Component {
 
           <div className="cardLargeBox">
             <ul className="cardLargeWrapper">
-              <CardLarge />
+              {cardLarge.map(card => (
+                <CardLarge
+                  key={card.category_id}
+                  id={card.category_id}
+                  cardImage={card.image_url}
+                  title={card.title}
+                  description={card.description}
+                />
+              ))}
             </ul>
           </div>
-          <div className="slogan">
-            <p>HOLEY WEDGE</p>
-            <p>MAKES ME MELT-</p>
-            <p>HOLY UNION OF MILK</p>
-            <p>AND PATIENCE-</p>
-            <p>WE WAIT, YOU AGE</p>
-            <p>-ANNELIESZ</p>
-            <img
-              alt="cheese"
-              src="https://images.unsplash.com/photo-1482977036925-e8fcaa643657?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
-            />
-          </div>
-          <div className="slideScd">슬라이드2</div>
+
+          <Slogan
+            sloganImg={this.state.sloganImg.image_url}
+            description={this.state.sloganImg.slogan}
+          />
+
+          <div className="slideScd">드래그 슬라이드2</div>
+
           <CategoryImg />
-          <div className="cheeseAd">광고</div>
         </main>
         <Footer />
       </>
