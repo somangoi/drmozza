@@ -1,47 +1,122 @@
-.cartArea {
+.cartPage {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 80px 130px;
+  padding: 80px 130px 180px 130px;
 
-  .yourCart {
-    margin: 80px 0 60px;
-    font-size: 17px;
-    letter-spacing: 0.5px;
+  .cartArea {
+    .yourCart {
+      width: 1080px;
+      margin: 80px 0 60px;
+      font-size: 17px;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    .textContain {
+      display: flex;
+      flex-direction: row;
+      border-bottom: 1px solid #d3d3d3;
+
+      .titleItem {
+        padding: 5px 0 10px;
+        width: 432px;
+        font-size: 12px;
+        letter-spacing: 0.8px;
+      }
+
+      .titlePrice {
+        padding: 5px 0 10px;
+        width: 216px;
+        font-size: 12px;
+        letter-spacing: 0.8px;
+      }
+
+      .titleQuantity {
+        padding: 5px 0 10px;
+        width: 216px;
+        font-size: 12px;
+        letter-spacing: 0.8px;
+      }
+
+      .titleTotal {
+        text-align: right;
+        padding: 5px 35px 10px 0;
+        width: 216px;
+        font-size: 12px;
+        letter-spacing: 0.8px;
+      }
+    }
   }
 
-  .textContain {
+  .subTotal {
     display: flex;
+    flex-direction: column;
+    width: 1080px;
+
+    .subTotalArea {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      width: 100%;
+      margin-top: 30px;
+
+      .subTotalText {
+        margin: 3px 10px 0 0;
+        font-size: 12px;
+        color: #0a0101ab;
+      }
+
+      .totalPrice {
+        font-size: 17px;
+        font-weight: 400;
+      }
+    }
+  }
+  .infoTax {
+    display: flex;
+    justify-content: flex-end;
+    width: 1080px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #0a0101ab;
+  }
+
+  .checkOutArea {
+    display: flex;
+    justify-content: flex-end;
     flex-direction: row;
-    border-bottom: 1px solid #d3d3d3;
+    align-items: center;
+    width: 1080px;
 
-    .titleItem {
-      padding: 5px 0 10px;
-      width: 432px;
-      font-size: 12px;
-      letter-spacing: 0.8px;
+    .goToShop {
+      margin-right: 12px;
+      margin-top: -4px;
+      font-size: 13px;
+      color: #0a0101ab;
+
+      a {
+        &:hover,
+        &:visited,
+        &:link {
+          color: black;
+          text-decoration: underline;
+        }
+      }
     }
 
-    .titlePrice {
-      padding: 5px 0 10px;
-      width: 216px;
-      font-size: 12px;
-      letter-spacing: 0.8px;
-    }
+    .checkOutBtn {
+      width: 158px;
+      height: 30px;
+      margin: 20px 0 30px 0;
+      border: 1px solid #000;
+      cursor: pointer;
 
-    .titleQuantity {
-      padding: 5px 0 10px;
-      width: 216px;
-      font-size: 12px;
-      letter-spacing: 0.8px;
-    }
-
-    .titleTotal {
-      text-align: right;
-      padding: 5px 35px 10px 0;
-      width: 216px;
-      font-size: 12px;
-      letter-spacing: 0.8px;
+      .checkBtnText {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
     }
   }
 }
