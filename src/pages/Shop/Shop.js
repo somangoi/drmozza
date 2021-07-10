@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import '../Shop/Shop.scss';
+import Nav from '../../components/Nav/Nav';
 import Header from './Header/Header';
 import Sort from './Sort/Sort';
 import SideMenuList from './SideMenuList/SideMenuList';
 import ProductList from './ProductList/ProductList';
+import Footer from '../../components/Footer/Footer';
+import '../Shop/Shop.scss';
 
 export default class Shop extends Component {
   render() {
     return (
       <div>
+        <Nav />
         <main className="shopContainer">
           <Header />
           <section className="shopBody">
@@ -27,6 +30,7 @@ export default class Shop extends Component {
             </article>
           </section>
         </main>
+        <Footer />
       </div>
     );
   }
