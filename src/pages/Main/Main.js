@@ -22,6 +22,7 @@ export default class Main extends Component {
 
   componentDidMount() {
     fetch('data/CarouselData.json')
+      // fetch('http://192.168.0.3:8000/events')
       .then(res => res.json())
       .then(data => {
         this.setState({
