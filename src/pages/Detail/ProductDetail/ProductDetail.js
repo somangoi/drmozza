@@ -5,8 +5,6 @@ export default class ProductDetail extends Component {
   constructor() {
     super();
     this.state = {
-      categoryList: [],
-      imgList: [],
       select: 0,
       showDesc: false,
       product_name: '',
@@ -16,22 +14,6 @@ export default class ProductDetail extends Component {
       nutritionList: [],
       showMoreClicked: false,
     };
-  }
-
-  componentDidMount() {
-    fetch('/data/productDetail.json')
-      .then(res => res.json())
-      .then(productDetail => {
-        this.setState({
-          categoryList: productDetail.RESULT.categories,
-          imgList: productDetail.RESULT.image_urls,
-          product_name: productDetail.RESULT.product_name,
-          summary: productDetail.RESULT.summary,
-          description: productDetail.RESULT.description,
-          optionList: productDetail.RESULT.option,
-          nutritionList: productDetail.RESULT.nutrition,
-        });
-      });
   }
 
   changeImg = idx => {
@@ -48,18 +30,18 @@ export default class ProductDetail extends Component {
   };
 
   render() {
+    console.log(this.props);
     const {
       categoryList,
       imgList,
-      select,
       product_name,
       summary,
       description,
       optionList,
       nutritionList,
-      showDesc,
-      showMoreClicked,
-    } = this.state;
+    } = this.props;
+
+    const { select, showMoreClicked, showDesc } = this.state;
 
     return (
       <div className="detail">
@@ -68,8 +50,11 @@ export default class ProductDetail extends Component {
             Products /{' '}
             {categoryList.map(category => {
               return (
-                <a href={'/products?category=' + category.id} key={category.id}>
-                  <span>{category.name} </span>
+                <a
+                  href={'/products?category=' + category.category_id}
+                  key={category.category_id}
+                >
+                  <span>{category.category_name} </span>
                 </a>
               );
             })}{' '}
@@ -142,7 +127,7 @@ export default class ProductDetail extends Component {
                   type="button"
                   onClick={this.showDesc}
                 >
-                  <span className="descTitle">HOW TO USE</span>
+                  <span className="descTitle">NUTRITION</span>
                 </button>
                 <ul
                   className="descContent"

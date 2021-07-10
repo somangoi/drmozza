@@ -3,39 +3,39 @@ import Card from '../../../components/Card/Card';
 import './Routine.scss';
 
 export default class Routine extends Component {
-  constructor() {
-    super();
-    this.state = {
-      cardList: [],
-    };
-  }
-
-  componentDidMount() {
-    fetch('/data/products.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(cardData => {
-        this.setState({
-          cardList: cardData,
-        });
-      });
-  }
-
   render() {
-    const { cardList } = this.state;
+    const { routineList, productName } = this.props;
+
     return (
       <div className="routineContainer">
         <h2>ROUTINE</h2>
         <div className="cardsWrapper">
-          {cardList.map(card => {
+          {routineList.map(card => {
             return (
-              <div className="cardBox">
+              <div
+                className={
+                  productName === card.product_name
+                    ? 'cardBox currentProduct'
+                    : 'cardBox'
+                }
+              >
+                <div
+                  className={
+                    productName === card.product_name
+                      ? 'currentItem'
+                      : 'currentItem hide'
+                  }
+                >
+                  <span>CURRENT ITEM</span>
+                </div>
                 <Card
-                  key={card.id}
-                  thumbnail={card.thumbnail}
-                  name={card.name}
-                  price={card.price}
+                  key={card.product_id}
+                  thumbnail={card.thumbmail_image}
+                  hoverImg={card.hover_image}
+                  stock={card.stocks}
+                  currentItem={card.current}
+                  name={card.product_name}
+                  option={card.option}
                   rating={card.score}
                 />
               </div>

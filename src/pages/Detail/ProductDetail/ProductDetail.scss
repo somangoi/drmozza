@@ -20,7 +20,7 @@
   }
 
   .productMain {
-    @include display-flex(center, center);
+    @include display-flex(none, none);
     border-bottom: 1px solid #ccc;
     border-top: 1px solid #ccc;
 
@@ -142,6 +142,7 @@
 
           .moreDetailBtn {
             border-bottom: 1px solid black;
+            cursor: pointer;
           }
         }
       }

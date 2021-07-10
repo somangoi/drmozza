@@ -3,14 +3,17 @@ import './Card.scss';
 
 export default class Card extends Component {
   render() {
+    console.log(this.props);
+    const { thumbnail, hoverImg, stock, currntItem, name, option, rating } =
+      this.props;
     return (
       <div className="cardContainer">
         <div className="cardImage">
-          <img src={this.props.thumbnail} alt="" />
+          <img src={thumbnail} alt="productImg" />
         </div>
         <div className="cardTag">
-          <div className="cheeseName">{this.props.name}</div>
-          <div className="cheesePrice">{this.props.price}</div>
+          <div className="cheeseName">{name}</div>
+          <div className="cheesePrice">{}</div>
         </div>
         <div className="starRatings">
           <i className="fas fa-star"></i>
@@ -19,7 +22,7 @@ export default class Card extends Component {
           <i className="fas fa-star"></i>
           <i className="fas fa-star"></i>
         </div>
-        <button>ADD TO BAG</button>
+        <button>{stock > 0 ? 'ADD TO BAG' : 'SOLD OUT'}</button>
       </div>
     );
   }
