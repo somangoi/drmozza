@@ -93,8 +93,8 @@ export default class Cart extends Component {
       <>
         <Nav />
         <div className="cartPage">
+          <div className="yourCart">YOUR CART</div>
           <ul className="cartArea">
-            <div className="yourCart">YOUR CART</div>
             <div className="textContain">
               <div className="titleItem">ITEM</div>
               <div className="titlePrice">PRICE</div>
