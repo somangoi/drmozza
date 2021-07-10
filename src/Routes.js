@@ -7,6 +7,7 @@ import Main from './pages/Main/Main';
 import Shop from './pages/Shop/Shop';
 import Detail from './pages/Detail/Detail';
 import Cart from './pages/Cart/Cart';
+import Order from './pages/Order/Order';
 
 class Routes extends Component {
   render() {
@@ -19,6 +20,7 @@ class Routes extends Component {
           <Route exact path="/shop" component={Shop} />
           <Route exact path="/detail" component={Detail} />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path="/order" component={Order} />
         </Switch>
       </Router>
     );
