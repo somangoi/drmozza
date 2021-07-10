@@ -6,9 +6,7 @@
 
   .footerContainer {
     @include display-flex(space-around, center);
-    flex-direction: row;
-    width: 100%;
-    height: 60px;
+    // width: 100%;
     padding: 0 90px;
     font-size: 15px;
     border: 1px solid #ccc;
@@ -16,7 +14,7 @@
     .snsIconSet {
       flex: 1;
       font-size: 20px;
-      color: rgb(147, 145, 145);
+      // color: rgb(147, 145, 145);
 
       i {
         padding-right: 10px;
@@ -28,7 +26,7 @@
 
     .footerList {
       flex: 8;
-      height: 100%;
+      height: 60px;
       @include display-flex;
       border-right: 1px solid #ccc;
       font-size: 11px;
@@ -37,7 +35,8 @@
       li {
         padding-right: 10px;
       }
-      li:last-child {
+
+      &:last-child {
         padding-right: 0;
       }
     }
@@ -73,6 +72,6 @@
     padding: 10px 0;
     text-align: center;
     font-size: 8px;
-    color: gray;
+    color: #ccc;
   }
 }
