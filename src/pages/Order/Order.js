@@ -30,6 +30,7 @@ class Order extends Component {
     this.setState({
       address: AllAddress,
       zip: zoneCodes,
+      isDaumPost: false,
     });
   };
 
