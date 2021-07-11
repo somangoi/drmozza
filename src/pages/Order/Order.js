@@ -7,7 +7,7 @@ class Order extends Component {
   state = {
     name: '',
     email: '',
-    password: '',
+    zip: '',
     address: '',
   };
 
@@ -19,7 +19,7 @@ class Order extends Component {
   };
 
   render() {
-    const { name, email, password, address } = this.state;
+    const { name, email, zip, address } = this.state;
     return (
       <>
         <Nav />
@@ -40,7 +40,7 @@ class Order extends Component {
                   <span className="dot">*</span>
                 </label>
                 <input
-                  className="userInput"
+                  className="orderInput"
                   type="text"
                   name="name"
                   placeholder="이름을 입력해주세요."
@@ -55,7 +55,7 @@ class Order extends Component {
                   <span className="dot">*</span>
                 </label>
                 <input
-                  className="userInput"
+                  className="orderInput"
                   type="text"
                   name="email"
                   placeholder="이메일을 입력해주세요."
@@ -66,16 +66,16 @@ class Order extends Component {
               </div>
               <div className="checkOutInput">
                 <label className="info">
-                  PASSWORD
+                  ZIP CODE
                   <span className="dot">*</span>
                 </label>
                 <input
-                  className="userInput"
-                  type="password"
-                  placeholder="영문,숫자를 혼합하여 6~12자 이내"
-                  name="password"
+                  className="orderInput"
+                  type="number"
+                  placeholder="우편번호를 입력해주세요."
+                  name="zip"
                   onChange={this.handleInput}
-                  value={password}
+                  value={zip}
                   onKeyPress={this.handleKeyPress}
                 />
               </div>
@@ -85,7 +85,7 @@ class Order extends Component {
                   <span className="dot">*</span>
                 </label>
                 <input
-                  className="userInput"
+                  className="orderInput"
                   type="text"
                   name="address"
                   placeholder="주소를 입력해주세요."
@@ -95,12 +95,11 @@ class Order extends Component {
                 />
               </div>
               <div className="btnLink">
-                <button
-                  className="checkOutBtn"
-                  type="button"
-                  onClick={this.checkAll}
-                >
-                  <span className="btnText">COUNTINUE TO SHOPPING</span>
+                <a className="goToCart" href="/cart">
+                  Return to cart
+                </a>
+                <button className="checkOutBtn" type="button">
+                  <span className="btnText">PROCEED TO CHECKOUT</span>
                 </button>
               </div>
             </div>
