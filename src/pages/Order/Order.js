@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
+import Address from './Address/Address';
 import './Order.scss';
 
 class Order extends Component {
@@ -9,6 +10,7 @@ class Order extends Component {
     email: '',
     zip: '',
     address: '',
+    isDaumPost: false,
   };
 
   handleInput = e => {
@@ -18,8 +20,21 @@ class Order extends Component {
     });
   };
 
+  handleOpenPost = () => {
+    this.setState({
+      isDaumPost: true,
+    });
+  };
+
+  setAddress = (AllAddress, zoneCodes) => {
+    this.setState({
+      address: AllAddress,
+      zip: zoneCodes,
+    });
+  };
+
   render() {
-    const { name, email, zip, address } = this.state;
+    const { name, email, zip, address, isDaumPost } = this.state;
     return (
       <>
         <Nav />
@@ -35,10 +50,7 @@ class Order extends Component {
                 </a>
               </div>
               <div className="checkOutInput">
-                <label className="info">
-                  FULL NAME
-                  <span className="dot">*</span>
-                </label>
+                <label className="info">FULL NAME</label>
                 <input
                   className="orderInput"
                   type="text"
@@ -46,14 +58,10 @@ class Order extends Component {
                   placeholder="이름을 입력해주세요."
                   onChange={this.handleInput}
                   value={name}
-                  onKeyPress={this.handleKeyPress}
                 />
               </div>
               <div className="checkOutInput">
-                <label className="info">
-                  EMAIL
-                  <span className="dot">*</span>
-                </label>
+                <label className="info">EMAIL</label>
                 <input
                   className="orderInput"
                   type="text"
@@ -61,13 +69,20 @@ class Order extends Component {
                   placeholder="이메일을 입력해주세요."
                   onChange={this.handleInput}
                   value={email}
-                  onKeyPress={this.handleKeyPress}
                 />
               </div>
               <div className="checkOutInput">
                 <label className="info">
                   ZIP CODE
-                  <span className="dot">*</span>
+                  <button className="findZip" onClick={this.handleOpenPost}>
+                    Find ZIP
+                  </button>
+                  {isDaumPost ? (
+                    <Address
+                      setAddress={this.setAddress}
+                      isDaumPost={this.state.isDaumPost}
+                    />
+                  ) : null}
                 </label>
                 <input
                   className="orderInput"
@@ -76,14 +91,10 @@ class Order extends Component {
                   name="zip"
                   onChange={this.handleInput}
                   value={zip}
-                  onKeyPress={this.handleKeyPress}
                 />
               </div>
               <div className="checkOutInput">
-                <label className="info">
-                  ADDRESS
-                  <span className="dot">*</span>
-                </label>
+                <label className="info">ADDRESS</label>
                 <input
                   className="orderInput"
                   type="text"
@@ -91,7 +102,6 @@ class Order extends Component {
                   placeholder="주소를 입력해주세요."
                   onChange={this.handleInput}
                   value={address}
-                  onKeyPress={this.handleKeyPress}
                 />
               </div>
               <div className="btnLink">

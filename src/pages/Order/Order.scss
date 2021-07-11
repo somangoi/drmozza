@@ -64,13 +64,20 @@
       margin: 10px 0 20px 0;
 
       .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin: 0 2px 2px 1.5px;
         font-size: 12px;
         font-weight: 700;
         letter-spacing: 0.08em;
 
-        .dot {
-          margin-left: 4px;
+        .findZip {
+          width: 60px;
+          height: 20px;
+          border: 1px solid #000;
+          cursor: pointer;
+          font-size: 11px;
         }
       }
 
