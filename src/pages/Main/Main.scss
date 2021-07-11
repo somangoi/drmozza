@@ -3,7 +3,7 @@
 .mainContainer {
   padding: 80px 0;
 
-  .abc {
+  .carouselWrapper {
     @include display-flex(center, center);
 
     .slideBox {

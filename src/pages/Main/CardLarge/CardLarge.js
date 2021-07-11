@@ -3,19 +3,21 @@ import './CardLarge.scss';
 
 export default class CardLage extends Component {
   render() {
+    const { id, cardImage, title, description } = this.props;
+
     return (
       <div className="cardLargeContainer">
         <div className="cardLargeImg">
-          <img alt="cardImage" src={this.props.cardImage} />
+          <img alt="cardImage" src={cardImage} />
         </div>
         <div className="cardLargeTitle">
-          <h2>{this.props.title}</h2>
+          <h2>{title}</h2>
         </div>
         <div className="cardLargeDescription">
-          <span>{this.props.description}</span>
+          <span>{description}</span>
         </div>
         <div className="productDetailLink">
-          <span>SHOP {this.props.title.toUpperCase()} NOW</span>
+          <span>SHOP {title.toUpperCase()} NOW</span>
         </div>
       </div>
     );

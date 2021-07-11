@@ -33,7 +33,7 @@ export default class Main extends Component {
       });
   }
 
-  handleClickPrev() {
+  handleClickPrev = () => {
     if (this.state.index === 0) {
       this.setState({
         index: 0,
@@ -43,11 +43,9 @@ export default class Main extends Component {
         index: this.state.index - 1,
       });
     }
+  };
 
-    console.log('this prev', this.state.index);
-  }
-
-  handleClickNext() {
+  handleClickNext = () => {
     if (this.state.index === 3) {
       this.setState({
         index: 3,
@@ -57,17 +55,16 @@ export default class Main extends Component {
         index: this.state.index + 1,
       });
     }
-    console.log('this next', this.state.index);
-  }
+  };
 
   render() {
     const { carouselImg, cardLarge, sloganImg } = this.state;
 
     return (
       <>
-        <Nav />
+        {/* <Nav /> */}
         <main className="mainContainer">
-          <div className="abc">
+          <div className="carouselWrapper">
             <div className="slideBox">
               <ul
                 className="slideFstWrapper"
@@ -84,11 +81,11 @@ export default class Main extends Component {
             <div className="buttonWrapper">
               <i
                 className="fas fa-chevron-left fa-4x"
-                onClick={() => this.handleClickPrev()}
+                onClick={this.handleClickPrev}
               ></i>
               <i
                 className="fas fa-chevron-right fa-4x"
-                onClick={() => this.handleClickNext()}
+                onClick={this.handleClickNext}
               ></i>
             </div>
           </div>
@@ -108,8 +105,8 @@ export default class Main extends Component {
           </div>
 
           <Slogan
-            sloganImg={this.state.sloganImg.image_url}
-            description={this.state.sloganImg.slogan}
+            sloganImg={sloganImg.image_url}
+            description={sloganImg.slogan}
           />
 
           <div className="slideScd">드래그 슬라이드2</div>

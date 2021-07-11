@@ -3,11 +3,12 @@ import './Slogan.scss';
 
 export default class Slogan extends Component {
   render() {
-    console.log(`this.props`, this.props);
+    const { sloganImg, description } = this.props;
+
     return (
       <div className="slogan">
-        <span>{this.props.description}</span>
-        <img alt="slogan" src={this.props.sloganImg} />
+        <span>{description}</span>
+        <img alt="slogan" src={sloganImg} />
       </div>
     );
   }
