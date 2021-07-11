@@ -5,29 +5,26 @@
   top: 0;
   left: 0;
   right: 0;
-  width: 100vw;
-  height: 80px;
-  background-color: white;
   z-index: 999;
+  background-color: white;
 
   .navContainer {
     @include display-flex(space-between, center);
-    width: 1240px;
+    width: 100vw;
+    height: 80px;
     margin: 0 auto;
     font-size: 25px;
     background-color: white;
 
     .navLogo {
       flex: 1;
+      padding-left: 20px;
       font-weight: 600;
       cursor: pointer;
     }
 
     .navList {
-      @include display-flex;
-      flex-direction: row;
-      align-items: flex-end;
-      justify-content: center;
+      @include display-flex(center, flex-end);
       flex: 8;
       height: 80px;
       font-size: 18px;
@@ -38,14 +35,33 @@
         cursor: pointer;
       }
 
-      li:last-child {
+      &:last-child {
         padding-right: 0;
+      }
+
+      .dropDownMilk {
+        position: relative;
+
+        &:hover .dropDownMilkMenu {
+          display: flex;
+          position: absolutel;
+        }
+
+        .dropDownMilk {
+          display: none;
+        }
+      }
+
+      .dropDownStyle {
+      }
+
+      .dropDownCoun {
       }
     }
 
     .navRight {
-      flex: 1;
       @include display-flex;
+      flex: 1;
       flex-direction: row;
       align-items: flex-end;
       font-size: 18px;
@@ -56,7 +72,7 @@
         cursor: pointer;
       }
 
-      li:last-child {
+      &:last-child {
         padding-right: 0;
       }
     }
