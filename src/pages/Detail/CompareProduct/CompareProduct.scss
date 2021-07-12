@@ -14,7 +14,7 @@
   .tableColumn {
     width: 300px;
 
-    .tableRow1 {
+    .tableRowImg {
       height: 300px;
 
       h2 {
@@ -28,7 +28,7 @@
       }
     }
 
-    .tableRow2 {
+    .tableRowName {
       @include display-flex(space-between, flex-start);
       height: 80px;
       padding: 20px 0;
@@ -48,7 +48,7 @@
       }
     }
 
-    .tableRow3 {
+    .tableRowDesc {
       height: 150px;
 
       h3 {
@@ -56,7 +56,7 @@
       }
     }
 
-    .tableRow4 {
+    .tableRowBtn {
       padding: 20px 0;
 
       button {

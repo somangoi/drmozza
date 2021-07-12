@@ -22,7 +22,7 @@ export default class Detail extends Component {
       summary: '',
       description: '',
       nutritionList: [],
-      discriptionImage: '',
+      descriptionImage: '',
       routineList: [],
       compareList: [],
     };
@@ -41,7 +41,7 @@ export default class Detail extends Component {
           summary: detail.RESULT.summary,
           description: detail.RESULT.description,
           nutritionList: detail.RESULT.nutrition,
-          discriptionImage: detail.RESULT.discription_image,
+          descriptionImage: detail.RESULT.description_image,
           routineList: detail.RESULT_ROUTINE,
           compareList: detail.RESULT_COMPARE,
         });
@@ -49,6 +49,7 @@ export default class Detail extends Component {
   }
 
   render() {
+    console.log(this.state.descriptionImage);
     const {
       categoryList,
       currentCategory,
@@ -58,7 +59,7 @@ export default class Detail extends Component {
       description,
       optionList,
       nutritionList,
-      discriptionImage,
+      descriptionImage,
       routineList,
       compareList,
     } = this.state;
@@ -77,7 +78,7 @@ export default class Detail extends Component {
           />
           <article className="detailBody">
             <ProductFunc />
-            <PromotionImg discription_image={discriptionImage} />
+            <PromotionImg descriptionImage={descriptionImage} />
             <Routine routineList={routineList} productName={productName} />
             <CategoryImg currentCategory={currentCategory} />
             <CompareProduct compareList={compareList} />

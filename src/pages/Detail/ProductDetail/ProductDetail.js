@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './ProductDetail.scss';
 
 export default class ProductDetail extends Component {
@@ -18,7 +19,6 @@ export default class ProductDetail extends Component {
 
   changeImg = idx => {
     this.setState({ select: idx });
-    console.log(idx);
   };
 
   showDesc = () => {
@@ -30,7 +30,6 @@ export default class ProductDetail extends Component {
   };
 
   render() {
-    console.log(this.props);
     const {
       categoryList,
       imgList,
@@ -41,6 +40,8 @@ export default class ProductDetail extends Component {
       nutritionList,
     } = this.props;
 
+    console.log(this.props.summary);
+
     const { select, showMoreClicked, showDesc } = this.state;
 
     return (
@@ -50,12 +51,12 @@ export default class ProductDetail extends Component {
             Products /{' '}
             {categoryList.map(category => {
               return (
-                <a
-                  href={'/products?category=' + category.category_id}
+                <Link
+                  to={'/products?category=' + category.category_id}
                   key={category.category_id}
                 >
                   <span>{category.category_name} </span>
-                </a>
+                </Link>
               );
             })}{' '}
             / {product_name}

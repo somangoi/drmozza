@@ -3,7 +3,6 @@ import './Card.scss';
 
 export default class Card extends Component {
   render() {
-    console.log(this.props);
     const { thumbnail, hoverImg, stock, currntItem, name, option, rating } =
       this.props;
     return (
