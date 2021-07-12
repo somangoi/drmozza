@@ -28,14 +28,15 @@ export default class Main extends Component {
   }
 
   render() {
+    const { milkList, styleList, countriesList } = this.state;
     console.log(`this.state`, this.state);
     return (
       <>
         <div className="navWrapper">
           <Nav
-            milkList={this.state.milkList}
-            styleList={this.state.styleList}
-            countriesList={this.state.countriesList}
+            milkList={milkList}
+            styleList={styleList}
+            countriesList={countriesList}
           />
         </div>
         <Footer />

@@ -4,7 +4,9 @@ import './Nav.scss';
 
 export default class Nav extends Component {
   render() {
+    const { milkList, styleList, countriesList } = this.props;
     console.log(`this.props`, this.props);
+
     return (
       <div className="navBox">
         <div className="navContainer">
@@ -14,30 +16,24 @@ export default class Nav extends Component {
 
             <li className="dropDownMilk">
               MILK <i className="fa fa-angle-down" />
+              <div className="dropDownMilkList">
+                <DropDownNav titleList={milkList} />
+              </div>
             </li>
-            <div className="dropDownMilkMenu">
-              {this.props.milkList.map(list => (
-                <DropDownNav titile={list.title} items={list.items} />
-              ))}
-            </div>
 
-            {/* <li className="dropDownStyle">
+            <li className="dropDownStyle">
               STYLE <i className="fa fa-angle-down" />
+              <div className="dropDownStyeList">
+                <DropDownNav titleList={styleList} />
+              </div>
             </li>
-            <div className="dropDownStyeList">
-              {this.props.styleList.map(list => (
-                <DropDownNav titile={list.title} items={list.items} />
-              ))}
-            </div>
 
-            <li className="dropDownCountry">
+            <li className="dropDownCountries">
               COUNTRIES <i className="fa fa-angle-down" />
+              <div className="dropDownCountriesList">
+                <DropDownNav titleList={countriesList} />
+              </div>
             </li>
-            <div className="dropDownCountriesList">
-              {this.props.countriesList.map(list => (
-                <DropDownNav titile={list.title} items={list.items} />
-              ))}
-            </div> */}
 
             <li>BESTSELLER</li>
           </ul>

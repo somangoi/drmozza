@@ -15,6 +15,7 @@
     margin: 0 auto;
     font-size: 25px;
     background-color: white;
+    // position: relative;
 
     .navLogo {
       flex: 1;
@@ -40,22 +41,55 @@
       }
 
       .dropDownMilk {
-        position: relative;
+        // position: relative;
+        // display: flex;
 
-        &:hover .dropDownMilkMenu {
+        &:hover .dropDownMilkList {
           display: flex;
-          position: absolutel;
+          justify-content: center;
+          left: 0;
+          // width: 100vw;
+          // position: absolute;
         }
 
-        .dropDownMilk {
+        .dropDownMilkList {
           display: none;
         }
       }
 
       .dropDownStyle {
+        position: relative;
+        // display: flex;
+
+        &:hover .dropDownStyeList {
+          display: flex;
+          justify-content: center;
+          // left: 0;
+          // width: 100vw;
+          position: absolute;
+        }
+
+        .dropDownStyeList {
+          display: none;
+        }
       }
 
-      .dropDownCoun {
+      .dropDownCountries {
+        position: relative;
+        // display: flex;
+
+        &:hover .dropDownCountriesList {
+          display: flex;
+          justify-content: center;
+          left: 20px;
+          // left: 0;
+          // width: 100vw;
+          position: absolute;
+        }
+
+        .dropDownCountriesList {
+          display: none;
+        }
       }
     }
 
