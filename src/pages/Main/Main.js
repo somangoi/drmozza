@@ -13,13 +13,14 @@ export default class Main extends Component {
       styleList: [],
       countriesList: [],
     };
+  }
 
   componentDidMount() {
-    fetch("data/nav.json")
-      .then((res) => res.json())
-      .then((data) => {
+    fetch('data/nav.json')
+      .then(res => res.json())
+      .then(data => {
         this.setState({
-          milkList: data,
+          milkList: data.results.milk.categories,
           styleList: data,
           countreisList: data,
         });
@@ -27,11 +28,15 @@ export default class Main extends Component {
   }
 
   render() {
-    console.log(`this.state`, this.state)
+    console.log(`this.state`, this.state);
     return (
       <>
         <div className="navWrapper">
-          <Nav />
+          <Nav
+            milkList={this.state.milkList}
+            styleList={this.state.styleList}
+            countreisList={this.state.styleList}
+          />
         </div>
         {/* <Card /> */}
         <Footer />

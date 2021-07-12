@@ -16,17 +16,27 @@ export default class Nav extends Component {
             </li>
             <div className="dropDownMilkMenu">
               {milkList.map(list => (
-                <dropDownMilk titile={list.title} items={list.items} />
+                <DropDownNav titile={list.title} items={list.items} />
               ))}
             </div>
 
             <li className="dropDownStyle">
               STYLE <i className="fa fa-angle-down" />
             </li>
+            <div className="dropDownStyeList">
+              {styeList.map(list => (
+                <DropDownNav titile={list.title} items={list.items} />
+              ))}
+            </div>
 
-            <li className="dropDownCou">
+            <li className="dropDownCountry">
               COUNTRIES <i className="fa fa-angle-down" />
             </li>
+            <div className="dropDownCountriesList">
+              {countriesList.map(list => (
+                <DropDownNav titile={list.title} items={list.items} />
+              ))}
+            </div>
 
             <li>BESTSELLER</li>
           </ul>
