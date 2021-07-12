@@ -12,7 +12,9 @@ export default class Cart extends Component {
         name: 'Cheese',
         img: 'https://images.unsplash.com/photo-1608666566023-e91b02683a5f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
         price: 10,
+        weight: 70,
         quantity: 1,
+        total: '',
       },
     ],
   };
@@ -70,6 +72,16 @@ export default class Cart extends Component {
     this.setState({ cartList });
   };
 
+  handleTotal = cart => {
+    const cartList = this.state.cartList.map(item => {
+      if (item.id === cart.id) {
+        return { ...cart, total: cart.quantity * cart.price };
+      }
+      return item;
+    });
+    this.setState({ cartList });
+  };
+
   render() {
     const { cartList } = this.state;
     const total = cartList
@@ -95,6 +107,7 @@ export default class Cart extends Component {
                   cartList={cartlist}
                   handleIncrement={this.handleIncrement}
                   handleDecrement={this.handleDecrement}
+                  handleTotal={this.handleTotal}
                   handleDelete={this.handleDelete}
                   quantityInput={this.quantityInput}
                   currency={this.currency}

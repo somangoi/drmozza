@@ -16,14 +16,21 @@ class CartList extends Component {
     this.props.handleDelete(this.props.cartList);
   };
 
+  handleTotal = () => {
+    this.props.handleDelete(this.props.cartList);
+  };
+
   render() {
-    const { name, img, price, quantity } = this.props.cartList;
+    const { name, img, price, quantity, weight } = this.props.cartList;
 
     return (
       <div className="cartlist">
         <div className="product">
           <img className="productImg" src={img} alt="productImg" />
-          <div className="productName">{name}</div>
+          <div className="productName">
+            {name}
+            <div className="weight">{weight}g</div>
+          </div>
         </div>
         <div className="price">{this.props.currency(price)}</div>
         <div className="quantity">
