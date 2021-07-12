@@ -8,13 +8,10 @@
 
     .slideBox {
       position: relative;
-      height: 70vh;
-      width: 100vw;
       overflow: hidden;
 
       .slideFstWrapper {
         display: flex;
-        height: 100%;
         width: fit-content;
         transition: 0.2s;
       }
