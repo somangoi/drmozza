@@ -23,23 +23,20 @@
   }
 
   .cardLargeDescription {
-    width: 480px;
     margin-bottom: 10px;
 
     span {
+      width: 480px;
       font-size: 17px;
       font-weight: 300;
       line-height: 150%;
     }
   }
 
-  .productDetailLink {
-    width: 100%;
-
-    span {
-      border-bottom: 1px solid black;
-      font-size: 15px;
-      font-weight: 400;
-    }
+  .productDetailLink span {
+    border-bottom: 1px solid black;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
   }
 }
