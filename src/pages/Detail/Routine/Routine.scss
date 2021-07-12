@@ -1,0 +1,34 @@
+@import '../../../styles/variable.scss';
+
+.routineContainer {
+  width: 1240px;
+  padding: 50px 0;
+
+  h2 {
+    text-align: left;
+    font-size: 1.5rem;
+  }
+
+  .cardsWrapper {
+    @include display-flex(space-between);
+    padding: 30px 0 50px 0;
+    border-bottom: 1px solid #ccc;
+
+    .currentItem {
+      padding-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .hide {
+      color: transparent;
+    }
+    .cardBox {
+      padding: 20px 30px;
+      border: 1px solid transparent;
+    }
+
+    .currentProduct {
+      border: 1px solid rgb(221, 221, 221);
+    }
+  }
+}

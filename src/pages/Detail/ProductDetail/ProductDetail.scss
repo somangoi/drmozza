@@ -1,0 +1,120 @@
+@import '../../../styles/variable.scss';
+@mixin btn {
+  width: 100%;
+  padding: 10px 0;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.detail {
+  width: 1240px;
+
+  .detailNav {
+    padding-bottom: 20px;
+    color: rgb(128, 128, 128);
+
+    a {
+      text-decoration: none;
+      color: rgb(128, 128, 128);
+    }
+  }
+
+  .productMain {
+    @include display-flex(none, none);
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+
+    .productImgSection {
+      @include display-flex(center, flex-start);
+      flex: 1;
+      background: white;
+    }
+
+    .productDescSection {
+      @include display-flex(center, center);
+      flex: 1;
+
+      .productDescWrapper {
+        width: 400px;
+
+        .productMainPrice {
+          color: rgb(128, 128, 128);
+
+          .price {
+            padding-right: 20px;
+          }
+        }
+
+        .productTitle {
+          padding: 10px 0;
+
+          h1 {
+            font-size: 2.3rem;
+          }
+        }
+
+        .productDescWrapper {
+          padding-bottom: 15px;
+
+          .summary {
+            padding: 15px 0;
+          }
+
+          .productDesc {
+            margin-top: 15px;
+            background-color: white;
+            overflow: hidden;
+            margin-bottom: 10px;
+            height: 100%;
+          }
+
+          .hide {
+            height: 0;
+          }
+
+          .showMore {
+            cursor: pointer;
+            border-bottom: 1px solid black;
+          }
+        }
+
+        .addToBag {
+          @include btn;
+          background: black;
+          color: white;
+        }
+
+        .descTitleBtn {
+          @include display-flex(space-between, center);
+          width: 100%;
+          padding: 10px;
+          border-top: 1px solid #ccc;
+          border-bottom: 1px solid #ccc;
+          cursor: pointer;
+
+          &::after {
+            content: '+';
+          }
+        }
+
+        .descContent {
+          padding: 10px;
+        }
+
+        .descContentHide {
+          display: none;
+        }
+
+        .moreDetail {
+          @include display-flex(flex-end, center);
+          padding: 10px 0;
+
+          .moreDetailBtn {
+            border-bottom: 1px solid black;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

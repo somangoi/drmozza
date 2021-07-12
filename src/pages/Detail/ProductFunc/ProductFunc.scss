@@ -1,0 +1,36 @@
+@import '../../../styles/variable.scss';
+
+.productFuncWrapper {
+  padding: 120px 0;
+
+  .productFuncDetail {
+    @include display-flex(center, center);
+    flex-direction: column;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 500;
+      padding-bottom: 10px;
+    }
+  }
+
+  .productFuncIconBox {
+    @include display-flex(center, center);
+
+    .productFunc {
+      padding: 30px;
+      text-align: center;
+
+      h3 {
+        padding: 5px 0;
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+    }
+  }
+
+  i {
+    font-size: 2.5rem;
+    padding: 30px;
+  }
+}

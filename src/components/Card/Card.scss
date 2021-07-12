@@ -17,14 +17,20 @@
 
   .cardTag {
     @include display-flex(space-between, center);
-    width: 100%;
+    width: 300px;
     padding-top: 10px;
 
     .cheeseName {
-      width: 270px;
+      flex: 7;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    .cheesePrice {
+      flex: 3;
+      text-align: right;
+      font-weight: 500;
     }
   }
 
