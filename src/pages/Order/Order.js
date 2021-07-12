@@ -13,6 +13,15 @@ class Order extends Component {
     isDaumPost: false,
   };
 
+  currency = number => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      currencySign: 'accounting',
+      minimumFractionDigits: 2,
+    }).format(number);
+  };
+
   handleInput = e => {
     const { name, value } = e.target;
     this.setState({
@@ -114,7 +123,7 @@ class Order extends Component {
                 </button>
               </div>
             </div>
-            <div className="orderList">1234</div>
+            <div className="orderList"></div>
           </div>
           <Footer />
         </div>
