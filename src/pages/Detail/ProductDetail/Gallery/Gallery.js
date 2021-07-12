@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
+import './Gallery.scss';
 
 export default class Gallery extends Component {
+  constructor() {
+    super();
+    this.state = {
+      select: 0,
+    };
+  }
+
   changeImg = idx => {
+    console.log('clicked');
     this.setState({ select: idx });
   };
 
   render() {
-    const { imgList, select } = this.props;
+    const { imgList } = this.props;
+    const { select } = this.state;
     return (
       <>
         <ul className="gallery">

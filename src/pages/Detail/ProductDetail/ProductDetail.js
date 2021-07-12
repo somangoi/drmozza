@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Gallery from './Gallery/Gallery';
 import './ProductDetail.scss';
 
 export default class ProductDetail extends Component {
   constructor() {
     super();
     this.state = {
-      select: 0,
       showDesc: false,
       product_name: '',
       optionList: [],
@@ -16,10 +16,6 @@ export default class ProductDetail extends Component {
       showMoreClicked: false,
     };
   }
-
-  changeImg = idx => {
-    this.setState({ select: idx });
-  };
 
   showDesc = () => {
     this.setState({ showDesc: !this.state.showDesc });
@@ -39,8 +35,6 @@ export default class ProductDetail extends Component {
       optionList,
       nutritionList,
     } = this.props;
-
-    console.log(this.props.summary);
 
     const { select, showMoreClicked, showDesc } = this.state;
 
@@ -64,32 +58,7 @@ export default class ProductDetail extends Component {
         </nav>
         <div className="productMain">
           <div className="productImgSection">
-            <ul className="gallery">
-              {imgList.map((img, idx) => {
-                return (
-                  <li key={idx} onClick={() => this.changeImg(idx)}>
-                    <div className="galleryImgBox">
-                      <img
-                        src={img}
-                        alt="cheese"
-                        className={
-                          idx === select ? 'galleryImg border' : 'galleryImg'
-                        }
-                      />
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-            <div className="productImgContainer">
-              {imgList.length > 0 && (
-                <img
-                  src={imgList[select]}
-                  alt="selected"
-                  className="selectedImg"
-                />
-              )}
-            </div>
+            <Gallery imgList={imgList} />
           </div>
           <div className="productDescSection">
             <div className="productDescWrapper">
@@ -108,11 +77,7 @@ export default class ProductDetail extends Component {
               </div>
               <div className="productDescWrapper">
                 <div className="summary">{summary}</div>
-                <div
-                  className={
-                    showMoreClicked ? 'productDesc' : 'productDesc hide'
-                  }
-                >
+                <div className={`productDesc ${showMoreClicked ? '' : 'hide'}`}>
                   {description}
                 </div>
                 <button className="showMore" onClick={this.showMore}>
@@ -131,10 +96,7 @@ export default class ProductDetail extends Component {
                   <span className="descTitle">NUTRITION</span>
                 </button>
                 <ul
-                  className="descContent"
-                  style={{
-                    display: showDesc ? 'block' : 'none',
-                  }}
+                  className={`descContent ${showDesc ? '' : 'descContentHide'}`}
                 >
                   {nutritionList.map((nutrition, idx) => {
                     return (

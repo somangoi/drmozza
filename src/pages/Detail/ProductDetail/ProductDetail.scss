@@ -28,41 +28,6 @@
       @include display-flex(center, flex-start);
       flex: 1;
       background: white;
-
-      .gallery {
-        margin-right: 30px;
-
-        .galleryImgBox {
-          display: block;
-          width: 100px;
-          height: 100px;
-          margin-bottom: 8px;
-
-          .galleryImg {
-            width: 100%;
-            height: 100%;
-            border: 2px solid transparent;
-            box-sizing: border-box;
-            object-fit: cover;
-            cursor: pointer;
-          }
-
-          .border {
-            border: 2px solid black;
-          }
-        }
-      }
-
-      .productImgContainer {
-        width: 600px;
-        height: 600px;
-
-        .selectedImg {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-      }
     }
 
     .productDescSection {
@@ -134,6 +99,10 @@
 
         .descContent {
           padding: 10px;
+        }
+
+        .descContentHide {
+          display: none;
         }
 
         .moreDetail {

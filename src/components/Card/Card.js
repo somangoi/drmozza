@@ -3,8 +3,16 @@ import './Card.scss';
 
 export default class Card extends Component {
   render() {
-    const { thumbnail, hoverImg, stock, currntItem, name, option, rating } =
-      this.props;
+    const {
+      thumbnail,
+      hoverImg,
+      stock,
+      currntItem,
+      name,
+      option,
+      price,
+      rating,
+    } = this.props;
     return (
       <div className="cardContainer">
         <div className="cardImage">
@@ -12,7 +20,7 @@ export default class Card extends Component {
         </div>
         <div className="cardTag">
           <div className="cheeseName">{name}</div>
-          <div className="cheesePrice">{}</div>
+          <div className="cheesePrice">${price}</div>
         </div>
         <div className="starRatings">
           <i className="fas fa-star"></i>

@@ -11,10 +11,10 @@ export default class CompareProduct extends Component {
             <div className="tableRowImg">
               <h2>COMPARE SIMILAR PRODUCTS</h2>
             </div>
-            <div className="tableRow2">
+            <div className="tableRowName">
               <h3>WHAT IT IS</h3>
             </div>
-            <div className="tableRow3">
+            <div className="tableRowDesc">
               <h3>HOW IT TASTES</h3>
             </div>
           </div>
