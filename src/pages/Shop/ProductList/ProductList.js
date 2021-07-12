@@ -4,21 +4,20 @@ import './ProductList.scss';
 
 class ProductList extends Component {
   render() {
+    const { productList } = this.props;
+    console.log(productList);
     return (
       <div className="productGrid">
-        <div className="box"></div>
-        <div className="box"></div>
-        <div className="box"></div>
-        <div className="box"></div>
-        <div className="box"></div>
-        <div className="box"></div>
-        <div className="box"></div>
-        <div className="box"></div>
-        <div className="box"></div>
-        <div className="box"></div>
-        <div className="box"></div>
-        <div className="box"></div>
-        <div className="box"></div>
+        {productList.map(product => {
+          return (
+            <Card
+              key={product.id}
+              thumbnail={product.thumbnail}
+              name={product.name}
+              price={product.price}
+            />
+          );
+        })}
       </div>
     );
   }
