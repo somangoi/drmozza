@@ -21,8 +21,8 @@ export default class Main extends Component {
       .then(data => {
         this.setState({
           milkList: data.results.milk.categories,
-          styleList: data,
-          countreisList: data,
+          styleList: data.results.style.categories,
+          countriesList: data.results.countries.categories,
         });
       });
   }
@@ -35,10 +35,9 @@ export default class Main extends Component {
           <Nav
             milkList={this.state.milkList}
             styleList={this.state.styleList}
-            countreisList={this.state.styleList}
+            countriesList={this.state.countriesList}
           />
         </div>
-        {/* <Card /> */}
         <Footer />
       </>
     );

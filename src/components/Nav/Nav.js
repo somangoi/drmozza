@@ -4,6 +4,7 @@ import './Nav.scss';
 
 export default class Nav extends Component {
   render() {
+    console.log(`this.props`, this.props);
     return (
       <div className="navBox">
         <div className="navContainer">
@@ -15,16 +16,16 @@ export default class Nav extends Component {
               MILK <i className="fa fa-angle-down" />
             </li>
             <div className="dropDownMilkMenu">
-              {milkList.map(list => (
+              {this.props.milkList.map(list => (
                 <DropDownNav titile={list.title} items={list.items} />
               ))}
             </div>
 
-            <li className="dropDownStyle">
+            {/* <li className="dropDownStyle">
               STYLE <i className="fa fa-angle-down" />
             </li>
             <div className="dropDownStyeList">
-              {styeList.map(list => (
+              {this.props.styleList.map(list => (
                 <DropDownNav titile={list.title} items={list.items} />
               ))}
             </div>
@@ -33,10 +34,10 @@ export default class Nav extends Component {
               COUNTRIES <i className="fa fa-angle-down" />
             </li>
             <div className="dropDownCountriesList">
-              {countriesList.map(list => (
+              {this.props.countriesList.map(list => (
                 <DropDownNav titile={list.title} items={list.items} />
               ))}
-            </div>
+            </div> */}
 
             <li>BESTSELLER</li>
           </ul>
