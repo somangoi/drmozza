@@ -72,21 +72,11 @@ export default class Cart extends Component {
     this.setState({ cartList });
   };
 
-  handleTotal = cart => {
-    const cartList = this.state.cartList.map(item => {
-      if (item.id === cart.id) {
-        return { ...cart, total: cart.quantity * cart.price };
-      }
-      return item;
-    });
-    this.setState({ cartList });
-  };
-
   render() {
     const { cartList } = this.state;
     const total = cartList
       .map(cart => cart.price * cart.quantity)
-      .reduce((accumulator, currentValue) => accumulator + currentValue);
+      .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
     return (
       <>
         <Nav />
