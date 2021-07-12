@@ -7,6 +7,7 @@ import Routine from './Routine/Routine';
 import CategoryImg from '../../components/CategoryImg/CategoryImg';
 import CompareProduct from './CompareProduct/CompareProduct';
 import Footer from '../../components/Footer/Footer';
+import * as isValidObject from '../../../src/utils';
 
 import './Detail.scss';
 
@@ -29,8 +30,10 @@ export default class Detail extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/detail.json')
-      .then(res => res.json())
+    fetch('/data/detail.json', { method: 'GET' })
+      .then(res => {
+        return res.json();
+      })
       .then(detail => {
         this.setState({
           categoryList: detail.RESULT.categories,
@@ -49,6 +52,7 @@ export default class Detail extends Component {
   }
 
   render() {
+    console.log(this.state);
     const {
       categoryList,
       currentCategory,
@@ -79,7 +83,9 @@ export default class Detail extends Component {
             <ProductFunc />
             <PromotionImg descriptionImage={descriptionImage} />
             <Routine routineList={routineList} productName={productName} />
-            <CategoryImg currentCategory={currentCategory} />
+            {isValidObject.isValidObject(currentCategory) && (
+              <CategoryImg currentCategory={currentCategory} />
+            )}
             <CompareProduct compareList={compareList} />
           </article>
         </div>
