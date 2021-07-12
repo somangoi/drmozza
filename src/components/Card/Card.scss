@@ -21,10 +21,16 @@
     width: 300px;
 
     .cheeseName {
-      width: 250px;
+      flex: 7;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    .cheesePrice {
+      flex: 3;
+      text-align: right;
+      font-weight: 500;
     }
   }
 

@@ -1,2 +1,12 @@
-* {
+@import '../../styles/variable.scss';
+
+.detailWrapper {
+  @include display-flex(center, center);
+  flex-direction: column;
+  padding: 80px 0;
+
+  .detailBody {
+    margin: 0 auto;
+    width: 1240px;
+  }
 }

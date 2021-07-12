@@ -8,7 +8,7 @@ export default class CategoryImg extends Component {
       <div>
         <div className="categoryWrapper">
           <div className="categoryDesc">
-            <h1>{currentCategory.category_name} cheese</h1>
+            <h1>{currentCategory.category_name.toUpperCase()} CHEESE</h1>
             <p>{currentCategory.category_description}</p>
           </div>
           <div className="categoryPic">

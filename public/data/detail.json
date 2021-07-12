@@ -1,0 +1,211 @@
+{
+  "RESULT": {
+    "product_name": "Fine Fleur de Celles",
+    "summary": "Little Hosmer is a pasteurized soft cheese with a bloomy rind. The paste is soft and supple, but not",
+    "description": " but not runny. (from Cellars at Jasper Hill)",
+    "stocks": 10163,
+    "score": "0.0",
+    "description_image": "https://images.unsplash.com/photo-1453078977505-10c3e375c2a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8OHx8Y2hlZXNlfHwwfDB8fHwxNjI1NjM5OTY3&ixlib=rb-1.2.1&q=80&w=1080",
+    "image_urls": [
+      "https://images.unsplash.com/photo-1608666660863-695ebbedc848?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MXx8Y2hlZXNlfHwwfDJ8fHwxNjI1NjM3NDk1&ixlib=rb-1.2.1&q=80&w=1080",
+      "https://images.unsplash.com/photo-1597530237719-cdc76f3dc96d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8Mnx8Y2hlZXNlfHwwfDJ8fHwxNjI1NjM3NDk1&ixlib=rb-1.2.1&q=80&w=1080",
+      "https://images.unsplash.com/photo-1608666566023-e91b02683a5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8Y2hlZXNlfHwwfDJ8fHwxNjI1NjM3NDk1&ixlib=rb-1.2.1&q=80&w=1080",
+      "https://images.unsplash.com/photo-1566454825481-4e48f80aa4d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8NHx8Y2hlZXNlfHwwfDJ8fHwxNjI1NjM3NDk1&ixlib=rb-1.2.1&q=80&w=1080",
+      "https://images.unsplash.com/photo-1622192308862-8032a315dd16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8NXx8Y2hlZXNlfHwwfDJ8fHwxNjI1NjM3NDk1&ixlib=rb-1.2.1&q=80&w=1080"
+    ],
+    "categories": [
+      {
+        "category_id": 1,
+        "category_name": "cow",
+        "category_image_url": "https://images.unsplash.com/photo-1583308148203-85053ccd905f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+        "category_description": "Cow milk cheeses are as varied and rich as the producers who make them around the world. Starting with a base of rich, mild cow's milk, cheesemakers then let their imaginations lose to create cheeses that can be creamy and sweet, hard and salty, and everything in between"
+      },
+      {
+        "category_id": 5,
+        "category_name": "soft",
+        "category_image_url": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1953&q=80",
+        "category_description": "Soft cheeses really offer a highly rich and unique taste, flavor, and aroma to every cheese connoisseur out there."
+      },
+      {
+        "category_id": 12,
+        "category_name": "spain",
+        "category_image_url": "https://images.unsplash.com/photo-1577917632595-70b90d4db7e9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fGNoZWVzZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        "category_description": "Want to know more about Spanish Cheese? Here’s a list of the most popular types of cheeses from Spain with a description of each one and more information about where they are from and their characteristics. "
+      }
+    ],
+    "option": [
+      {
+        "price": "81.24",
+        "weight": 90,
+        "option_id": 45
+      },
+      {
+        "price": "64.44",
+        "weight": 70,
+        "option_id": 46
+      }
+    ],
+    "nutrition": [
+      {
+        "calories": 124
+      },
+      {
+        "total_fat": 4
+      },
+      {
+        "saturated_fat": 7
+      },
+      {
+        "trans_fat": 1
+      },
+      {
+        "cholestrol": 20
+      },
+      {
+        "sodium": 62
+      },
+      {
+        "total_carbohydrates": 1
+      },
+      {
+        "dietary_fiber": 1
+      },
+      {
+        "sugars": 0
+      },
+      {
+        "protein": 4
+      },
+      {
+        "vitamin_a": 1
+      },
+      {
+        "vitamin_c": 1
+      },
+      {
+        "calcium": 36
+      },
+      {
+        "iron": 1
+      }
+    ]
+  },
+  "RESULT_ROUTINE": [
+    {
+      "product_id": 27,
+      "product_name": "Fine Fleur de Celles",
+      "score": "0.0",
+      "thumbmail_image": "https://images.unsplash.com/photo-1606736692995-d03f14de3d3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTd8fGNoZWVzZXx8MHwyfHx8MTYyNTYzNzQ5NQ&ixlib=rb-1.2.1&q=80&w=1080",
+      "hover_image": "https://images.unsplash.com/photo-1606736692995-d03f14de3d3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTd8fGNoZWVzZXx8MHwyfHx8MTYyNTYzNzQ5NQ&ixlib=rb-1.2.1&q=80&w=1080",
+      "stocks": 10163,
+      "current": true,
+      "option": [
+        {
+          "price": "81.24",
+          "weight": 90,
+          "id": 45
+        },
+        {
+          "price": "64.44",
+          "weight": 70,
+          "id": 46
+        }
+      ]
+    },
+    {
+      "product_id": 5,
+      "product_name": "Snowdonia Set of 3 Truckle Bundle",
+      "score": "0.0",
+      "thumbmail_image": "https://cdn11.bigcommerce.com/s-8hw6y8no/images/stencil/1280x1280/products/1270/2623/Product_Listing_Web_TCS_Snowdonia_Promotional_Picture_20210310__34289.1618199897.jpg?c=2",
+      "hover_image": "https://cdn11.bigcommerce.com/s-8hw6y8no/images/stencil/1280x1280/products/1270/2623/Product_Listing_Web_TCS_Snowdonia_Promotional_Picture_20210310__34289.1618199897.jpg?c=2",
+      "stocks": 13347,
+      "current": false,
+      "option": [
+        {
+          "price": "16.44",
+          "weight": 80,
+          "id": 8
+        },
+        {
+          "price": "14.30",
+          "weight": 70,
+          "id": 9
+        }
+      ]
+    },
+    {
+      "product_id": 59,
+      "product_name": "Prima Donna",
+      "score": "0.0",
+      "thumbmail_image": "https://images.unsplash.com/photo-1580981001482-61a9db9b8396?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8OXx8Y2hlZXNlfHwwfDJ8fHwxNjI1NjM3NDk1&ixlib=rb-1.2.1&q=80&w=1080",
+      "hover_image": "https://images.unsplash.com/photo-1580981001482-61a9db9b8396?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8OXx8Y2hlZXNlfHwwfDJ8fHwxNjI1NjM3NDk1&ixlib=rb-1.2.1&q=80&w=1080",
+      "stocks": 9375,
+      "current": false,
+      "option": [
+        {
+          "price": "36.55",
+          "weight": 90,
+          "id": 94
+        },
+        {
+          "price": "86.14",
+          "weight": 100,
+          "id": 95
+        }
+      ]
+    }
+  ],
+  "RESULT_COMPARE": [
+    {
+      "product_name": "Fine Fleur de CellesFine Fleur de CellesFine Fleur de CellesFine Fleur de CellesFine Fleur de CellesFine Fleur de Celles",
+      "description": " but not runny. (from Cellars at Jasper Hill)",
+      "thumbmail_image": "https://images.unsplash.com/photo-1606736692995-d03f14de3d3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTd8fGNoZWVzZXx8MHwyfHx8MTYyNTYzNzQ5NQ&ixlib=rb-1.2.1&q=80&w=1080",
+      "option": [
+        {
+          "price": "81.24",
+          "weight": 90,
+          "id": 45
+        },
+        {
+          "price": "64.44",
+          "weight": 70,
+          "id": 46
+        }
+      ]
+    },
+    {
+      "product_name": "Wil Ruby Syd cheese",
+      "description": " milky flavor and smooth creamy texture to keep even full-fat enthusiasts pleased. Perfect for grilled cheese sandwiches destined to be dipped into tomato soup.milky flavor and smooth creamy texture to keep even full-fat enthusiasts pleased. Perfect for grilled cheese sandwiches destined to be dipped into tomato soup.milky flavor and smooth creamy texture to keep even full-fat enthusiasts pleased. Perfect for grilled cheese sandwiches destined to be dipped into tomato soup.",
+      "thumbmail_image": "https://images.unsplash.com/photo-1550950158-d0d960dff51b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTl8fGNoZWVzZXx8MHwyfHx8MTYyNTYzNzQ5NQ&ixlib=rb-1.2.1&q=80&w=1080",
+      "option": [
+        {
+          "price": "35.08",
+          "weight": 60,
+          "id": 198
+        },
+        {
+          "price": "11.55",
+          "weight": 70,
+          "id": 199
+        }
+      ]
+    },
+    {
+      "product_name": "Herb and Garlic Whirl",
+      "description": " creamy and delicate. A true American original invented according to Gold Rush lore by David Jacks in the 49er boomtown of Monterey California. Monterey Jack melts beautifully on cheeseburgers over nachos and in quesadillas.",
+      "thumbmail_image": "https://cdn11.bigcommerce.com/s-8hw6y8no/images/stencil/1280x1280/products/1325/2916/Product_Listing_Web_Herb_and_Garlic_Whirl_Main_20210603__49071.1623115265.jpg?c=2",
+      "option": [
+        {
+          "price": "47.16",
+          "weight": 70,
+          "id": 6
+        },
+        {
+          "price": "51.97",
+          "weight": 90,
+          "id": 7
+        }
+      ]
+    }
+  ]
+}

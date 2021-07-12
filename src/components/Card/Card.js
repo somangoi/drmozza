@@ -3,11 +3,20 @@ import './Card.scss';
 
 export default class Card extends Component {
   render() {
-    const { thumbnail, name, price } = this.props;
+    const {
+      thumbnail,
+      hoverImg,
+      stock,
+      currntItem,
+      name,
+      option,
+      price,
+      rating,
+    } = this.props;
     return (
       <div className="cardContainer">
         <div className="cardImage">
-          <img src={thumbnail} alt="productThumbnail" />
+          <img src={thumbnail} alt="productImg" />
         </div>
         <div className="cardTag">
           <div className="cheeseName">{name}</div>
@@ -20,7 +29,7 @@ export default class Card extends Component {
           <i className="fas fa-star"></i>
           <i className="fas fa-star"></i>
         </div>
-        <button>ADD TO BAG</button>
+        <button>{stock > 0 ? 'ADD TO BAG' : 'SOLD OUT'}</button>
       </div>
     );
   }
