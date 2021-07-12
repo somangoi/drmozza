@@ -15,7 +15,6 @@
     margin: 0 auto;
     font-size: 25px;
     background-color: white;
-    // position: relative;
 
     .navLogo {
       flex: 1;
@@ -41,15 +40,10 @@
       }
 
       .dropDownMilk {
-        // position: relative;
-        // display: flex;
-
         &:hover .dropDownMilkList {
           display: flex;
           justify-content: center;
           left: 0;
-          // width: 100vw;
-          // position: absolute;
         }
 
         .dropDownMilkList {
@@ -59,13 +53,10 @@
 
       .dropDownStyle {
         position: relative;
-        // display: flex;
 
         &:hover .dropDownStyeList {
           display: flex;
           justify-content: center;
-          // left: 0;
-          // width: 100vw;
           position: absolute;
         }
 
@@ -76,14 +67,11 @@
 
       .dropDownCountries {
         position: relative;
-        // display: flex;
 
         &:hover .dropDownCountriesList {
           display: flex;
           justify-content: center;
           left: 20px;
-          // left: 0;
-          // width: 100vw;
           position: absolute;
         }
 

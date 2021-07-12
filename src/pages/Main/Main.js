@@ -29,7 +29,7 @@ export default class Main extends Component {
 
   render() {
     const { milkList, styleList, countriesList } = this.state;
-    console.log(`this.state`, this.state);
+
     return (
       <>
         <div className="navWrapper">
