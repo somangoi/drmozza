@@ -34,7 +34,7 @@ export default class Login extends Component {
       chkPwd(password) &&
       chkAddress(address)
     ) {
-      fetch(`${SIGNUP_API}/accounts/signup`, {
+      fetch(SIGNUP_API, {
         method: 'POST',
         body: JSON.stringify({ name, email, password, address }),
       }).then(res => {
