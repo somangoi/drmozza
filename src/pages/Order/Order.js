@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Nav from '../../components/Nav/Nav';
-import Footer from '../../components/Footer/Footer';
 import Address from './Address/Address';
 import Orderlist from './Orderlist/Orderlist';
 import './Order.scss';
@@ -12,6 +11,20 @@ class Order extends Component {
     zip: '',
     address: '',
     isDaumPost: false,
+    cartList: [
+      {
+        product_name: 'Herb and Garlic Whirl',
+        thumbnail_image_url:
+          'https://cdn11.bigcommerce.com/s-8hw6y8no/images/stencil/1280x1280/products/1325/2916/Product_Listing_Web_Herb_and_Garlic_Whirl_Main_20210603__49071.1623115265.jpg?c=2',
+        product_id: 4,
+        option_id: 6,
+        weight: 70,
+        price: 47.16,
+        quantity: 10,
+        stocks: 54278,
+        availability: true,
+      },
+    ],
   };
 
   currency = number => {
@@ -45,7 +58,10 @@ class Order extends Component {
   };
 
   render() {
-    const { name, email, zip, address, isDaumPost } = this.state;
+    const { name, email, zip, address, isDaumPost, cartList } = this.state;
+    const total = cartList
+      .map(cart => cart.price * cart.quantity)
+      .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
     return (
       <>
         <Nav />
@@ -124,11 +140,33 @@ class Order extends Component {
                 </button>
               </div>
             </div>
-            <div className="orderList">
-              <Orderlist />
-            </div>
+            <ul className="orderList">
+              <div className="listTitle">CART LIST</div>
+              {cartList.map((cartlist, idx) => {
+                return (
+                  <Orderlist
+                    key={cartlist.option_id}
+                    idx={idx}
+                    cartList={cartlist}
+                  />
+                );
+              })}
+              <div className="shippingTotal">
+                <div className="subTotalArea">
+                  <div className="subTotalText">SUBTOTAL</div>
+                  <div className="totalPrice">{this.currency(total)}</div>
+                </div>
+                <div className="shippingArea">
+                  <div className="shippingText">SHIPPING</div>
+                  <div className="shippingPrice">Calculated at next step</div>
+                </div>
+              </div>
+              <div className="finalPriceArea">
+                <div className="finalTotal">TOTAL</div>
+                <div className="finalPrice">{this.currency(total)}</div>
+              </div>
+            </ul>
           </div>
-          <Footer />
         </div>
       </>
     );

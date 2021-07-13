@@ -25,7 +25,7 @@ const Address = ({ setAddress }, isDaumPost) => {
   const modalStyle = {
     position: 'absolute',
     top: '140px',
-    left: '763px',
+    left: '540px',
     zIndex: '1000',
     border: '1px solid #000000',
     overflow: 'hidden',

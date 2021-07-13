@@ -120,5 +120,69 @@
   }
   .orderList {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .listTitle {
+      width: 395px;
+      justify-content: center;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: 0.6px;
+    }
+
+    .shippingTotal {
+      display: flex;
+      flex-direction: column;
+      padding: 24px 0;
+      margin: 20px 0 0 50px;
+      width: 395px;
+      border-top: 1px solid #d3d3d3;
+      border-bottom: 1px solid #d3d3d3;
+
+      .subTotalArea {
+        display: flex;
+        justify-content: space-between;
+
+        .subTotalText {
+          font-size: 12px;
+          font-weight: 500;
+          letter-spacing: 0.4px;
+        }
+
+        .totalPrice {
+          font-size: 12px;
+          font-weight: 300;
+          letter-spacing: 0.8px;
+        }
+      }
+
+      .shippingArea {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 14px;
+
+        .shippingText {
+          font-size: 12px;
+          font-weight: 500;
+          letter-spacing: 1px;
+        }
+
+        .shippingPrice {
+          font-size: 12px;
+          font-weight: 300;
+          letter-spacing: 0.8px;
+        }
+      }
+    }
+  }
+  .finalPriceArea {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0;
+    margin: 20px 0 0 50px;
+    width: 395px;
   }
 }

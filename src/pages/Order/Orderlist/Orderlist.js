@@ -12,19 +12,19 @@ class Orderlist extends Component {
   };
 
   render() {
+    const { product_name, thumbnail_image_url, price, quantity, weight } =
+      this.props.cartList;
     return (
       <div className="cartForOrder">
-        <div className="listTitle">CART LIST</div>
         <div className="shoppingList">
           <div className="OrderItemImg">
-            <img
-              className="itemImg"
-              src="https://cdn11.bigcommerce.com/s-8hw6y8no/images/stencil/1280x1280/products/1263/2638/Product_Listing_Web_Cheese_Lapis_-_Front_20210401__49663.1618298725.jpg?c=2"
-              alt="itemImg"
-            />
-            <div className="orderQuantity">1</div>
-            <div className="orderItemName">Cheese Lapis</div>
-            <div className="itemPrice">{this.currency(10)}</div>
+            <img className="itemImg" src={thumbnail_image_url} alt="itemImg" />
+            <div className="orderQuantity">{quantity}</div>
+            <div className="orderItemName">
+              {product_name}
+              <div className="itemWeight">{weight}g</div>
+            </div>
+            <div className="itemPrice">{this.currency(price)}</div>
           </div>
         </div>
       </div>
