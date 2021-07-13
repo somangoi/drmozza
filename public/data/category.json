@@ -1,132 +1,119 @@
 {
-  "MESSAGE": {
-    "SUCCESS": [
-      "result",
-      {
-        "categories": [
-          {
-            "id": 1,
-            "category_name": "cow",
-            "category_image_url": "https://images.unsplash.com/photo-1583308148203-85053ccd905f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-            "category_description": "Cow milk cheeses are as varied and rich as the producers who make them around the world. Starting with a base of rich, mild cow's milk, cheesemakers then let their imaginations lose to create cheeses that can be creamy and sweet, hard and salty, and everything in between"
-          }
-        ]
-      },
-      {
-        "products": [
-          [
-            {
-              "id": 7,
-              "name": "Cheese Lapis",
-              "category_name": "cow",
-              "category_description": "Cellars at Jasper Hill's master cheesemaker, Mateo Kehler, provides his expertise and his cheese cave for 60 quarterly wheels of this special-selected cave-matured 12-month-old clothbound cheddar. Kehler's climate-controlled caves and years of knowledge transform Cabot's cows' milk wheels into a things of beauty, full of sharp caramel notes.",
-              "thumbnail": "https://cdn11.bigcommerce.com/s-8hw6y8no/images/stencil/1280x1280/products/1263/2638/Product_Listing_Web_Cheese_Lapis_-_Front_20210401__49663.1618298725.jpg?c=2",
-              "hover": "https://images-na.ssl-images-amazon.com/images/I/71I2X-I9ASL._AC_SL1500_.jpg",
-              "score": "2.5",
-              "sales": 96195,
-              "price": 57
-            },
-            {
-              "id": 34,
-              "name": "Pickwick Cheddar with Caramelised Onion",
-              "category": "cow",
-              "description": "This soft cheese made from goat's milk is a marriage of chèvre and brie that's an approachable variation for soft-cheese lovers. Produced in the beautiful countryside of the Périgord region of France, the Pico Affiné boasts aromatics of fresh hay with a slightly tangy taste and earthy flavor. We think it pairs best with a glass of fruit-forward sparkling white wine.",
-              "thumbnail": "https://images.unsplash.com/photo-1566454825481-4e48f80aa4d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8NHx8Y2hlZXNlfHwwfDJ8fHwxNjI1NjM3NDk1&ixlib=rb-1.2.1&q=80&w=1080",
-              "hover": "https://images.unsplash.com/photo-1566454825481-4e48f80aa4d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8NHx8Y2hlZXNlfHwwfDJ8fHwxNjI1NjM3NDk1&ixlib=rb-1.2.1&q=80&w=1080",
-              "score": "1.8",
-              "sales": 91069,
-              "price": 57
-            },
-            {
-              "id": 26,
-              "name": "Ash Goat Pyramid 'Janier'",
-              "category": "cow",
-              "description": "This award-winning sheep and cow's milk cheese is made thanks to the combined efforts of Old Chatham's sheep and their neighbor's BGH-free cows. Named for owner Nancy Clark, this cheese is a delightful addition to a cheese plate and goes well in salads or wrapped up in phyllo sheets.",
-              "thumbnail": "https://images.unsplash.com/photo-1561043433-9265f73e685f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTZ8fGNoZWVzZXx8MHwyfHx8MTYyNTYzNzQ5NQ&ixlib=rb-1.2.1&q=80&w=1080",
-              "hover": "https://images.unsplash.com/photo-1561043433-9265f73e685f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTZ8fGNoZWVzZXx8MHwyfHx8MTYyNTYzNzQ5NQ&ixlib=rb-1.2.1&q=80&w=1080",
-              "score": "4.6",
-              "sales": 86220,
-              "price": 57
-            },
-            {
-              "id": 21,
-              "name": "Pecorino Romano",
-              "category": "cow",
-              "description": "This traditional soft cheese is made from cow's milk in the Burgundy region of France. Its creamy texture, full flavor, and truffle taste make it an approachable and versatile cheese that can hold its own on any cheeseboard. Pair with a chardonnay or rosé and enjoy with apple slices, grapes, nuts, and crackers.",
-              "thumbnail": "https://images.unsplash.com/photo-1562898616-c98aa0ccf42a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTF8fGNoZWVzZXx8MHwyfHx8MTYyNTYzNzQ5NQ&ixlib=rb-1.2.1&q=80&w=1080",
-              "hover": "https://images.unsplash.com/photo-1562898616-c98aa0ccf42a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTF8fGNoZWVzZXx8MHwyfHx8MTYyNTYzNzQ5NQ&ixlib=rb-1.2.1&q=80&w=1080",
-              "score": "1.2",
-              "sales": 81881
-            },
-            {
-              "id": 27,
-              "name": "Fine Fleur de Celles",
-              "category": "cow",
-              "description": "Little Hosmer is a pasteurized soft cheese with a bloomy rind. The paste is soft and supple, but not runny. (from Cellars at Jasper Hill)",
-              "thumbnail": "https://images.unsplash.com/photo-1606736692995-d03f14de3d3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTd8fGNoZWVzZXx8MHwyfHx8MTYyNTYzNzQ5NQ&ixlib=rb-1.2.1&q=80&w=1080",
-              "hover": "https://images.unsplash.com/photo-1606736692995-d03f14de3d3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTd8fGNoZWVzZXx8MHwyfHx8MTYyNTYzNzQ5NQ&ixlib=rb-1.2.1&q=80&w=1080",
-              "score": "1.8",
-              "sales": 81411,
-              "price": 57
-            },
-            {
-              "id": 60,
-              "name": "Gouda with Truffles",
-              "category": "cow",
-              "description": "Aged six months, FreshDirect Sharp Cheddar Cheese is naturally lactose free, gluten-free and has a bold, rich flavor. It's smooth and creamy, making it perfect for snacking and melting in your favorite recipes.",
-              "thumbnail": "https://images.unsplash.com/photo-1604296706014-1780746d6f57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTB8fGNoZWVzZXx8MHwyfHx8MTYyNTYzNzQ5NQ&ixlib=rb-1.2.1&q=80&w=1080",
-              "hover": "https://images.unsplash.com/photo-1604296706014-1780746d6f57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTB8fGNoZWVzZXx8MHwyfHx8MTYyNTYzNzQ5NQ&ixlib=rb-1.2.1&q=80&w=1080",
-              "score": "2.1",
-              "sales": 77495,
-              "price": 57
-            },
-            {
-              "id": 80,
-              "name": "Black Summer Truffle Chevre",
-              "category": "cow",
-              "description": "A game-changing cheese! Aged 6-9 months, this goat gouda from Holland exudes a delightful caramel aroma and buttery taste. To ensure a fuller flavor, the wheels are aged in caves with higher-than-normal ambient temperatures. It pairs beautifully with mellow white wines or slightly sweet amber ales.",
-              "thumbnail": "https://images.unsplash.com/photo-1604296706014-1780746d6f57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTB8fGNoZWVzZXx8MHwyfHx8MTYyNTYzNzQ5NQ&ixlib=rb-1.2.1&q=80&w=1080",
-              "hover": "https://images.unsplash.com/photo-1604296706014-1780746d6f57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTB8fGNoZWVzZXx8MHwyfHx8MTYyNTYzNzQ5NQ&ixlib=rb-1.2.1&q=80&w=1080",
-              "score": "2.7",
-              "sales": 72943,
-              "price": 57
-            },
-            {
-              "id": 39,
-              "name": "Wensleydale with Cranberries",
-              "category": "cow",
-              "description": "Produced in Holland exclusively for the Cypress Grove Dairy in California, Midnight Moon® is the delicious result of the collaboration between Dutch cheesemakers and Cypress Grove founder Mary Keehn. A goat's milk tribute to gouda, this delightful cheese is crumbly, sweet, nutty and grassy. Definitely a cheese to savor on its own, but if you must embellish, try it broken into chunks and spread with just a touch of white fig spread.",
-              "thumbnail": "https://images.unsplash.com/photo-1580981001482-61a9db9b8396?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8OXx8Y2hlZXNlfHwwfDJ8fHwxNjI1NjM3NDk1&ixlib=rb-1.2.1&q=80&w=1080",
-              "hover": "https://images.unsplash.com/photo-1580981001482-61a9db9b8396?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8OXx8Y2hlZXNlfHwwfDJ8fHwxNjI1NjM3NDk1&ixlib=rb-1.2.1&q=80&w=1080",
-              "score": "3.2",
-              "sales": 72145,
-              "price": 57
-            },
-            {
-              "id": 52,
-              "name": "Snowdonia Amber Mist Cheddar with Whisky",
-              "category": "cow",
-              "description": "Young Beemster Gouda studded with genuine truffles and no artificial flavors. Rich, nutty, and earthy with a smooth, buttery texture. (from Beemster)",
-              "thumbnail": "https://images.unsplash.com/photo-1597530237719-cdc76f3dc96d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8Mnx8Y2hlZXNlfHwwfDJ8fHwxNjI1NjM3NDk1&ixlib=rb-1.2.1&q=80&w=1080",
-              "hover": "https://images.unsplash.com/photo-1597530237719-cdc76f3dc96d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8Mnx8Y2hlZXNlfHwwfDJ8fHwxNjI1NjM3NDk1&ixlib=rb-1.2.1&q=80&w=1080",
-              "score": "2.9",
-              "sales": 68438,
-              "price": 57
-            },
-            {
-              "id": 53,
-              "name": "Gouda with Caramel",
-              "category": "cow",
-              "description": "Beemster Farmers' Choice is the most consumed cheese in the Netherlands! This is a great crowd-pleaser because it's creamy and buttery, and at the same time, the 6-months age gives it that bit of tanginess on the finish and some complexity. A beautiful golden yellow interior, smooth and semi-firm. Beemster Farmers' Choice is a perfect introduction to Gouda-style cheeses for the newbie, and the connoisseur will love the classic flavor. (from Beemster)",
-              "thumbnail": "https://images.unsplash.com/photo-1608666566023-e91b02683a5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8Y2hlZXNlfHwwfDJ8fHwxNjI1NjM3NDk1&ixlib=rb-1.2.1&q=80&w=1080",
-              "hover": "https://images.unsplash.com/photo-1608666566023-e91b02683a5f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8M3x8Y2hlZXNlfHwwfDJ8fHwxNjI1NjM3NDk1&ixlib=rb-1.2.1&q=80&w=1080",
-              "score": "1.4",
-              "sales": 68277,
-              "price": 57
-            }
-          ]
-        ]
-      }
-    ]
+  "results": {
+    "milk": {
+      "menu_id": 1,
+      "categories": [
+        {
+          "category_id": 1,
+          "category_name": "cow",
+          "category_image_url": "https://images.unsplash.com/photo-1583308148203-85053ccd905f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+          "category_description": "Cow milk cheeses are as varied and rich as the producers who make them around the world. Starting with a base of rich, mild cow's milk, cheesemakers then let their imaginations lose to create cheeses that can be creamy and sweet, hard and salty, and everything in between"
+        },
+        {
+          "category_id": 2,
+          "category_name": "sheep",
+          "category_image_url": "https://images.unsplash.com/photo-1511117833895-4b473c0b85d6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+          "category_description": "Sheep milk cheese is a cheese prepared from sheep milk. Well-known cheeses made from sheep milk include the Feta of Greece, Roquefort of France, Manchego from Spain, the Pecorino Romano and Ricotta of Italy."
+        },
+        {
+          "category_id": 3,
+          "category_name": "goat",
+          "category_image_url": "https://images.unsplash.com/photo-1588466585717-f8041aec7875?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1867&q=80",
+          "category_description": "Goat cheese, or chevre (/Àà É…õvr…ô/ or /Àà É…õv/; from the French word for goat), is cheese made from goat's milk."
+        }
+      ]
+    },
+    "style": {
+      "menu_id": 2,
+      "categories": [
+        {
+          "category_id": 4,
+          "category_name": "fruit & savoury",
+          "category_image_url": "https://images.unsplash.com/photo-1499192424706-82662b9911f3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+          "category_description": "Sure, sweet fruit shines in desserts like crisps or cookies, but sometimes I just want to switch it up."
+        },
+        {
+          "category_id": 5,
+          "category_name": "soft",
+          "category_image_url": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1953&q=80",
+          "category_description": "Soft cheeses really offer a highly rich and unique taste, flavor, and aroma to every cheese connoisseur out there."
+        },
+        {
+          "category_id": 6,
+          "category_name": "hard",
+          "category_image_url": "https://images.unsplash.com/photo-1559560923-3b80329ea420?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2689&q=80",
+          "category_description": "Hard cheese has distinctive robust, concentrated flavours. It also keeps very well due to its lack of moisture. The longer hard cheese is aged, the more flavour and character it develops."
+        },
+        {
+          "category_id": 7,
+          "category_name": "blue",
+          "category_image_url": "https://images.unsplash.com/photo-1452195100486-9cc805987862?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80",
+          "category_description": "Blue cheese or bleu cheese is cheese made with cultures of the mold Penicillium, giving it spots or veins of the mold throughout the cheese, which can vary in color through various shades of blue and green. "
+        }
+      ]
+    },
+    "countries": {
+      "menu_id": 3,
+      "categories": [
+        {
+          "category_id": 8,
+          "category_name": "france",
+          "category_image_url": "https://images.unsplash.com/photo-1462837019796-6f0204b48d95?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGZyYW5jZSUyMGNoZWVzZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+          "category_description": "If French cheese for you just means brie, camembert, roquefort and the \"stuff that looks like cheddar or gouda\" in the local supermarch√© when you're on holiday, then you don't know what you're missing!"
+        },
+        {
+          "category_id": 9,
+          "category_name": "united kingdom",
+          "category_image_url": "https://images.unsplash.com/photo-1552767059-ce182ead6c1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80",
+          "category_description": "UK Cheese became popular overseas in the ‚Äô90s, after a group of British growers going by the name of Exodus reportedly took a phenotype of Skunk #1 and bred it to pull out more creamy, sweet notes. "
+        },
+        {
+          "category_id": 10,
+          "category_name": "netherlands",
+          "category_image_url": "https://images.unsplash.com/photo-1517999586990-2126f2b0c97d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+          "category_description": "The Dutch produce 650 million kilos of cheese every year. Two third is exported, which makes Holland the largest cheese exporter in the world."
+        },
+        {
+          "category_id": 11,
+          "category_name": "italy",
+          "category_image_url": "https://images.unsplash.com/photo-1608666565775-65cb1097627f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1976&q=80",
+          "category_description": "Italy is a country known for its great variety of cheeses, from the familiar soft cheeses such as mozzarella and harder varieties like Parmesan, as well as some types that you might be less familiar with."
+        },
+        {
+          "category_id": 12,
+          "category_name": "spain",
+          "category_image_url": "https://images.unsplash.com/photo-1577917632595-70b90d4db7e9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fGNoZWVzZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+          "category_description": "Want to know more about Spanish Cheese? Here‚Äôs a list of the most popular types of cheeses from Spain with a description of each one and more information about where they are from and their characteristics. "
+        },
+        {
+          "category_id": 13,
+          "category_name": "swiss",
+          "category_image_url": "https://images.unsplash.com/photo-1611933195643-bcc1ededbc24?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzF8fGNoZWVzZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+          "category_description": "Cheeses from Switzerland are popular all over the world ‚Äì for its unique flavour and undisputed quality."
+        }
+      ]
+    },
+    "all": {
+      "menu_id": 4,
+      "categories": [
+        {
+          "category_id": 14,
+          "category_name": "all",
+          "category_image_url": "https://images.unsplash.com/photo-1597530237719-cdc76f3dc96d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+          "category_description": "You can’t make everyone happy. You’re not cheese."
+        }
+      ]
+    },
+    "bestsellers": {
+      "menu_id": 5,
+      "categories": [
+        {
+          "category_id": 15,
+          "category_name": "bestsellers",
+          "category_image_url": "https://images.unsplash.com/photo-1577917632595-70b90d4db7e9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80",
+          "category_description": "Shop Dr.Mozza's best cheese products to keep healthy and happy."
+        }
+      ]
+    }
   }
 }

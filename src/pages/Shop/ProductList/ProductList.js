@@ -5,16 +5,20 @@ import './ProductList.scss';
 class ProductList extends Component {
   render() {
     const { productList } = this.props;
-    console.log(productList);
     return (
       <div className="productGrid">
-        {productList.map(product => {
+        {productList.map((product, idx) => {
           return (
             <Card
-              key={product.id}
+              key={product.product_id}
+              id={idx}
               thumbnail={product.thumbnail}
-              name={product.name}
+              hoverImage={product.hover_image}
+              name={product.product_name}
               price={product.price}
+              stocks={product.stocks}
+              option={product.option}
+              score={product.score}
             />
           );
         })}

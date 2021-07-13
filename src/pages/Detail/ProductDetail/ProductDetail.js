@@ -43,16 +43,14 @@ export default class ProductDetail extends Component {
         <nav className="detailNav">
           <span>
             Products /{' '}
-            {categoryList.map(category => {
-              return (
-                <Link
-                  to={'/products?category=' + category.category_id}
-                  key={category.category_id}
-                >
-                  <span>{category.category_name} </span>
-                </Link>
-              );
-            })}{' '}
+            {
+              <Link
+                to={'/products?category=' + categoryList.category_id}
+                key={categoryList.category_id}
+              >
+                <span>{categoryList.category_name} </span>
+              </Link>
+            }{' '}
             / {product_name}
           </span>
         </nav>

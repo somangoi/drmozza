@@ -15,7 +15,7 @@ export default class Detail extends Component {
   constructor() {
     super();
     this.state = {
-      categoryList: [],
+      categoryList: {},
       currentCategory: {},
       imgList: [],
       productName: '',
@@ -30,13 +30,20 @@ export default class Detail extends Component {
   }
 
   componentDidMount() {
+    fetch('/data/category.json')
+      .then(res => res.json())
+      .then(menu => {
+        this.setState({
+          categoryList: menu.results.milk.categories[0],
+        });
+      });
+
     fetch('/data/detail.json', { method: 'GET' })
       .then(res => {
         return res.json();
       })
       .then(detail => {
         this.setState({
-          categoryList: detail.RESULT.categories,
           currentCategory: detail.RESULT.categories[0],
           imgList: detail.RESULT.image_urls,
           productName: detail.RESULT.product_name,
@@ -52,10 +59,8 @@ export default class Detail extends Component {
   }
 
   render() {
-    console.log(this.state);
     const {
       categoryList,
-      currentCategory,
       imgList,
       productName,
       summary,
@@ -83,8 +88,8 @@ export default class Detail extends Component {
             <ProductFunc />
             <PromotionImg descriptionImage={descriptionImage} />
             <Routine routineList={routineList} productName={productName} />
-            {isValidObject.isValidObject(currentCategory) && (
-              <CategoryImg currentCategory={currentCategory} />
+            {isValidObject.isValidObject(categoryList) && (
+              <CategoryImg categoryList={categoryList} />
             )}
             <CompareProduct compareList={compareList} />
           </article>

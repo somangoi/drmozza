@@ -5,6 +5,8 @@ import Sort from './Sort/Sort';
 import SideMenuList from './SideMenuList/SideMenuList';
 import ProductList from './ProductList/ProductList';
 import Footer from '../../components/Footer/Footer';
+import * as isValidObject from '../../../src/utils';
+
 import '../Shop/Shop.scss';
 
 export default class Shop extends Component {
@@ -12,30 +14,39 @@ export default class Shop extends Component {
     super(props);
 
     this.state = {
-      currentCategory: {},
+      categoryList: {},
       productList: [],
     };
   }
 
   componentDidMount() {
+    // fetch(`/data/category.json/${this.menu_id}/${this.category_id}`)
     fetch('/data/category.json')
+      .then(res => res.json())
+      .then(menu => {
+        this.setState({
+          categoryList: menu.results.milk.categories[0],
+        });
+      });
+
+    fetch(`/data/shop.json`)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          currentCategory: data.MESSAGE.SUCCESS[1].categories[0],
-          productList: data.MESSAGE.SUCCESS[2].products[0],
+          productList: data.results,
         });
       });
   }
 
   render() {
-    const { currentCategory, productList } = this.state;
-    console.log(this.state.productList);
+    const { categoryList, productList } = this.state;
     return (
       <div>
         <Nav />
         <main className="shopContainer">
-          <CategoryImg currentCategory={currentCategory} />
+          {isValidObject.isValidObject(categoryList) && (
+            <CategoryImg categoryList={categoryList} />
+          )}
           <section className="shopBody">
             <aside className="shopAside">
               <ul className="sideMenuTop">

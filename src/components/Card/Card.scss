@@ -1,17 +1,37 @@
 @import '../../styles/variable.scss';
+@mixin btn {
+  padding: 10px 0;
+  border: 1px solid black;
+  cursor: pointer;
+}
 
 .cardContainer {
-  cursor: pointer;
-
+  margin: 0 auto;
   .cardImage {
     width: 300px;
     height: 300px;
     cursor: pointer;
+    position: relative;
 
-    img {
+    .thumbnailImage {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    .hoverImage {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.5s linear;
+      object-fit: cover;
+    }
+
+    &:hover .hoverImage {
+      opacity: 1;
     }
   }
 
@@ -36,12 +56,49 @@
 
   .starRatings {
     padding: 10px 0;
+
+    i {
+      color: #fec600;
+      padding-right: 5px;
+    }
   }
 
-  button {
-    width: 300px;
-    padding: 18px 0;
-    border: 1px solid black;
-    cursor: pointer;
+  .btnWrapper {
+    opacity: 0;
+
+    .btnOptionWrapper {
+      @include display-flex(space-between, center);
+      margin-bottom: 5px;
+
+      .btnOption {
+        @include btn;
+        display: block;
+        width: 100%;
+        margin-right: 5px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .btnStatic {
+      @include btn;
+      width: 300px;
+      transition: opacity 0.5s linear;
+    }
+  }
+
+  &:hover .btnWrapper {
+    opacity: 1;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
   }
 }

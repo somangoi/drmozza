@@ -10,7 +10,6 @@ export default class Gallery extends Component {
   }
 
   changeImg = idx => {
-    console.log('clicked');
     this.setState({ select: idx });
   };
 
