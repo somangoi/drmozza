@@ -1,10 +1,34 @@
 .carouselInner {
-  height: 70vh;
-  width: 100vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  .carouselTitle {
+    position: absolute;
+    width: 30vw;
+    right: 0;
+    margin-top: 35vh;
+    padding: 10px 40px 10px 15px;
+    background-color: rgb(219, 219, 219);
+    opacity: 80%;
+
+    p {
+      padding-bottom: 4vh;
+      font-size: 40px;
+      font-weight: 350;
+    }
+
+    span {
+      width: 30vw;
+      font-size: 20px;
+      font-weight: 200;
+    }
+  }
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 70vh;
     object-fit: cover;
   }
 }

@@ -38,18 +38,59 @@
       justify-content: space-between;
       width: 1240px;
       height: 100%;
-      padding: 60px 0;
+      padding: 100px 0;
     }
   }
 
-  .slideScd {
-    height: 544px;
-    margin: 30px 0;
-    background-color: rgb(125, 175, 125);
+  .bestSeller {
+    padding-top: 60px;
+    padding-bottom: 20px;
+    width: 1252px;
+    font-size: 25px;
+    font-weight: 600;
+  }
+
+  .dragWrapper {
+    @include display-flex(center, center);
+
+    .dragbuttonWrapper {
+      @include display-flex(space-between, center);
+      position: absolute;
+      height: 400px;
+      width: 90vw;
+      padding: 0 30px;
+      color: #dfdfdf;
+      opacity: 60%;
+      // z-index: 0;
+    }
+
+    .dragBox {
+      position: relative;
+      width: 1252px;
+      overflow: hidden;
+
+      p {
+        padding-top: 100px;
+        padding-bottom: 10px;
+        font-size: 25px;
+        font-weight: 500;
+      }
+
+      .dragFstWrapper {
+        display: flex;
+        width: fit-content;
+        transition: 0.2s;
+
+        .dragCardWrapper {
+          margin-right: 13px;
+        }
+      }
+    }
   }
 
   .alignAd {
     @include display-flex(center, center);
     width: 100vw;
+    padding-top: 60px;
   }
 }

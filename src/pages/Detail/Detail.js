@@ -52,7 +52,6 @@ export default class Detail extends Component {
   }
 
   render() {
-    console.log(this.state);
     const {
       categoryList,
       currentCategory,

@@ -1,36 +1,94 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import './Card.scss';
-
-export default class Card extends Component {
+class Card extends Component {
+  constructor() {
+    super();
+    this.state = {
+      optionBtn: false,
+      chooseSize: true,
+    };
+  }
+  btnHandler = () => {
+    this.setState({
+      optionBtn: true,
+    });
+  };
+  changeSize = () => {
+    this.setState({
+      chooseSize: !this.state.chooseSize,
+    });
+  };
+  addToCart = () => {
+    alert('take me home');
+  };
   render() {
-    const {
-      thumbnail,
-      hoverImg,
-      stock,
-      currntItem,
-      name,
-      option,
-      price,
-      rating,
-    } = this.props;
+    const { thumbnail, name, option, score, id, hoverImg } = this.props;
+    const { optionBtn, chooseSize } = this.state;
     return (
       <div className="cardContainer">
-        <div className="cardImage">
-          <img src={thumbnail} alt="productImg" />
+        <Link to={`/detail/${id}`}>
+          <div className="cardImage">
+            <img src={thumbnail} alt="productImg" className="thumbnailImage" />
+            <img src={hoverImg} alt="productImg" className="hoverImage" />
+          </div>
+          <div className="cardTag">
+            <div className="cheeseName">{name}</div>
+            <div className="cheesePrice">
+              ${chooseSize ? option[0].price : option[1].price}
+            </div>
+          </div>
+          <div className="starRatings">
+            <i className="fas fa-star" />
+            <span>{score}</span>
+          </div>
+        </Link>
+        <div className="btnWrapper">
+          {option[1] ? (
+            <>
+              <button
+                className={optionBtn ? 'btnStatic hide' : 'btnStatic '}
+                onClick={this.btnHandler}
+              >
+                CHOOSE SIZE
+              </button>
+            </>
+          ) : (
+            <>
+              <button className="btnStatic">ADD TO CART</button>
+            </>
+          )}
+          {optionBtn ? (
+            <>
+              <div
+                className={
+                  optionBtn ? 'btnOptionWrapper' : 'btnOptionWrapper hide'
+                }
+              >
+                <button
+                  className={chooseSize ? 'btnOption chosen' : 'btnOption '}
+                  onClick={this.changeSize}
+                >
+                  {option[0].weight}g
+                </button>
+                <button
+                  className={chooseSize ? 'btnOption ' : 'btnOption chosen'}
+                  onClick={this.changeSize}
+                >
+                  {option[1].weight}g
+                </button>
+              </div>
+              <button className="btnStatic" onClick={this.addToCart}>
+                {optionBtn ? 'ADD TO CART' : 'CHOOSE SIZE'}
+              </button>
+            </>
+          ) : (
+            <></>
+          )}
         </div>
-        <div className="cardTag">
-          <div className="cheeseName">{name}</div>
-          <div className="cheesePrice">${price}</div>
-        </div>
-        <div className="starRatings">
-          <i className="fas fa-star"></i>
-          <i className="fas fa-star"></i>
-          <i className="fas fa-star"></i>
-          <i className="fas fa-star"></i>
-          <i className="fas fa-star"></i>
-        </div>
-        <button>{stock > 0 ? 'ADD TO BAG' : 'SOLD OUT'}</button>
       </div>
     );
   }
 }
+export default withRouter(Card);

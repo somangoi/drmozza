@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import CardLarge from './CardLarge/CardLarge';
 import Carousel from '../../components/Carousel/Carousel';
-import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import Card from '../../components/Card/Card';
 import CategoryImg from '../../components/CategoryImg/CategoryImg';
@@ -14,21 +13,31 @@ export default class Main extends Component {
 
     this.state = {
       carouselImg: [],
-      sloganImg: [],
+      sloganImg: {},
       cardLarge: [],
+      dragCard: [],
       index: 0,
+      dragIndex: 0,
     };
   }
 
   componentDidMount() {
     fetch('data/CarouselData.json')
-      // fetch('http://192.168.0.3:8000/events')
+      // fetch('http://13.124.4.250:8000/events')
       .then(res => res.json())
       .then(data => {
         this.setState({
           carouselImg: data.results.product_events,
           cardLarge: data.results.category_events,
           sloganImg: data.results.slogan_events,
+        });
+      });
+
+    fetch('data/bestSeller.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          dragCard: data.results[0].products,
         });
       });
   }
@@ -57,12 +66,35 @@ export default class Main extends Component {
     }
   };
 
+  dragClickPrev = () => {
+    if (this.state.dragIndex === 0) {
+      this.setState({
+        dragIndex: 0,
+      });
+    } else {
+      this.setState({
+        dragIndex: this.state.dragIndex - 1,
+      });
+    }
+  };
+
+  dragClickNext = () => {
+    if (this.state.dragIndex === 1) {
+      this.setState({
+        dragIndex: 1,
+      });
+    } else {
+      this.setState({
+        dragIndex: this.state.dragIndex + 1,
+      });
+    }
+  };
+
   render() {
-    const { carouselImg, cardLarge, sloganImg } = this.state;
+    const { carouselImg, cardLarge, sloganImg, dragCard } = this.state;
 
     return (
       <>
-        {/* <Nav /> */}
         <main className="mainContainer">
           <div className="carouselWrapper">
             <div className="slideBox">
@@ -73,7 +105,12 @@ export default class Main extends Component {
                 }}
               >
                 {carouselImg.map(img => (
-                  <Carousel key={img.product_id} img={img.image_url} />
+                  <Carousel
+                    key={img.product_id}
+                    img={img.image_url}
+                    title={img.product_name}
+                    description={img.product_summary}
+                  />
                 ))}
               </ul>
             </div>
@@ -109,38 +146,44 @@ export default class Main extends Component {
             description={sloganImg.slogan}
           />
 
-          <div className="slideScd">드래그 슬라이드2</div>
-
-          <div className="carouselWrapper">
-            <div className="slideBox">
-              <ul
-                className="slideFstWrapper"
-                style={{
-                  transform: `translateX(-${100 * this.state.index}vw)`,
-                }}
-              >
-                {carouselImg.map(img => (
-                  <Carousel key={img.product_id} img={img.image_url} />
-                  // <Card key={img.product_id} img={img.image_url}  />
-                ))}
-              </ul>
-            </div>
-
-            <div className="buttonWrapper">
+          <div className="dragWrapper">
+            <div className="dragbuttonWrapper">
               <i
                 className="fas fa-chevron-left fa-4x"
-                onClick={this.handleClickPrev}
+                onClick={this.dragClickPrev}
               ></i>
               <i
                 className="fas fa-chevron-right fa-4x"
-                onClick={this.handleClickNext}
+                onClick={this.dragClickNext}
               ></i>
+            </div>
+            <div className="dragBox">
+              <p>Dr.Mozza's choices</p>
+              <ul
+                className="dragFstWrapper"
+                style={{
+                  transform: `translateX(-${1252 * this.state.dragIndex}px)`,
+                }}
+              >
+                {dragCard.map(res => (
+                  <div className="dragCardWrapper">
+                    <Card
+                      key={res.product_id}
+                      name={res.product_name}
+                      thumbnail={res.thumbmail_image}
+                      option={res.option}
+                      score={res.score}
+                      id={res.product_id}
+                      hoverImg={res.hover_image}
+                    />
+                  </div>
+                ))}
+              </ul>
             </div>
           </div>
 
           <div className="alignAd">
             <CategoryImg />
-            <Card />
           </div>
         </main>
         <Footer />
