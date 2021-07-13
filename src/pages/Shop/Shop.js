@@ -20,7 +20,8 @@ export default class Shop extends Component {
   }
 
   componentDidMount() {
-    // fetch(`/data/category.json/${this.menu_id}/${this.category_id}`)
+    const API = '';
+    // fetch(`${API}/${this.menu_id}/${this.category_id}`)
     fetch('/data/category.json')
       .then(res => res.json())
       .then(menu => {
@@ -39,6 +40,7 @@ export default class Shop extends Component {
   }
 
   render() {
+    console.log(this.props.location.search);
     const { categoryList, productList } = this.state;
     return (
       <div>

@@ -11,7 +11,7 @@ class ProductList extends Component {
           return (
             <Card
               key={product.product_id}
-              id={idx}
+              id={product.product_id}
               thumbnail={product.thumbnail}
               hoverImage={product.hover_image}
               name={product.product_name}
