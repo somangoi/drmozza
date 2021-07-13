@@ -79,7 +79,6 @@ export default class Main extends Component {
       sloganImg,
       cardLarge,
     } = this.state;
-    console.log(`this.state`, this.state);
 
     return (
       <>

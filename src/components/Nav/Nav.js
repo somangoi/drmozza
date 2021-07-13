@@ -5,7 +5,6 @@ import './Nav.scss';
 export default class Nav extends Component {
   render() {
     const { milkList, styleList, countriesList } = this.props;
-    console.log(`this.props`, this.props);
 
     return (
       <div className="navBox">

@@ -4,7 +4,6 @@ import './DropDownNav.scss';
 export default class DropDownNav extends Component {
   render() {
     const { titleList } = this.props;
-    console.log(`this.props.dropdown`, this.props);
 
     return titleList ? (
       <div className="titleListBox">
