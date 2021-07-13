@@ -14,7 +14,7 @@ export default class Shop extends Component {
     super(props);
 
     this.state = {
-      categoryList: {},
+      currentCategory: {},
       productList: [],
     };
   }
@@ -30,10 +30,10 @@ export default class Shop extends Component {
     //     });
     //   });
 
-    // fetch(`/data/shop.json`)
-    fetch(
-      'http://10.58.4.40:8000/products/products?id=1&offset=3&limit=10&sort_by=price_desc'
-    )
+    fetch(`/data/shop.json`)
+      // fetch(
+      //   'http://10.58.4.40:8000/products/products?id=1&offset=3&limit=10&sort_by=price_desc'
+      // )
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -44,13 +44,13 @@ export default class Shop extends Component {
 
   render() {
     console.log(this.props.location.search);
-    const { categoryList, productList } = this.state;
+    const { currentCategory, productList } = this.state;
     return (
       <div>
         <Nav />
         <main className="shopContainer">
-          {isValidObject.isValidObject(categoryList) && (
-            <CategoryImg categoryList={categoryList} />
+          {isValidObject.isValidObject(currentCategory) && (
+            <CategoryImg currentCategory={currentCategory} />
           )}
           <section className="shopBody">
             <aside className="shopAside">
