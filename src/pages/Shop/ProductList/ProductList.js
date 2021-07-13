@@ -13,7 +13,7 @@ class ProductList extends Component {
               key={product.product_id}
               id={product.product_id}
               thumbnail={product.thumbnail}
-              hoverImage={product.hover_image}
+              hoverImg={product.hover_image}
               name={product.product_name}
               price={product.price}
               stocks={product.stocks}

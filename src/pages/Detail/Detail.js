@@ -15,6 +15,7 @@ export default class Detail extends Component {
   constructor() {
     super();
     this.state = {
+      id: '',
       categoryList: {},
       currentCategory: {},
       imgList: [],
@@ -30,35 +31,41 @@ export default class Detail extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/category.json')
-      .then(res => res.json())
-      .then(menu => {
-        this.setState({
-          categoryList: menu.results.milk.categories[0],
-        });
-      });
+    // fetch('http://10.58.6.15/products')
+    //   .then(res => res.json())
+    //   .then(menu => {
+    //     this.setState({
+    //       categoryList: menu.resultss.milk.categories[0],
+    //     });
+    //   });
 
-    fetch('/data/detail.json', { method: 'GET' })
+    fetch('/data/detail.json')
+      // fetch(`http://10.58.1.65:8000/products/${this.props.match.params.id}`, {
+      //   method: 'GET',
+      // })
       .then(res => {
         return res.json();
       })
       .then(detail => {
         this.setState({
-          currentCategory: detail.RESULT.categories[0],
-          imgList: detail.RESULT.image_urls,
-          productName: detail.RESULT.product_name,
-          optionList: detail.RESULT.option,
-          summary: detail.RESULT.summary,
-          description: detail.RESULT.description,
-          nutritionList: detail.RESULT.nutrition,
-          descriptionImage: detail.RESULT.description_image,
-          routineList: detail.RESULT_ROUTINE,
-          compareList: detail.RESULT_COMPARE,
+          id: detail.results.product.product_id,
+          categoryList: detail.results.product.categories,
+          currentCategory: detail.results.product.categories[0],
+          imgList: detail.results.product.image_urls,
+          productName: detail.results.product.product_name,
+          optionList: detail.results.product.option,
+          summary: detail.results.product.summary,
+          description: detail.results.product.description,
+          nutritionList: detail.results.product.nutrition,
+          descriptionImage: detail.results.product.description_image,
+          routineList: detail.results.routine,
+          compareList: detail.results.compare,
         });
       });
   }
 
   render() {
+    console.log(this.props);
     const {
       categoryList,
       imgList,
@@ -70,6 +77,7 @@ export default class Detail extends Component {
       descriptionImage,
       routineList,
       compareList,
+      currentCategory,
     } = this.state;
     return (
       <>
@@ -88,8 +96,8 @@ export default class Detail extends Component {
             <ProductFunc />
             <PromotionImg descriptionImage={descriptionImage} />
             <Routine routineList={routineList} productName={productName} />
-            {isValidObject.isValidObject(categoryList) && (
-              <CategoryImg categoryList={categoryList} />
+            {isValidObject.isValidObject(currentCategory) && (
+              <CategoryImg currentCategory={currentCategory} />
             )}
             <CompareProduct compareList={compareList} />
           </article>

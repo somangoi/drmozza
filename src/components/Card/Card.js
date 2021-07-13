@@ -29,18 +29,20 @@ class Card extends Component {
   };
 
   render() {
-    const { thumbnail, name, option, score, id, hoverImage } = this.props;
-    const { optionBtn, productOption, chooseSize } = this.state;
+    const { thumbnail, name, option, score, id, hoverImg } = this.props;
+    const { optionBtn, chooseSize } = this.state;
     return (
       <div className="cardContainer">
         <Link to={`/detail/${id}`}>
           <div className="cardImage">
             <img src={thumbnail} alt="productImg" className="thumbnailImage" />
-            <img src={hoverImage} alt="productImg" className="hoverImage" />
+            <img src={hoverImg} alt="productImg" className="hoverImage" />
           </div>
           <div className="cardTag">
             <div className="cheeseName">{name}</div>
-            <div className="cheesePrice">${option[0].price}</div>
+            <div className="cheesePrice">
+              ${chooseSize ? option[0].price : option[1].price}
+            </div>
           </div>
           <div className="starRatings">
             <i className="fas fa-star" />

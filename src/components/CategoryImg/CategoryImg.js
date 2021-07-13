@@ -4,16 +4,16 @@ import './CategoryImg.scss';
 
 class CategoryImg extends Component {
   render() {
-    const { categoryList } = this.props;
+    const { currentCategory } = this.props;
     return (
       <div>
         <div className="categoryWrapper">
           <div className="categoryDesc">
-            <h1>{categoryList.category_name.toUpperCase()} CHEESE</h1>
-            <p>{categoryList.category_description}</p>
+            <h1>{currentCategory.category_name.toUpperCase()} CHEESE</h1>
+            <p>{currentCategory.category_description}</p>
           </div>
           <div className="categoryPic">
-            <img src={categoryList.category_image_url} alt="categoryImg" />
+            <img src={currentCategory.category_image_url} alt="categoryImg" />
           </div>
         </div>
       </div>

@@ -22,18 +22,18 @@ export default class Shop extends Component {
   componentDidMount() {
     // const API = 'http://10.58.4.40:8000';
     // // fetch('http://10.58.4.40:8000/products/products?id=1&offset=1&limit=10')
-    fetch('/data/category.json')
-      .then(res => res.json())
-      .then(menu => {
-        this.setState({
-          categoryList: menu.results.milk.categories[0],
-        });
-      });
+    // fetch('/data/category.json')
+    //   .then(res => res.json())
+    //   .then(menu => {
+    //     this.setState({
+    //       categoryList: menu.results.milk.categories[0],
+    //     });
+    //   });
 
-    fetch(`/data/shop.json`)
-      // fetch(
-      //   'http://10.58.4.40:8000/products/products?id=1&offset=3&limit=10&sort_by=price_desc'
-      // )
+    // fetch(`/data/shop.json`)
+    fetch(
+      'http://10.58.4.40:8000/products/products?id=1&offset=3&limit=10&sort_by=price_desc'
+    )
       .then(res => res.json())
       .then(data => {
         this.setState({
