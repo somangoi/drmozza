@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import Address from './Address/Address';
+import Orderlist from './Orderlist/Orderlist';
 import './Order.scss';
 
 class Order extends Component {
@@ -123,7 +124,9 @@ class Order extends Component {
                 </button>
               </div>
             </div>
-            <div className="orderList"></div>
+            <div className="orderList">
+              <Orderlist />
+            </div>
           </div>
           <Footer />
         </div>
