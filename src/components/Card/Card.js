@@ -91,14 +91,6 @@ class Card extends Component {
           ) : (
             <></>
           )}
-
-          {/* {option[0].stocks === 0 && option[1].stocks === 0 ? (
-            <button className="btnStatic">SOLD OUT</button>
-          ) : (
-            <button className="btnStatic" onClick={this.btnHandler}>
-              ADD TO BAG
-            </button>
-          )} */}
         </div>
       </div>
     );
