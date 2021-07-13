@@ -111,8 +111,36 @@ export default class Main extends Component {
 
           <div className="slideScd">드래그 슬라이드2</div>
 
+          <div className="carouselWrapper">
+            <div className="slideBox">
+              <ul
+                className="slideFstWrapper"
+                style={{
+                  transform: `translateX(-${100 * this.state.index}vw)`,
+                }}
+              >
+                {carouselImg.map(img => (
+                  <Carousel key={img.product_id} img={img.image_url} />
+                  // <Card key={img.product_id} img={img.image_url}  />
+                ))}
+              </ul>
+            </div>
+
+            <div className="buttonWrapper">
+              <i
+                className="fas fa-chevron-left fa-4x"
+                onClick={this.handleClickPrev}
+              ></i>
+              <i
+                className="fas fa-chevron-right fa-4x"
+                onClick={this.handleClickNext}
+              ></i>
+            </div>
+          </div>
+
           <div className="alignAd">
             <CategoryImg />
+            <Card />
           </div>
         </main>
         <Footer />
