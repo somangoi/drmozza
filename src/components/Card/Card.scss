@@ -64,24 +64,29 @@
     }
   }
 
-  .btnWrapper {
-    opacity: 0;
+  .btnOptionWrapper {
+    @include display-flex(space-between, center);
+    margin-bottom: 5px;
 
-    .btnOptionWrapper {
-      @include display-flex(space-between, center);
-      margin-bottom: 5px;
+    .btnOption {
+      @include btn;
+      display: block;
+      width: 100%;
+      margin-right: 5px;
+      opacity: 0.2;
 
-      .btnOption {
-        @include btn;
-        display: block;
-        width: 100%;
-        margin-right: 5px;
-
-        &:last-child {
-          margin-right: 0;
-        }
+      &:last-child {
+        margin-right: 0;
       }
     }
+
+    .chosen {
+      opacity: 1;
+    }
+  }
+
+  .btnWrapper {
+    opacity: 0;
 
     .hide {
       display: none;

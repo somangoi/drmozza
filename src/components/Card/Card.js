@@ -8,18 +8,29 @@ class Card extends Component {
     super();
     this.state = {
       optionBtn: false,
+      chooseSize: true,
     };
   }
 
   btnHandler = () => {
     this.setState({
-      optionBtn: !this.state.optionBtn,
+      optionBtn: true,
     });
+  };
+
+  changeSize = () => {
+    this.setState({
+      chooseSize: !this.state.chooseSize,
+    });
+  };
+
+  addToCart = () => {
+    alert('take me home');
   };
 
   render() {
     const { thumbnail, name, option, score, id, hoverImage } = this.props;
-    const { optionBtn } = this.state;
+    const { optionBtn, productOption, chooseSize } = this.state;
     return (
       <div className="cardContainer">
         <Link to={`/detail/${id}`}>
@@ -38,18 +49,56 @@ class Card extends Component {
         </Link>
         <div className="btnWrapper">
           {option[1] ? (
-            <div
-              className={
-                optionBtn ? 'btnOptionWrapper' : 'btnOptionWrapper hide'
-              }
-            >
-              <button className="btnOption">{option[0].weight}g</button>
-              <button className="btnOption">{option[1].weight}g</button>
-            </div>
-          ) : null}
-          <button className="btnStatic" onClick={this.btnHandler}>
-            {option[0].stocks > 0 ? 'ADD TO BAG' : 'SOLD OUT'}
-          </button>
+            <>
+              <button
+                className={optionBtn ? 'btnStatic hide' : 'btnStatic '}
+                onClick={this.btnHandler}
+              >
+                CHOOSE SIZE
+              </button>
+            </>
+          ) : (
+            <>
+              <button className="btnStatic">ADD TO CART</button>
+            </>
+          )}
+
+          {optionBtn ? (
+            <>
+              <div
+                className={
+                  optionBtn ? 'btnOptionWrapper' : 'btnOptionWrapper hide'
+                }
+              >
+                <button
+                  className={chooseSize ? 'btnOption chosen' : 'btnOption '}
+                  onClick={this.changeSize}
+                >
+                  {option[0].weight}g
+                </button>
+                <button
+                  className={chooseSize ? 'btnOption ' : 'btnOption chosen'}
+                  onClick={this.changeSize}
+                >
+                  {option[1].weight}g
+                </button>
+              </div>
+
+              <button className="btnStatic" onClick={this.addToCart}>
+                {optionBtn ? 'ADD TO CART' : 'CHOOSE SIZE'}
+              </button>
+            </>
+          ) : (
+            <></>
+          )}
+
+          {/* {option[0].stocks === 0 && option[1].stocks === 0 ? (
+            <button className="btnStatic">SOLD OUT</button>
+          ) : (
+            <button className="btnStatic" onClick={this.btnHandler}>
+              ADD TO BAG
+            </button>
+          )} */}
         </div>
       </div>
     );

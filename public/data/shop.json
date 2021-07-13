@@ -15,12 +15,6 @@
           "sales": 72145,
           "weight": 60,
           "stocks": 2964
-        },
-        {
-          "price": "10.19",
-          "sales": 42919,
-          "weight": 70,
-          "stocks": 7326
         }
       ]
     },
@@ -37,13 +31,13 @@
           "price": "35.08",
           "sales": 63874,
           "weight": 60,
-          "stocks": 6485
+          "stocks": 0
         },
         {
           "price": "11.55",
           "sales": 41006,
           "weight": 70,
-          "stocks": 1807
+          "stocks": 0
         }
       ]
     },
