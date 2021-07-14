@@ -57,7 +57,7 @@
         &:hover .dropDownStyeList {
           display: flex;
           justify-content: center;
-          position: absolute;
+          // position: absolute;
         }
 
         .dropDownStyeList {
@@ -86,7 +86,7 @@
       flex: 1;
       flex-direction: row;
       align-items: flex-end;
-      font-size: 18px;
+      font-size: 16px;
 
       li {
         padding-right: 20px;

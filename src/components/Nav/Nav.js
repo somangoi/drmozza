@@ -38,7 +38,8 @@ export default class Nav extends Component {
               <li>BESTSELLER</li>
             </ul>
             <ul className="navRight">
-              <li>SEARCH</li>
+              <li> LOG IN</li>
+              <li> SEARCH</li>
               <li>
                 <i className="fa fa-shopping-bag" />
               </li>
