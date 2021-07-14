@@ -1,0 +1,42 @@
+.cardLargeContainer {
+  height: 100%;
+
+  .cardLargeImg {
+    cursor: pointer;
+
+    img {
+      width: 580px;
+      height: 600px;
+      object-fit: cover;
+    }
+  }
+
+  .cardLargeTitle {
+    width: 480px;
+    margin-bottom: 10px;
+
+    h2 {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 140%;
+    }
+  }
+
+  .cardLargeDescription {
+    margin-bottom: 10px;
+
+    span {
+      width: 480px;
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 150%;
+    }
+  }
+
+  .productDetailLink span {
+    border-bottom: 1px solid black;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+}

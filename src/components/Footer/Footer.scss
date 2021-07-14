@@ -1,9 +1,7 @@
 @import '../../styles/variable.scss';
 
 .footerWrapper {
-  position: fixed;
   width: 100%;
-  bottom: 0;
 
   .footerContainer {
     @include display-flex(space-around, center);

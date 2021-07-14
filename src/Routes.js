@@ -8,11 +8,14 @@ import Shop from './pages/Shop/Shop';
 import Detail from './pages/Detail/Detail';
 import Cart from './pages/Cart/Cart';
 import Order from './pages/Order/Order';
+import Nav from './components/Nav/Nav';
 
 class Routes extends Component {
   render() {
     return (
       <Router>
+        <Nav />
+
         <Switch>
           <Route exact path="/signup" component={SiginUp} />
           <Route exact path="/login" component={Login} />
