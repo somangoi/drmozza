@@ -5,14 +5,16 @@ export default class DropDownNav extends Component {
   render() {
     const { titleList } = this.props;
 
-    return titleList ? (
+    return (
       <div className="titleListBox">
         <li className="titleListContainer">
           {titleList.map(list => (
-            <div className="categoryName">{list.name.toUpperCase()}</div>
+            <div key={list.id} className="categoryName">
+              {list.name.toUpperCase()}
+            </div>
           ))}
         </li>
       </div>
-    ) : null;
+    );
   }
 }
