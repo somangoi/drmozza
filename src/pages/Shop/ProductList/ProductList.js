@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import Card from '../../../components/Card/Card';
 import './ProductList.scss';
 
@@ -7,7 +7,7 @@ class ProductList extends Component {
     const { productList } = this.props;
     return (
       <div className="productGrid">
-        {productList.map((product, idx) => {
+        {productList.map(product => {
           return (
             <Card
               key={product.product_id}
@@ -22,6 +22,9 @@ class ProductList extends Component {
             />
           );
         })}
+        <nav>
+          <ul></ul>
+        </nav>
       </div>
     );
   }

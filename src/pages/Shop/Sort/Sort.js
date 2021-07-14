@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import './Sort.scss';
 
 class Sort extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
   render() {
     return (
       <div className="sortSection">
@@ -16,8 +12,8 @@ class Sort extends Component {
             <span className="sortBar">
               <select name="sort" className="sort">
                 <option value="all">All</option>
-                <option value="price-descending">Price, High to Low</option>
-                <option value="price-descending">Price, Low to High</option>
+                <option value="price_descending">Price, High to Low</option>
+                <option value="price_ascending">Price, Low to High</option>
               </select>
             </span>
           </div>
