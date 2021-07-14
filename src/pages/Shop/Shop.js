@@ -50,7 +50,7 @@ export default class Shop extends Component {
       });
 
     fetch(
-      `${API}/products?id=${this.props.match.params.id}&offset=1&limit=10&sort_by=${this.state.selectedOption}`
+      `${API}/products?id=${this.props.match.params.id}&offset=1&limit=10&sort_by=price_desc`
     )
       .then(res => res.json())
       .then(data => {
@@ -62,7 +62,7 @@ export default class Shop extends Component {
 
   componentDidUpdate(prevProps) {
     const API = 'http://13.124.4.250:8000';
-    let PRODUCTS_API = `${API}/products?id=${this.props.match.params.id}&offset=1&limit=10&sort_by=${this.state.selectedOption}`;
+    let PRODUCTS_API = `${API}/products?id=${this.props.match.params.id}&offset=1&limit=10&sort_by=price_desc`;
 
     if (this.props.match.params.id !== prevProps.match.params.id) {
       fetch(`${API}/categories/${this.props.match.params.id}`)
