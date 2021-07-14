@@ -1,20 +1,31 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import './DropDownNav.scss';
 
-export default class DropDownNav extends Component {
+class DropDownNav extends Component {
+  goToCategory = () => {
+    this.props.history.push(`/shop/${this.props.match.params.id}`);
+  };
+
   render() {
     const { titleList } = this.props;
-
+    console.log(`this.props`, this.props);
     return (
       <div className="titleListBox">
-        <li className="titleListContainer">
+        <ul className="titleListContainer">
           {titleList.map(list => (
-            <div key={list.id} className="categoryName">
+            <li
+              onClick={this.goToCategory}
+              key={list.id}
+              className="categoryName"
+            >
               {list.name.toUpperCase()}
-            </div>
+            </li>
           ))}
-        </li>
+        </ul>
       </div>
     );
   }
 }
+
+export default withRouter(DropDownNav);
