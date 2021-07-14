@@ -1,7 +1,7 @@
 @import '../../styles/variable.scss';
 
 .categoryWrapper {
-  @include display-flex(center, center);
+  @include display-flex(center, flex-start);
   width: 1240px;
   margin-bottom: 20px;
   background: rgba(0, 0, 0, 0.1);
@@ -12,13 +12,13 @@
     padding: 30px;
 
     h1 {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       font-weight: 600;
     }
 
     p {
       padding-top: 10px;
-      font-size: 0.8rem;
+      font-size: 1rem;
       line-height: 150%;
     }
   }

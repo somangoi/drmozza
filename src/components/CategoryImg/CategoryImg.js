@@ -3,16 +3,17 @@ import './CategoryImg.scss';
 
 export default class CategoryImg extends Component {
   render() {
-    const { categoryDesc, categoryTitle, categoryImg } = this.props;
+    const { currentCategory } = this.props;
+
     return (
       <div>
         <div className="categoryWrapper">
           <div className="categoryDesc">
-            <h1>{categoryTitle}</h1>
-            <p>{categoryDesc}</p>
+            <h1>{currentCategory.category_name.toUpperCase()} CHEESE</h1>
+            <p>{currentCategory.category_description}</p>
           </div>
           <div className="categoryPic">
-            <img src={categoryImg} alt="categoryImg" />
+            <img src={currentCategory.category_image_url} alt="categoryImg" />
           </div>
         </div>
       </div>
