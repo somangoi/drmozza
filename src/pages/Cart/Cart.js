@@ -126,7 +126,6 @@ export default class Cart extends Component {
     if (!this.state.cartList.length) {
       return (
         <>
-          <Nav />
           <div className="cartPage">
             <div className="yourCart">YOUR CART</div>
             <div className="cartArea">
@@ -151,7 +150,6 @@ export default class Cart extends Component {
     } else {
       return (
         <>
-          <Nav />
           <div className="cartPage">
             <div className="yourCart">YOUR CART</div>
             <ul className="cartArea">
