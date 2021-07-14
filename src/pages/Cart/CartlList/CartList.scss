@@ -1,0 +1,87 @@
+.cartlist {
+  display: flex;
+  border-bottom: 1px solid #d3d3d3;
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  .product {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    padding: 5px 0 25px;
+    width: 432px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+
+    .productImg {
+      width: 100px;
+      height: 107px;
+      margin-right: 32px;
+    }
+
+    .weight {
+      margin-top: 5px;
+      width: 216px;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.8px;
+    }
+  }
+
+  .price {
+    margin-top: 20px;
+    padding: 5px 0 25px;
+    width: 216px;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.8px;
+  }
+
+  .quantity {
+    display: flex;
+    width: 216px;
+    margin-top: 20px;
+    padding: 90px 0 25px 0;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.8px;
+
+    .selector {
+      display: flex;
+      width: 80px;
+      height: 30px;
+      border: 1px solid #d3d3d3;
+
+      .quantityBtn {
+        cursor: pointer;
+      }
+
+      .productNumber {
+        width: 30px;
+        border-left: 1px solid #d3d3d3;
+        border-right: 1px solid #d3d3d3;
+        padding-left: 8px;
+      }
+    }
+
+    .remove {
+      margin-left: 15px;
+      font-size: 12px;
+      text-decoration: underline;
+    }
+  }
+
+  .total {
+    text-align: right;
+    margin-top: 20px;
+    padding: 100px 35px 25px 0;
+    width: 216px;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.8px;
+  }
+}

@@ -1,0 +1,154 @@
+.cartPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 130px 180px 130px;
+
+  .yourCart {
+    width: 1080px;
+    margin: 80px 0 60px;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+
+  .emptyContain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+
+    .far {
+      margin-bottom: 50px;
+    }
+
+    .oops {
+      margin-bottom: 16px;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    .noItemText {
+      margin-bottom: 80px;
+      font-size: 12px;
+      color: #0a0101ab;
+    }
+
+    .shopBtn {
+      width: 200px;
+      height: 36px;
+      border: 1px solid black;
+
+      .shopBtnText {
+        font-size: 12px;
+        font-weight: 550;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+
+  .textContain {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #d3d3d3;
+
+    .titleItem {
+      padding: 5px 0 10px;
+      width: 432px;
+      font-size: 12px;
+      letter-spacing: 0.8px;
+    }
+
+    .titlePrice {
+      padding: 5px 0 10px;
+      width: 216px;
+      font-size: 12px;
+      letter-spacing: 0.8px;
+    }
+
+    .titleQuantity {
+      padding: 5px 0 10px;
+      width: 216px;
+      font-size: 12px;
+      letter-spacing: 0.8px;
+    }
+
+    .titleTotal {
+      text-align: right;
+      padding: 5px 35px 10px 0;
+      width: 216px;
+      font-size: 12px;
+      letter-spacing: 0.8px;
+    }
+  }
+
+  .subTotal {
+    display: block;
+    width: 1080px;
+
+    .subTotalArea {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      margin-top: 30px;
+
+      .subTotalText {
+        margin: 3px 10px 0 0;
+        font-size: 12px;
+        color: #0a0101ab;
+      }
+
+      .totalPrice {
+        font-size: 17px;
+        font-weight: 400;
+      }
+    }
+  }
+  .infoTax {
+    display: flex;
+    justify-content: flex-end;
+    width: 1080px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #0a0101ab;
+  }
+
+  .checkOutArea {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+    width: 1080px;
+
+    .goToShop {
+      margin-right: 12px;
+      margin-top: -4px;
+      font-size: 13px;
+      color: #0a0101ab;
+
+      a {
+        &:hover,
+        &:visited,
+        &:link {
+          color: black;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .checkOutBtn {
+      width: 158px;
+      height: 30px;
+      margin: 20px 0 30px 0;
+      border: 1px solid #000;
+      cursor: pointer;
+
+      .checkBtnText {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+}
