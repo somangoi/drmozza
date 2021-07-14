@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
 import Gallery from './Gallery/Gallery';
 import './ProductDetail.scss';
 
@@ -10,7 +9,7 @@ export default class ProductDetail extends Component {
     this.state = {
       showDesc: false,
       showMoreClicked: false,
-      // selectedOption: this.props.optionList[0],
+      selectedOption: {},
     };
   }
 
@@ -22,9 +21,19 @@ export default class ProductDetail extends Component {
     this.setState({ showMoreClicked: !this.state.showMoreClicked });
   };
 
-  changeOption = () => {
-    this.setState({ selectedOption: !this.state.selectedOption });
+  changeToOption1 = () => {
+    this.setState({ selectedOption: this.props.optionList[0] });
   };
+
+  changeToOption2 = () => {
+    this.setState({ selectedOption: this.props.optionList[1] });
+  };
+
+  componentDidMount() {
+    this.setState({
+      selectedOption: this.props.optionList[0],
+    });
+  }
 
   render() {
     const {
@@ -44,14 +53,19 @@ export default class ProductDetail extends Component {
         <nav className="detailNav">
           <span>
             Products /{' '}
-            {
-              <Link
-                to={'/products?category=' + categoryList.category_id}
-                key={categoryList.category_id}
-              >
-                <span>{categoryList.category_name} </span>
-              </Link>
-            }{' '}
+            {categoryList.map(category => {
+              return (
+                <Link
+                  to={'/products?category=' + category.category_id}
+                  key={category.category_id}
+                >
+                  <span>
+                    {category.category_name.charAt(0).toUpperCase() +
+                      category.category_name.slice(1)}{' '}
+                  </span>
+                </Link>
+              );
+            })}{' '}
             / {product_name}
           </span>
         </nav>
@@ -63,8 +77,8 @@ export default class ProductDetail extends Component {
             <div className="productDescWrapper">
               <div className="productMainPrice">
                 <span className="price">
-                  {/* <span>${selectedOption.price}</span>
-                  <span> | {selectedOption.weight}g </span> */}
+                  <span>${selectedOption.price}</span>
+                  <span> | {selectedOption.weight}g </span>
                 </span>
               </div>
               <div className="productTitle">
@@ -80,26 +94,26 @@ export default class ProductDetail extends Component {
                 </button>
               </div>
               <div className="optionBtnWrapper">
-                {optionList.length > 1 ? (
-                  <>
-                    <button
-                      className={
-                        selectedOption ? 'optionBtn chosen' : 'optionBtn'
-                      }
-                      onClick={this.changeOption}
-                    >
-                      {optionList[0].weight}g
-                    </button>
-                    <button
-                      className={
-                        selectedOption ? 'optionBtn ' : 'optionBtn chosen'
-                      }
-                      onClick={this.changeOption}
-                    >
-                      {optionList[1].weight}g
-                    </button>
-                  </>
-                ) : null}
+                <button
+                  className={
+                    selectedOption === optionList[0]
+                      ? 'optionBtn chosen'
+                      : 'optionBtn'
+                  }
+                  onClick={this.changeToOption1}
+                >
+                  {optionList[0].weight}g
+                </button>
+                <button
+                  className={
+                    selectedOption === optionList[1]
+                      ? 'optionBtn chosen'
+                      : 'optionBtn '
+                  }
+                  onClick={this.changeToOption2}
+                >
+                  {optionList[1].weight}g
+                </button>
               </div>
 
               <button className="addToBag" type="button">
