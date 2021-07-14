@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import './Card.scss';
+
 class Card extends Component {
   constructor() {
     super();
@@ -16,13 +17,13 @@ class Card extends Component {
     });
   };
 
-  changeSize1 = () => {
+  changeSmaller = () => {
     this.setState({
       selected: false,
     });
   };
 
-  changeSize2 = () => {
+  changeBigger = () => {
     this.setState({
       selected: true,
     });
@@ -67,18 +68,19 @@ class Card extends Component {
               <button className="btnStatic">ADD TO CART</button>
             </>
           )}
+
           {optionBtn ? (
             <>
               <div className={`btnOptionWrapper ${optionBtn ? '' : 'hide'}`}>
                 <button
                   className={`btnOption ${selected ? '' : 'chosen'}`}
-                  onClick={this.changeSize1}
+                  onClick={this.changeSmaller}
                 >
                   {option[0].weight}g
                 </button>
                 <button
                   className={`btnOption ${selected ? 'chosen' : ''}`}
-                  onClick={this.changeSize2}
+                  onClick={this.changeBigger}
                 >
                   {option[1].weight}g
                 </button>
@@ -87,9 +89,7 @@ class Card extends Component {
                 {optionBtn ? 'ADD TO CART' : 'CHOOSE SIZE'}
               </button>
             </>
-          ) : (
-            <></>
-          )}
+          ) : null}
         </div>
       </div>
     );
