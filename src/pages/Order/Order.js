@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Nav from '../../components/Nav/Nav';
 import Address from './Address/Address';
 import Orderlist from './Orderlist/Orderlist';
+import { CART_API } from '../../config';
 import './Order.scss';
 
 class Order extends Component {
@@ -11,21 +11,24 @@ class Order extends Component {
     zip: '',
     address: '',
     isDaumPost: false,
-    cartList: [
-      {
-        product_name: 'Herb and Garlic Whirl',
-        thumbnail_image_url:
-          'https://cdn11.bigcommerce.com/s-8hw6y8no/images/stencil/1280x1280/products/1325/2916/Product_Listing_Web_Herb_and_Garlic_Whirl_Main_20210603__49071.1623115265.jpg?c=2',
-        product_id: 4,
-        option_id: 6,
-        weight: 70,
-        price: 47.16,
-        quantity: 10,
-        stocks: 54278,
-        availability: true,
-      },
-    ],
+    cartList: [],
   };
+
+  componentDidMount() {
+    const requestOptions = {
+      method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('TOKEN'),
+      },
+    };
+    fetch(CART_API, requestOptions)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          cartList: data.results.carts,
+        });
+      });
+  }
 
   currency = number => {
     return new Intl.NumberFormat('en-US', {
@@ -64,7 +67,6 @@ class Order extends Component {
       .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
     return (
       <>
-        <Nav />
         <div className="chekOutPage">
           <h1 className="checkOutTitle">CHECK OUT</h1>
           <div className="orderPage">
