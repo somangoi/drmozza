@@ -45,7 +45,7 @@ class Card extends Component {
           <div className="cardTag">
             <div className="cheeseName">{name}</div>
             <div className="cheesePrice">
-              ${selected ? option[0].price : option[1].price}
+              ${!selected ? option[0].price : option[1].price}
             </div>
           </div>
           <div className="starRatings">
@@ -69,7 +69,7 @@ class Card extends Component {
             </>
           )}
 
-          {optionBtn ? (
+          {optionBtn && (
             <>
               <div className={`btnOptionWrapper ${optionBtn ? '' : 'hide'}`}>
                 <button
@@ -89,7 +89,7 @@ class Card extends Component {
                 {optionBtn ? 'ADD TO CART' : 'CHOOSE SIZE'}
               </button>
             </>
-          ) : null}
+          )}
         </div>
       </div>
     );
