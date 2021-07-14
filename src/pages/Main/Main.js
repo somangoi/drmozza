@@ -33,11 +33,14 @@ export default class Main extends Component {
         });
       });
 
-    fetch('data/bestSeller.json')
+    fetch(
+      'http://13.124.4.250:8000/products?offset=1&limit=8&sort_by=sales_desc'
+    )
+      // fetch('data/bestSeller.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
-          dragCard: data.results[0].products,
+          dragCard: data.results,
         });
       });
   }
@@ -170,7 +173,7 @@ export default class Main extends Component {
                     <Card
                       key={res.product_id}
                       name={res.product_name}
-                      thumbnail={res.thumbmail_image}
+                      thumbnail={res.thumbnail}
                       option={res.option}
                       score={res.score}
                       id={res.product_id}
