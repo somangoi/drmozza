@@ -12,46 +12,43 @@
     text-align: center;
   }
 
-  .cartArea {
-    .textContain {
-      display: flex;
-      flex-direction: row;
-      border-bottom: 1px solid #d3d3d3;
+  .textContain {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #d3d3d3;
 
-      .titleItem {
-        padding: 5px 0 10px;
-        width: 432px;
-        font-size: 12px;
-        letter-spacing: 0.8px;
-      }
+    .titleItem {
+      padding: 5px 0 10px;
+      width: 432px;
+      font-size: 12px;
+      letter-spacing: 0.8px;
+    }
 
-      .titlePrice {
-        padding: 5px 0 10px;
-        width: 216px;
-        font-size: 12px;
-        letter-spacing: 0.8px;
-      }
+    .titlePrice {
+      padding: 5px 0 10px;
+      width: 216px;
+      font-size: 12px;
+      letter-spacing: 0.8px;
+    }
 
-      .titleQuantity {
-        padding: 5px 0 10px;
-        width: 216px;
-        font-size: 12px;
-        letter-spacing: 0.8px;
-      }
+    .titleQuantity {
+      padding: 5px 0 10px;
+      width: 216px;
+      font-size: 12px;
+      letter-spacing: 0.8px;
+    }
 
-      .titleTotal {
-        text-align: right;
-        padding: 5px 35px 10px 0;
-        width: 216px;
-        font-size: 12px;
-        letter-spacing: 0.8px;
-      }
+    .titleTotal {
+      text-align: right;
+      padding: 5px 35px 10px 0;
+      width: 216px;
+      font-size: 12px;
+      letter-spacing: 0.8px;
     }
   }
 
   .subTotal {
-    display: flex;
-    flex-direction: column;
+    display: block;
     width: 1080px;
 
     .subTotalArea {

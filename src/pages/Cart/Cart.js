@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Nav from '../../components/Nav/Nav';
-import Footer from '../../components/Footer/Footer';
 import CartList from './CartlList/CartList';
 import { CART_API } from '../../config';
 import { USDfomating } from '../../Fomating';
@@ -8,40 +7,24 @@ import './Cart.scss';
 
 export default class Cart extends Component {
   state = {
-    cartList: [
-      // {
-      //   product_name: 'Herb and Garlic Whirl',
-      //   thumbnail_image_url:
-      //     'https://cdn11.bigcommerce.com/s-8hw6y8no/images/stencil/1280x1280/products/1325/2916/Product_Listing_Web_Herb_and_Garlic_Whirl_Main_20210603__49071.1623115265.jpg?c=2',
-      //   product_id: 4,
-      //   option_id: 6,
-      //   weight: 70,
-      //   price: 47.16,
-      //   quantity: 2,
-      //   stocks: 54278,
-      //   availability: true,
-      // },
-    ],
+    cartList: [],
   };
 
   componentDidMount() {
-    let myHeaders = new Headers();
-    myHeaders.append(
-      'Authorization',
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.6LnewEjsNONVXSA0-O0GyvSR7aYTt_HIL4-evXu45HI'
-    );
-
-    let requestOptions = {
+    const requestOptions = {
       method: 'GET',
-      headers: myHeaders,
+      headers: {
+        Authorization: localStorage.getItem('TOKEN'),
+      },
     };
-    fetch(`${CART_API}/orders/cart`, requestOptions)
+    fetch(CART_API, requestOptions)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          cartList: data.results,
+          cartList: data.results.carts,
         });
       });
+    console.log(this.state.cartList);
   }
 
   quantityInput = (e, idx, cart) => {
@@ -59,14 +42,14 @@ export default class Cart extends Component {
     });
 
     this.setState({ cartList: nextCartList });
-    fetch(`${CART_API}/orders/cart/${cart.option_id}`, {
+    const requestOptions = {
       method: 'PATCH',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.6LnewEjsNONVXSA0-O0GyvSR7aYTt_HIL4-evXu45HI',
+        Authorization: localStorage.getItem('TOKEN'),
       },
       body: JSON.stringify({ quantity: +e.target.value }),
-    });
+    };
+    fetch(`${CART_API}/${cart.option_id}`, requestOptions);
   };
 
   handleIncrement = cart => {
@@ -78,16 +61,16 @@ export default class Cart extends Component {
       return item;
     });
     this.setState({ cartList });
-    fetch(`${CART_API}/orders/cart/${cart.option_id}`, {
+    const requestOptions = {
       method: 'PATCH',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.6LnewEjsNONVXSA0-O0GyvSR7aYTt_HIL4-evXu45HI',
+        Authorization: localStorage.getItem('TOKEN'),
       },
       body: JSON.stringify({
         quantity: cart.quantity >= 99 ? 99 : cart.quantity + 1,
       }),
-    });
+    };
+    fetch(`${CART_API}/${cart.option_id}`, requestOptions);
   };
 
   handleDecrement = cart => {
@@ -99,16 +82,17 @@ export default class Cart extends Component {
       return item;
     });
     this.setState({ cartList });
-    fetch(`${CART_API}/orders/cart/${cart.option_id}`, {
+
+    const requestOptions = {
       method: 'PATCH',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.6LnewEjsNONVXSA0-O0GyvSR7aYTt_HIL4-evXu45HI',
+        Authorization: localStorage.getItem('TOKEN'),
       },
       body: JSON.stringify({
         quantity: cart.quantity <= 1 ? 1 : cart.quantity - 1,
       }),
-    });
+    };
+    fetch(`${CART_API}/${cart.option_id}`, requestOptions);
   };
 
   handleDelete = cart => {
@@ -116,17 +100,22 @@ export default class Cart extends Component {
       item => item.option_id !== cart.option_id
     );
     this.setState({ cartList });
-    fetch(`${CART_API}/orders/cart/${cart.option_id}`, {
+    const requestOptions = {
       method: 'DELETE',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.6LnewEjsNONVXSA0-O0GyvSR7aYTt_HIL4-evXu45HI',
+        Authorization: localStorage.getItem('TOKEN'),
       },
       body: JSON.stringify({ cartList }),
-    });
+    };
+    fetch(`${CART_API}/${cart.option_id}`, requestOptions);
+  };
+
+  goToOrder = () => {
+    this.props.history.push('/order');
   };
 
   render() {
+    console.log(this.state.cartList);
     const { cartList } = this.state;
     const total = cartList
       .map(cart => cart.price * cart.quantity)
@@ -170,12 +159,15 @@ export default class Cart extends Component {
             <a className="goToShop" href="/main">
               Keep Shopping
             </a>
-            <button className="checkOutBtn" type="button">
+            <button
+              className="checkOutBtn"
+              type="button"
+              onClick={this.goToOrder}
+            >
               <span className="checkBtnText">CHECKOUT</span>
             </button>
           </div>
         </div>
-        <Footer />
       </>
     );
   }
