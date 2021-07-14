@@ -12,6 +12,42 @@
     text-align: center;
   }
 
+  .emptyContain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+
+    .far {
+      margin-bottom: 50px;
+    }
+
+    .oops {
+      margin-bottom: 16px;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    .noItemText {
+      margin-bottom: 80px;
+      font-size: 12px;
+      color: #0a0101ab;
+    }
+
+    .shopBtn {
+      width: 200px;
+      height: 36px;
+      border: 1px solid black;
+
+      .shopBtnText {
+        font-size: 12px;
+        font-weight: 550;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+
   .textContain {
     display: flex;
     flex-direction: row;

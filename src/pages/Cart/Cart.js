@@ -24,7 +24,6 @@ export default class Cart extends Component {
           cartList: data.results.carts,
         });
       });
-    console.log(this.state.cartList);
   }
 
   quantityInput = (e, idx, cart) => {
@@ -114,61 +113,92 @@ export default class Cart extends Component {
     this.props.history.push('/order');
   };
 
+  goToShop = () => {
+    this.props.history.push('/shop');
+  };
+
   render() {
-    console.log(this.state.cartList);
     const { cartList } = this.state;
     const total = cartList
       .map(cart => cart.price * cart.quantity)
       .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-    return (
-      <>
-        <Nav />
-        <div className="cartPage">
-          <div className="yourCart">YOUR CART</div>
-          <ul className="cartArea">
-            <div className="textContain">
-              <div className="titleItem">ITEM</div>
-              <div className="titlePrice">PRICE</div>
-              <div className="titleQuantity">QUANTITY</div>
-              <div className="titleTotal">TOTAL</div>
-            </div>
-            {cartList.map((cartlist, idx) => {
-              return (
-                <CartList
-                  key={cartlist.option_id}
-                  idx={idx}
-                  cartList={cartlist}
-                  handleIncrement={this.handleIncrement}
-                  handleDecrement={this.handleDecrement}
-                  handleDelete={this.handleDelete}
-                  quantityInput={this.quantityInput}
-                />
-              );
-            })}
-          </ul>
-          <div className="subTotal">
-            <div className="subTotalArea">
-              <div className="subTotalText">Subtotal</div>
-              <div className="totalPrice">{USDfomating(total)}</div>
+
+    if (!this.state.cartList.length) {
+      return (
+        <>
+          <Nav />
+          <div className="cartPage">
+            <div className="yourCart">YOUR CART</div>
+            <div className="cartArea">
+              <div className="emptyContain">
+                <i className="far fa-grimace fa-5x"></i>
+                <div className="oops">OOPS, YOUR CART IS CURRENTLY EMPTY</div>
+                <div className="noItemText">
+                  There are no items in your cart.
+                </div>
+                <button
+                  className="shopBtn"
+                  type="button"
+                  onClick={this.goToShop}
+                >
+                  <span className="shopBtnText">Continue To Shopping</span>
+                </button>
+              </div>
             </div>
           </div>
-          <div className="infoTax">
-            Shipping and taxes calculated at checkout
+        </>
+      );
+    } else {
+      return (
+        <>
+          <Nav />
+          <div className="cartPage">
+            <div className="yourCart">YOUR CART</div>
+            <ul className="cartArea">
+              <div className="textContain">
+                <div className="titleItem">ITEM</div>
+                <div className="titlePrice">PRICE</div>
+                <div className="titleQuantity">QUANTITY</div>
+                <div className="titleTotal">TOTAL</div>
+              </div>
+              {cartList.map((cartlist, idx) => {
+                return (
+                  <CartList
+                    key={cartlist.option_id}
+                    idx={idx}
+                    cartList={cartlist}
+                    handleIncrement={this.handleIncrement}
+                    handleDecrement={this.handleDecrement}
+                    handleDelete={this.handleDelete}
+                    quantityInput={this.quantityInput}
+                  />
+                );
+              })}
+            </ul>
+            <div className="subTotal">
+              <div className="subTotalArea">
+                <div className="subTotalText">Subtotal</div>
+                <div className="totalPrice">{USDfomating(total)}</div>
+              </div>
+            </div>
+            <div className="infoTax">
+              Shipping and taxes calculated at checkout
+            </div>
+            <div className="checkOutArea">
+              <a className="goToShop" href="/main">
+                Keep Shopping
+              </a>
+              <button
+                className="checkOutBtn"
+                type="button"
+                onClick={this.goToOrder}
+              >
+                <span className="checkBtnText">CHECKOUT</span>
+              </button>
+            </div>
           </div>
-          <div className="checkOutArea">
-            <a className="goToShop" href="/main">
-              Keep Shopping
-            </a>
-            <button
-              className="checkOutBtn"
-              type="button"
-              onClick={this.goToOrder}
-            >
-              <span className="checkBtnText">CHECKOUT</span>
-            </button>
-          </div>
-        </div>
-      </>
-    );
+        </>
+      );
+    }
   }
 }
