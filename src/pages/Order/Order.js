@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Address from './Address/Address';
 import Orderlist from './Orderlist/Orderlist';
+import { USDfomating } from '../../Fomating';
 import { CART_API, COUPON_API } from '../../config';
 import './Order.scss';
 
@@ -31,15 +32,6 @@ class Order extends Component {
         });
       });
   }
-
-  currency = number => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      currencySign: 'accounting',
-      minimumFractionDigits: 2,
-    }).format(number);
-  };
 
   handleInput = e => {
     const { name, value } = e.target;
@@ -199,7 +191,7 @@ class Order extends Component {
               <div className="shippingTotal">
                 <div className="subTotalArea">
                   <div className="subTotalText">SUBTOTAL</div>
-                  <div className="totalPrice">{this.currency(total)}</div>
+                  <div className="totalPrice">{USDfomating(total)}</div>
                 </div>
                 <div className="shippingArea">
                   <div className="shippingText">SHIPPING</div>
@@ -209,7 +201,7 @@ class Order extends Component {
               <div className="finalPriceArea">
                 <div className="finalTotal">TOTAL</div>
                 <div className="finalPrice">
-                  {this.currency(total * (1 - discount_percent))}
+                  {USDfomating(total * (1 - discount_percent))}
                 </div>
               </div>
             </ul>

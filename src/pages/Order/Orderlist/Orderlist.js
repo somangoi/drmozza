@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
+import { USDfomating } from '../../../Fomating';
 import '../Orderlist/Orderlist.scss';
 
 class Orderlist extends Component {
-  currency = number => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      currencySign: 'accounting',
-      minimumFractionDigits: 2,
-    }).format(number);
-  };
-
   render() {
     const { product_name, thumbnail_image_url, price, quantity, weight } =
       this.props.cartList;
@@ -24,7 +16,7 @@ class Orderlist extends Component {
               <div class="productName">{product_name}</div>
               <div className="itemWeight">{weight}g</div>
             </div>
-            <div className="itemPrice">{this.currency(price)}</div>
+            <div className="itemPrice">{USDfomating(price)}</div>
           </div>
         </div>
       </div>
