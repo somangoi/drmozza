@@ -158,7 +158,7 @@ export default class Main extends Component {
               ></i>
             </div>
             <div className="dragBox">
-              <p>Dr.Mozza's choices</p>
+              <p>Dr.Mozza's Choices</p>
               <ul
                 className="dragFstWrapper"
                 style={{
