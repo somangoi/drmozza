@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Nav from '../../components/Nav/Nav';
 import CategoryImg from '../../components/CategoryImg/CategoryImg';
 import Sort from './Sort/Sort';
@@ -16,24 +17,29 @@ export default class Shop extends Component {
     this.state = {
       currentCategory: {},
       productList: [],
+      milkList: [],
+      styleList: [],
+      countriesList: [],
     };
   }
 
   componentDidMount() {
-    // const API = 'http://10.58.4.40:8000';
-    // // fetch('http://10.58.4.40:8000/products/products?id=1&offset=1&limit=10')
-    // fetch('/data/category.json')
-    //   .then(res => res.json())
-    //   .then(menu => {
-    //     this.setState({
-    //       categoryList: menu.results.milk.categories[0],
-    //     });
-    //   });
+    const API = 'http://13.124.4.250:8000/';
+    fetch(`${API}menus`)
+      // fetch('/data/category.json')
+      .then(res => res.json())
+      .then(menu => {
+        this.setState({
+          milkList: menu.results.milk.categories,
+          styleList: menu.results.style.categories,
+          countriesList: menu.results.countries.categories,
+          currentCategory: `menu.results`,
+        });
+      });
 
-    fetch(`/data/shop.json`)
-      // fetch(
-      //   'http://10.58.4.40:8000/products/products?id=1&offset=3&limit=10&sort_by=price_desc'
-      // )
+    // fetch(`/data/shop.json`)
+    //?id=1&offset=3&limit=10&sort_by=price_desc
+    fetch(`${API}products/products?limit=130`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -43,8 +49,9 @@ export default class Shop extends Component {
   }
 
   render() {
-    console.log(this.props.location.search);
-    const { currentCategory, productList } = this.state;
+    console.log(`this.state`, this.props);
+    const { currentCategory, productList, milkList, styleList, countriesList } =
+      this.state;
     return (
       <div>
         <Nav />
@@ -55,12 +62,18 @@ export default class Shop extends Component {
           <section className="shopBody">
             <aside className="shopAside">
               <ul className="sideMenuTop">
-                <li>SHOP ALL</li>
-                <li>BEST SELLERS</li>
-                <li>SALE</li>
-                <li>NEW!</li>
+                <Link to="/shop/14">
+                  <li>SHOP ALL</li>
+                </Link>
+                <Link to="/shop/15">
+                  <li>BEST SELLERS</li>
+                </Link>
               </ul>
-              <SideMenuList />
+              <SideMenuList
+                milkList={milkList}
+                styleList={styleList}
+                countriesList={countriesList}
+              />
             </aside>
             <article className="products">
               <Sort />

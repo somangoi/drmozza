@@ -7,7 +7,7 @@ import Routine from './Routine/Routine';
 import CategoryImg from '../../components/CategoryImg/CategoryImg';
 import CompareProduct from './CompareProduct/CompareProduct';
 import Footer from '../../components/Footer/Footer';
-import * as isValidObject from '../../../src/utils';
+import { isValidObject } from '../../../src/utils';
 
 import './Detail.scss';
 
@@ -15,93 +15,60 @@ export default class Detail extends Component {
   constructor() {
     super();
     this.state = {
-      id: '',
-      categoryList: {},
-      currentCategory: {},
-      imgList: [],
-      productName: '',
-      optionList: [],
-      summary: '',
-      description: '',
-      nutritionList: [],
-      descriptionImage: '',
-      routineList: [],
-      compareList: [],
+      data: {},
     };
   }
 
   componentDidMount() {
-    // fetch('http://10.58.6.15/products')
-    //   .then(res => res.json())
-    //   .then(menu => {
-    //     this.setState({
-    //       categoryList: menu.resultss.milk.categories[0],
-    //     });
-    //   });
+    const API = 'http://13.124.4.250:8000/products';
 
-    fetch('/data/detail.json')
-      // fetch(`http://10.58.1.65:8000/products/${this.props.match.params.id}`, {
-      //   method: 'GET',
-      // })
+    fetch(`${API}/${this.props.match.params.id}`, {
+      method: 'GET',
+    })
       .then(res => {
         return res.json();
       })
       .then(detail => {
         this.setState({
-          id: detail.results.product.product_id,
-          categoryList: detail.results.product.categories,
-          currentCategory: detail.results.product.categories[0],
-          imgList: detail.results.product.image_urls,
-          productName: detail.results.product.product_name,
-          optionList: detail.results.product.option,
-          summary: detail.results.product.summary,
-          description: detail.results.product.description,
-          nutritionList: detail.results.product.nutrition,
-          descriptionImage: detail.results.product.description_image,
-          routineList: detail.results.routine,
-          compareList: detail.results.compare,
+          data: detail,
         });
       });
   }
 
   render() {
-    console.log(this.props);
-    const {
-      categoryList,
-      imgList,
-      productName,
-      summary,
-      description,
-      optionList,
-      nutritionList,
-      descriptionImage,
-      routineList,
-      compareList,
-      currentCategory,
-    } = this.state;
+    console.log(this.state.data);
+    const { data } = this.state;
     return (
       <>
         <Nav />
-        <div className="detailWrapper">
-          <ProductDetail
-            categoryList={categoryList}
-            imgList={imgList}
-            product_name={productName}
-            summary={summary}
-            description={description}
-            optionList={optionList}
-            nutritionList={nutritionList}
-          />
-          <article className="detailBody">
-            <ProductFunc />
-            <PromotionImg descriptionImage={descriptionImage} />
-            <Routine routineList={routineList} productName={productName} />
-            {isValidObject.isValidObject(currentCategory) && (
-              <CategoryImg currentCategory={currentCategory} />
-            )}
-            <CompareProduct compareList={compareList} />
-          </article>
-        </div>
+        {isValidObject(data) && (
+          <div className="detailWrapper">
+            <ProductDetail
+              categoryList={data.results.product.categories}
+              imgList={data.results.product.image_urls}
+              product_name={data.results.product.product_name}
+              summary={data.results.product.summary}
+              description={data.results.product.description}
+              optionList={data.results.product.option}
+              nutritionList={data.results.product.nutrition}
+            />
+
+            <article className="detailBody">
+              <ProductFunc />
+              <PromotionImg
+                descriptionImage={data.results.product.description_image}
+              />
+              <Routine
+                routineList={data.results.routine}
+                productName={data.results.product.product_name}
+              />
+              <CategoryImg
+                currentCategory={data.results.product.categories[0]}
+              />
+              <CompareProduct compareList={data.results.compare} />
+            </article>
+          </div>
+        )}
         <Footer />
       </>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import Gallery from './Gallery/Gallery';
 import './ProductDetail.scss';
 
@@ -8,11 +9,8 @@ export default class ProductDetail extends Component {
     super();
     this.state = {
       showDesc: false,
-      product_name: '',
-      summary: '',
-      description: '',
-      nutritionList: [],
       showMoreClicked: false,
+      // selectedOption: this.props.optionList[0],
     };
   }
 
@@ -22,6 +20,10 @@ export default class ProductDetail extends Component {
 
   showMore = () => {
     this.setState({ showMoreClicked: !this.state.showMoreClicked });
+  };
+
+  changeOption = () => {
+    this.setState({ selectedOption: !this.state.selectedOption });
   };
 
   render() {
@@ -35,7 +37,7 @@ export default class ProductDetail extends Component {
       nutritionList,
     } = this.props;
 
-    const { showMoreClicked, showDesc } = this.state;
+    const { showMoreClicked, showDesc, selectedOption } = this.state;
 
     return (
       <div className="detail">
@@ -60,16 +62,10 @@ export default class ProductDetail extends Component {
           <div className="productDescSection">
             <div className="productDescWrapper">
               <div className="productMainPrice">
-                {optionList
-                  ? optionList.map(option => {
-                      return (
-                        <span key={option.id} className="price">
-                          <span>${option.price}</span>
-                          <span> | {option.weight}g </span>
-                        </span>
-                      );
-                    })
-                  : null}
+                <span className="price">
+                  {/* <span>${selectedOption.price}</span>
+                  <span> | {selectedOption.weight}g </span> */}
+                </span>
               </div>
               <div className="productTitle">
                 <h1>{product_name}</h1>
@@ -83,6 +79,29 @@ export default class ProductDetail extends Component {
                   {showMoreClicked ? 'Show Less' : 'Show More'}
                 </button>
               </div>
+              <div className="optionBtnWrapper">
+                {optionList.length > 1 ? (
+                  <>
+                    <button
+                      className={
+                        selectedOption ? 'optionBtn chosen' : 'optionBtn'
+                      }
+                      onClick={this.changeOption}
+                    >
+                      {optionList[0].weight}g
+                    </button>
+                    <button
+                      className={
+                        selectedOption ? 'optionBtn ' : 'optionBtn chosen'
+                      }
+                      onClick={this.changeOption}
+                    >
+                      {optionList[1].weight}g
+                    </button>
+                  </>
+                ) : null}
+              </div>
+
               <button className="addToBag" type="button">
                 ADD TO BAG
               </button>
@@ -97,16 +116,15 @@ export default class ProductDetail extends Component {
                 <ul
                   className={`descContent ${showDesc ? '' : 'descContentHide'}`}
                 >
-                  {nutritionList
-                    ? nutritionList.map((nutrition, idx) => {
-                        return (
-                          <li key={idx} className="nutritionDetail">
-                            <span>{Object.keys(nutrition)} : </span>
-                            <span>{nutrition[Object.keys(nutrition)]}</span>
-                          </li>
-                        );
-                      })
-                    : null}
+                  {nutritionList &&
+                    nutritionList.map((nutrition, idx) => {
+                      return (
+                        <li key={idx} className="nutritionDetail">
+                          <span>{Object.keys(nutrition)} : </span>
+                          <span>{nutrition[Object.keys(nutrition)]}</span>
+                        </li>
+                      );
+                    })}
                 </ul>
               </div>
               <div className="moreDetail">

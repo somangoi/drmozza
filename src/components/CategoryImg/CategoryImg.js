@@ -3,6 +3,13 @@ import { withRouter } from 'react-router';
 import './CategoryImg.scss';
 
 class CategoryImg extends Component {
+  // componentDidMount() {
+  //   const API = 'http://13.124.4.250:8000/';
+  //   fetch(`${API}menus/${this.props.match.params.id}`)
+  //     .then(res => res.json())
+  //     .then(res => console.log(res));
+  // }
+
   render() {
     const { currentCategory } = this.props;
     return (

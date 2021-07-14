@@ -39,6 +39,11 @@
           "price": "28.50",
           "weight": 50,
           "option_id": 28
+        },
+        {
+          "price": "70",
+          "weight": 60,
+          "option_id": 29
         }
       ],
       "nutrition": [
