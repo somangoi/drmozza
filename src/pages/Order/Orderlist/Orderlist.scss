@@ -8,10 +8,10 @@
     .OrderItemImg {
       display: flex;
       flex-direction: row;
+      background-image: 100%;
 
       .itemImg {
         width: 55px;
-        height: 55px;
       }
 
       .orderQuantity {
@@ -35,6 +35,13 @@
       margin-left: 10px;
       font-size: 14px;
 
+      .productName {
+        width: 210px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
       .itemWeight {
         margin-top: 5px;
         font-size: 12px;
@@ -44,8 +51,7 @@
     }
 
     .itemPrice {
-      margin-top: 10px;
-      margin-right: 8px;
+      margin: 10px 8px 0 50px;
       font-size: 12px;
       font-weight: 300;
       letter-spacing: 0.8px;

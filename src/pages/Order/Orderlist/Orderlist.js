@@ -21,7 +21,7 @@ class Orderlist extends Component {
             <img className="itemImg" src={thumbnail_image_url} alt="itemImg" />
             <div className="orderQuantity">{quantity}</div>
             <div className="orderItemName">
-              {product_name}
+              <div class="productName">{product_name}</div>
               <div className="itemWeight">{weight}g</div>
             </div>
             <div className="itemPrice">{this.currency(price)}</div>

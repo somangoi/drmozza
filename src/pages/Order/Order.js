@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Address from './Address/Address';
 import Orderlist from './Orderlist/Orderlist';
-import { CART_API } from '../../config';
+import { CART_API, COUPON_API } from '../../config';
 import './Order.scss';
 
 class Order extends Component {
@@ -10,6 +10,8 @@ class Order extends Component {
     email: '',
     zip: '',
     address: '',
+    coupon: '',
+    discount_percent: 0,
     isDaumPost: false,
     cartList: [],
   };
@@ -60,11 +62,37 @@ class Order extends Component {
     });
   };
 
+  sendCoupon = () => {
+    const requestOptions = {
+      method: 'GET',
+    };
+    const { coupon } = this.state;
+    console.log(coupon);
+    fetch(`${COUPON_API}/${coupon}`, requestOptions)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          discount_percent: data.results.discount_percent,
+        });
+      });
+    console.log(this.state.discount_percent);
+  };
+
   render() {
-    const { name, email, zip, address, isDaumPost, cartList } = this.state;
+    const {
+      name,
+      email,
+      zip,
+      address,
+      coupon,
+      discount_percent,
+      isDaumPost,
+      cartList,
+    } = this.state;
     const total = cartList
       .map(cart => cart.price * cart.quantity)
       .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
     return (
       <>
         <div className="chekOutPage">
@@ -153,6 +181,21 @@ class Order extends Component {
                   />
                 );
               })}
+              <div className="couponContain">
+                <div className="couponArea">
+                  <input
+                    className="couponInput"
+                    type="text"
+                    name="coupon"
+                    placeholder="Gift card or discount code"
+                    onChange={this.handleInput}
+                    value={coupon}
+                  />
+                  <button className="couponBtn" onClick={this.sendCoupon}>
+                    APPLY
+                  </button>
+                </div>
+              </div>
               <div className="shippingTotal">
                 <div className="subTotalArea">
                   <div className="subTotalText">SUBTOTAL</div>
@@ -165,7 +208,9 @@ class Order extends Component {
               </div>
               <div className="finalPriceArea">
                 <div className="finalTotal">TOTAL</div>
-                <div className="finalPrice">{this.currency(total)}</div>
+                <div className="finalPrice">
+                  {this.currency(total * (1 - discount_percent))}
+                </div>
               </div>
             </ul>
           </div>
