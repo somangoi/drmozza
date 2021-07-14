@@ -6,7 +6,7 @@ import Sort from './Sort/Sort';
 import SideMenuList from './SideMenuList/SideMenuList';
 import ProductList from './ProductList/ProductList';
 import Footer from '../../components/Footer/Footer';
-import * as isValidObject from '../../../src/utils';
+import { isValidObject } from '../../../src/utils';
 
 import '../Shop/Shop.scss';
 
@@ -26,19 +26,23 @@ export default class Shop extends Component {
   componentDidMount() {
     const API = 'http://13.124.4.250:8000/';
     fetch(`${API}menus`)
-      // fetch('/data/category.json')
       .then(res => res.json())
       .then(menu => {
         this.setState({
           milkList: menu.results.milk.categories,
           styleList: menu.results.style.categories,
           countriesList: menu.results.countries.categories,
-          currentCategory: `menu.results`,
         });
       });
 
-    // fetch(`/data/shop.json`)
-    //?id=1&offset=3&limit=10&sort_by=price_desc
+    fetch(`${API}categories/${this.props.match.params.id}`)
+      .then(res => res.json())
+      .then(menu => {
+        this.setState({
+          currentCategory: menu.results,
+        });
+      });
+
     fetch(`${API}products/products?limit=130`)
       .then(res => res.json())
       .then(data => {
@@ -48,15 +52,16 @@ export default class Shop extends Component {
       });
   }
 
+  componentDidUpdate(prevProps, prevState) {}
+
   render() {
-    console.log(`this.state`, this.props);
     const { currentCategory, productList, milkList, styleList, countriesList } =
       this.state;
     return (
       <div>
         <Nav />
         <main className="shopContainer">
-          {isValidObject.isValidObject(currentCategory) && (
+          {isValidObject(currentCategory) && (
             <CategoryImg currentCategory={currentCategory} />
           )}
           <section className="shopBody">

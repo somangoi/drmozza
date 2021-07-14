@@ -38,9 +38,7 @@ export default class Gallery extends Component {
             : null}
         </ul>
         <div className="productImgContainer">
-          {imgList ? (
-            <img src={imgList[select]} alt="selected" className="selectedImg" />
-          ) : null}
+          <img src={imgList[select]} alt="selected" className="selectedImg" />
         </div>
       </>
     );
