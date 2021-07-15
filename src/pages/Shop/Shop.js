@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { API } from '../../config';
 import CategoryImg from '../../components/CategoryImg/CategoryImg';
 import SideMenuList from './SideMenuList/SideMenuList';
 import ProductList from './ProductList/ProductList';
 import Footer from '../../components/Footer/Footer';
 import { isValidObject } from '../../utils';
-
+import { PRODUCT_API } from '../../config';
+import { API } from '../../config';
 import '../Shop/Shop.scss';
 
 export default class Shop extends Component {
@@ -19,7 +19,7 @@ export default class Shop extends Component {
       milkList: [],
       styleList: [],
       countriesList: [],
-      selectedOption: 'price-descending',
+      selectedOption: '',
     };
   }
 
@@ -42,7 +42,7 @@ export default class Shop extends Component {
         });
       });
 
-    fetch(`${API}/products?category=${this.props.match.params.id}`)
+    fetch(`${PRODUCT_API}?category=${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -52,11 +52,10 @@ export default class Shop extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const API = 'http://13.124.4.250:8000';
-    let PRODUCTS_API = `${API}/products?category=${this.props.match.params.id}`;
-
     if (this.props.match.params.id !== prevProps.match.params.id) {
-      fetch(`${API}/categories/${this.props.match.params.id}`)
+      fetch(
+        `${API}/categories/${this.props.match.params.id}&offset=1&limit=10&sort=${this.state.selectedOption}`
+      )
         .then(res => res.json())
         .then(data =>
           this.setState({
@@ -64,7 +63,7 @@ export default class Shop extends Component {
           })
         );
 
-      fetch(PRODUCTS_API)
+      fetch(`${API}/products?category=${this.props.match.params.id}`)
         .then(res => res.json())
         .then(data => {
           this.setState({
@@ -74,64 +73,76 @@ export default class Shop extends Component {
     }
   }
 
-  handleChange = e => {
-    this.setState({
-      selectedOption: e.target.value,
-    });
+  sortingHandler = e => {
+    this.setState({ selectedOption: e.target.value });
+
+    fetch(
+      `${PRODUCT_API}?category=${this.props.match.params.id}&sort=${e.target.value}`
+    )
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          productList: data.results,
+        });
+      });
   };
 
   render() {
     const { currentCategory, productList, milkList, styleList, countriesList } =
       this.state;
+
     return (
       <div>
-        {isValidObject(currentCategory) && (
-          <main className="shopContainer">
+        <main className="shopContainer">
+          {isValidObject(currentCategory) && (
             <CategoryImg currentCategory={currentCategory} />
-            <section className="shopBody">
-              <aside className="shopAside">
-                <ul className="sideMenuTop">
-                  <Link to="/shop/14">
-                    <li>SHOP ALL</li>
-                  </Link>
-                  <Link to="/shop/15">
-                    <li>BEST SELLERS</li>
-                  </Link>
-                </ul>
-                <SideMenuList
-                  milkList={milkList}
-                  styleList={styleList}
-                  countriesList={countriesList}
-                />
-              </aside>
-              <article className="products">
-                <div className="sortSection">
-                  <div className="sortBlank"></div>
-                  <div className="sortContainer">
-                    <div className="sortWrap">
-                      <span className="sortText">SORT BY</span>
-                      <span className="sortBar">
-                        <select
-                          name="sort"
-                          className="sort"
-                          onChange={option => this.handleChange(option)}
-                        >
-                          <option value="price_descending">
-                            Price, High to Low
-                          </option>
-                          <option value="price_ascending">
-                            Price, Low to High
-                          </option>
-                        </select>
-                      </span>
-                    </div>
+          )}
+          <section className="shopBody">
+            <aside className="shopAside">
+              <ul className="sideMenuTop">
+                <Link to="/shop/14">
+                  <li>SHOP ALL</li>
+                </Link>
+                <Link to="/shop/15">
+                  <li>BEST SELLERS</li>
+                </Link>
+              </ul>
+              <SideMenuList
+                milkList={milkList}
+                styleList={styleList}
+                countriesList={countriesList}
+              />
+            </aside>
+            <article className="products">
+              <div className="sortSection">
+                <div className="sortBlank"></div>
+                <div className="sortContainer">
+                  <div className="sortWrap">
+                    <span className="sortText">SORT BY</span>
+                    <span className="sortBar">
+                      <select
+                        name="sort"
+                        className="sort"
+                        onChange={this.sortingHandler}
+                      >
+                        <option value="price-descending">
+                          Price, High to Low
+                        </option>
+                        <option value="price-ascending">
+                          Price, Low to High
+                        </option>
+                      </select>
+                    </span>
                   </div>
                 </div>
+              </div>
+              {productList.length > 0 && (
                 <ProductList productList={productList} />
-              </article>
-            </section>
-          </main>
-        )}
+              )}
+            </article>
+          </section>
+        </main>
+
         <Footer />
       </div>
     );
