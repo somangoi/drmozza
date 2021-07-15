@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import './Card.scss';
-
 class Card extends Component {
   constructor() {
     super();
@@ -17,44 +16,22 @@ class Card extends Component {
       optionBtn: true,
     });
   };
-
   changeSmaller = e => {
     this.setState({
       selected: false,
       selectedSize: e.target.value,
     });
   };
-
   changeBigger = e => {
     this.setState({
       selected: true,
       selectedSize: e.target.value,
     });
   };
-
   addToCart = () => {
-    const API = 'http://13.124.4.250:8000';
-    const requestOptions = {
-      method: 'POST',
-      headers: {
-        Authorization: localStorage.getItem('TOKEN'),
-      },
-      body: JSON.stringify({
-        product_id: this.props.id,
-        selectedSize: this.state.selectedSize,
-      }),
-    };
-
     alert(`${this.props.name}이 장바구니에 추가되었습니다.`);
-    fetch(`${API}/cart`, requestOptions)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          cartList: data.results.carts,
-        });
-      });
+    fetch();
   };
-
   render() {
     const { thumbnail, name, option, score, id, hoverImg } = this.props;
     const { optionBtn, selected } = this.state;
@@ -93,7 +70,6 @@ class Card extends Component {
               </button>
             </>
           )}
-
           {optionBtn && (
             <>
               <div className={`btnOptionWrapper ${optionBtn ? '' : 'hide'}`}>
