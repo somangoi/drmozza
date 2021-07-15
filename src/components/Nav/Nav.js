@@ -71,14 +71,18 @@ class Nav extends Component {
 
               <ul className="navRight">
                 <li className="logInIcon">
-                  <Link to="/signup">
+                  <Link to="/login">
                     <p>LOG IN</p>
                   </Link>
                 </li>
                 <li> SEARCH</li>
                 <li>
                   <Link to="/cart">
-                    <i className="fa fa-shopping-bag" />
+                    <div className="cartCountingWrapper">
+                      <i className="fa fa-shopping-bag">
+                        <div className="cartCounting">5</div>
+                      </i>
+                    </div>
                   </Link>
                 </li>
               </ul>

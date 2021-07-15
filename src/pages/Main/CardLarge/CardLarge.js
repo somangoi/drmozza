@@ -6,6 +6,7 @@ import './CardLarge.scss';
 class CardLage extends Component {
   render() {
     const { id, cardImage, title, description } = this.props;
+    console.log(`this.props`, this.props);
 
     return (
       <div className="cardLargeContainer">
@@ -19,7 +20,9 @@ class CardLage extends Component {
           <span>{description}</span>
         </div>
         <div className="productDetailLink">
-          <span>SHOP {title.toUpperCase()} NOW</span>
+          <Link to={`/shop/${id}`}>
+            <span>SHOP {title.toUpperCase()} NOW</span>
+          </Link>
         </div>
       </div>
     );
