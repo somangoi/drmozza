@@ -28,6 +28,7 @@ export default class Routine extends Component {
                 </div>
                 <Card
                   key={card.product_id}
+                  id={card.product_id}
                   thumbnail={card.thumbnail_image}
                   hoverImg={card.hover_image}
                   price={card.option[0].price}

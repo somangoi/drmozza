@@ -33,8 +33,26 @@ class Card extends Component {
   };
 
   addToCart = () => {
+    const API = 'http://13.124.4.250:8000';
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        Authorization: localStorage.getItem('TOKEN'),
+      },
+      body: JSON.stringify({
+        product_id: this.props.id,
+        selectedSize: this.state.selectedSize,
+      }),
+    };
+
     alert(`${this.props.name}이 장바구니에 추가되었습니다.`);
-    fetch();
+    fetch(`${API}/cart`, requestOptions)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          cartList: data.results.carts,
+        });
+      });
   };
 
   render() {
