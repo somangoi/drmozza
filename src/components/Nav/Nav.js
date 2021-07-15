@@ -78,7 +78,11 @@ class Nav extends Component {
                 <li> SEARCH</li>
                 <li>
                   <Link to="/cart">
-                    <i className="fa fa-shopping-bag" />
+                    <div className="cartCountingWrapper">
+                      <i className="fa fa-shopping-bag">
+                        <div className="cartCounting">5</div>
+                      </i>
+                    </div>
                   </Link>
                 </li>
               </ul>

@@ -10,9 +10,9 @@ class DropDownNav extends Component {
     return (
       <div className="titleListBox">
         <ul className="titleListContainer">
-          {titleList.map(list => (
-            <Link to={`/shop/${list.category_id}`}>
-              <li key={list.category_id} className="categoryName">
+          {titleList.map((list, idx) => (
+            <Link key={idx} to={`/shop/${list.category_id}`}>
+              <li className="categoryName">
                 {list.category_name.toUpperCase()}
               </li>
             </Link>
