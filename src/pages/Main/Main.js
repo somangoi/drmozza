@@ -5,6 +5,7 @@ import Footer from '../../components/Footer/Footer';
 import Card from '../../components/Card/Card';
 import CategoryImg from '../../components/CategoryImg/CategoryImg';
 import Slogan from './Slogan/Slogan';
+import Nav from '../../components/Nav/Nav';
 import './Main.scss';
 
 export default class Main extends Component {
@@ -12,6 +13,9 @@ export default class Main extends Component {
     super();
 
     this.state = {
+      milkList: [],
+      styleList: [],
+      countriesList: [],
       carouselImg: [],
       sloganImg: {},
       cardLarge: [],
@@ -22,6 +26,16 @@ export default class Main extends Component {
   }
 
   componentDidMount() {
+    fetch('data/nav.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          milkList: data.results.milk.categories,
+          styleList: data.results.style.categories,
+          countriesList: data.results.countries.categories,
+        });
+      });
+
     // fetch('data/CarouselData.json')
     fetch('http://13.124.4.250:8000/events')
       .then(res => res.json())
@@ -33,10 +47,8 @@ export default class Main extends Component {
         });
       });
 
-    // fetch(
-    //   'http://13.124.4.250:8000/products?offset=1&limit=8&sort_by=sales_desc'
-    // )
-    fetch('data/bestSeller.json')
+    fetch('http://13.124.4.250:8000/products?category=15')
+      // fetch('http://13.124.4.250:8000/')
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -94,11 +106,27 @@ export default class Main extends Component {
   };
 
   render() {
-    const { carouselImg, cardLarge, sloganImg, dragCard } = this.state;
-    console.log(`this.state`, this.state.carouselImg[3]);
+    const {
+      milkList,
+      styleList,
+      countriesList,
+      carouselImg,
+      sloganImg,
+      cardLarge,
+      dragCard,
+    } = this.state;
 
     return (
       <>
+        <div className="navWrapper">
+          <Nav
+            milkList={milkList}
+            styleList={styleList}
+            countriesList={countriesList}
+          />
+        </div>
+
+        {/* <Nav /> */}
         <main className="mainContainer">
           <div className="carouselWrapper">
             <div className="slideBox">
@@ -113,7 +141,7 @@ export default class Main extends Component {
                     key={idx}
                     img={img.image_url}
                     title={img.product_name}
-                    description={img.product_summary}
+                    description={img.product_description}
                   />
                 ))}
               </ul>

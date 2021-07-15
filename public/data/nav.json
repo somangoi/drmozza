@@ -1,0 +1,104 @@
+{
+  "results": {
+    "milk": {
+      "id": 1,
+      "categories": [
+        {
+          "id": 1,
+          "name": "cow",
+          "image_url": "https://images.unsplash.com/photo-1583308148203-85053ccd905f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+        },
+        {
+          "id": 2,
+          "name": "sheep",
+          "image_url": "https://images.unsplash.com/photo-1511117833895-4b473c0b85d6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+        },
+        {
+          "id": 3,
+          "name": "goat",
+          "image_url": "https://images.unsplash.com/photo-1588466585717-f8041aec7875?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1867&q=80"
+        }
+      ]
+    },
+    "style": {
+      "id": 2,
+      "categories": [
+        {
+          "id": 4,
+          "name": "fruit & savoury",
+          "image_url": "https://images.unsplash.com/photo-1499192424706-82662b9911f3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+        },
+        {
+          "id": 5,
+          "name": "soft",
+          "image_url": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1953&q=80"
+        },
+        {
+          "id": 6,
+          "name": "hard",
+          "image_url": "https://images.unsplash.com/photo-1559560923-3b80329ea420?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2689&q=80"
+        },
+        {
+          "id": 7,
+          "name": "blue",
+          "image_url": "https://images.unsplash.com/photo-1452195100486-9cc805987862?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80"
+        }
+      ]
+    },
+    "countries": {
+      "id": 3,
+      "categories": [
+        {
+          "id": 8,
+          "name": "france",
+          "image_url": "https://images.unsplash.com/photo-1462837019796-6f0204b48d95?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGZyYW5jZSUyMGNoZWVzZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+        },
+        {
+          "id": 9,
+          "name": "united kingdom",
+          "image_url": "https://images.unsplash.com/photo-1552767059-ce182ead6c1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80"
+        },
+        {
+          "id": 10,
+          "name": "netherlands",
+          "image_url": "https://images.unsplash.com/photo-1517999586990-2126f2b0c97d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+        },
+        {
+          "id": 11,
+          "name": "italy",
+          "image_url": "https://images.unsplash.com/photo-1608666565775-65cb1097627f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1976&q=80"
+        },
+        {
+          "id": 12,
+          "name": "spain",
+          "image_url": "https://images.unsplash.com/photo-1577917632595-70b90d4db7e9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fGNoZWVzZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+        },
+        {
+          "id": 13,
+          "name": "swiss",
+          "image_url": "https://images.unsplash.com/photo-1611933195643-bcc1ededbc24?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzF8fGNoZWVzZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+        }
+      ]
+    },
+    "all": {
+      "id": 4,
+      "categories": [
+        {
+          "id": 14,
+          "name": "all",
+          "image_url": "https://images.unsplash.com/photo-1597530237719-cdc76f3dc96d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    },
+    "bestsellers": {
+      "id": 5,
+      "categories": [
+        {
+          "id": 15,
+          "name": "bestsellers",
+          "image_url": "https://images.unsplash.com/photo-1577917632595-70b90d4db7e9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80"
+        }
+      ]
+    }
+  }
+}
