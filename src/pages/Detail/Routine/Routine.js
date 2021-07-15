@@ -13,6 +13,7 @@ export default class Routine extends Component {
           {routineList.map(card => {
             return (
               <div
+                key={card.product_id}
                 className={`
                   cardBox ${
                     productName === card.product_name ? ' currentProduct' : ''
@@ -27,7 +28,8 @@ export default class Routine extends Component {
                 </div>
                 <Card
                   key={card.product_id}
-                  thumbnail={card.thumbmail_image}
+                  id={card.product_id}
+                  thumbnail={card.thumbnail_image}
                   hoverImg={card.hover_image}
                   price={card.option[0].price}
                   stock={card.stocks}

@@ -1,8 +1,9 @@
 .shopContainer {
   flex-direction: column;
   align-items: center;
-  padding-top: 80px;
+  padding: 80px 0;
   display: flex;
+  height: 100%;
 
   .shopBody {
     display: flex;
@@ -29,6 +30,30 @@
       flex: 8;
       background: white;
       margin-left: 10px;
+
+      .sortSection {
+        display: flex;
+        justify-content: space-between;
+
+        .sortText {
+          padding-right: 10px;
+          font-weight: 500;
+          font-size: 0.8rem;
+        }
+
+        .sort {
+          padding: 8px;
+          width: 200px;
+          border: 1px solid #ccc;
+          outline: 0;
+          font-size: 0.8rem;
+        }
+      }
     }
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
   }
 }

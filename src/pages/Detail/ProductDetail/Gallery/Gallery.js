@@ -19,26 +19,26 @@ export default class Gallery extends Component {
     return (
       <>
         <ul className="gallery">
-          {imgList.map((img, idx) => {
-            return (
-              <li key={idx} onClick={() => this.changeImg(idx)}>
-                <div className="galleryImgBox">
-                  <img
-                    src={img}
-                    alt="cheese"
-                    className={
-                      idx === select ? 'galleryImg border' : 'galleryImg'
-                    }
-                  />
-                </div>
-              </li>
-            );
-          })}
+          {imgList
+            ? imgList.map((img, idx) => {
+                return (
+                  <li key={idx} onClick={() => this.changeImg(idx)}>
+                    <div className="galleryImgBox">
+                      <img
+                        src={img}
+                        alt="cheese"
+                        className={
+                          idx === select ? 'galleryImg border' : 'galleryImg'
+                        }
+                      />
+                    </div>
+                  </li>
+                );
+              })
+            : null}
         </ul>
         <div className="productImgContainer">
-          {imgList.length > 0 && (
-            <img src={imgList[select]} alt="selected" className="selectedImg" />
-          )}
+          <img src={imgList[select]} alt="selected" className="selectedImg" />
         </div>
       </>
     );

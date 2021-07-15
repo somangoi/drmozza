@@ -22,7 +22,7 @@ export default class CompareProduct extends Component {
             return (
               <div key={idx} className="tableColumn">
                 <div className="tableRowImg">
-                  <img src={data.thumbmail_image} alt="productImg" />
+                  <img src={data.thumbnail_image} alt="productImg" />
                 </div>
                 <div className="tableRowName">
                   <div className="compareName">{data.product_name}</div>
