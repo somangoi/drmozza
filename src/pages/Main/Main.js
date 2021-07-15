@@ -95,7 +95,7 @@ export default class Main extends Component {
 
   render() {
     const { carouselImg, cardLarge, sloganImg, dragCard } = this.state;
-    console.log(`this.state`, this.state);
+    console.log(`this.state`, this.state.carouselImg[3]);
 
     return (
       <>
@@ -185,8 +185,23 @@ export default class Main extends Component {
             </div>
           </div>
 
-          <div className="alignAd">
-            <CategoryImg />
+          <div className="categoryWrapper">
+            <div className="categoryDesc">
+              <h1>Ash Goat Pyramid 'Janier'</h1>
+              <p>
+                This award-winning sheep and cow's milk cheese is made thanks to
+                the combined efforts of Old Chatham's sheep and their neighbor's
+                BGH-free cows. Named for owner Nancy Clark, this cheese is a
+                delightful addition to a cheese plate and goes well in salads or
+                wrapped up in phyllo sheets.
+              </p>
+            </div>
+            <div className="categoryPic">
+              <img
+                src="https://images.unsplash.com/photo-1561043433-9265f73e685f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTZ8fGNoZWVzZXx8MHwyfHx8MTYyNTYzNzQ5NQ&ixlib=rb-1.2.1&q=80&w=1080"
+                alt="categoryImg"
+              />
+            </div>
           </div>
         </main>
         <Footer />
