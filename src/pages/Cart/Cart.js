@@ -26,7 +26,10 @@ export default class Cart extends Component {
   }
 
   quantityInput = (e, idx, cart) => {
-    if (+e.target.value > 99) {
+    if (+e.target.value > cart.stocks) {
+      alert('재고가 부족합니다.');
+      return { ...cart, quantity: cart.stocks };
+    } else if (+e.target.value > 99) {
       return { ...cart, quantity: 99 };
     } else if (+e.target.value === 0) {
       return { ...cart, quantity: 1 };
@@ -51,24 +54,28 @@ export default class Cart extends Component {
   };
 
   handleIncrement = cart => {
-    const cartList = this.state.cartList.map(item => {
-      if (item.option_id === cart.option_id) {
-        const quantity = cart.quantity + 1;
-        return { ...cart, quantity: quantity >= 99 ? 99 : quantity };
-      }
-      return item;
-    });
-    this.setState({ cartList });
-    const requestOptions = {
-      method: 'PATCH',
-      headers: {
-        Authorization: localStorage.getItem('TOKEN'),
-      },
-      body: JSON.stringify({
-        quantity: cart.quantity >= 99 ? 99 : cart.quantity + 1,
-      }),
-    };
-    fetch(`${CART_API}/${cart.option_id}`, requestOptions);
+    if (cart.quantity < cart.stocks) {
+      const cartList = this.state.cartList.map(item => {
+        if (item.option_id === cart.option_id) {
+          const quantity = cart.quantity + 1;
+          return { ...cart, quantity: quantity >= 99 ? 99 : quantity };
+        }
+        return item;
+      });
+      this.setState({ cartList });
+      const requestOptions = {
+        method: 'PATCH',
+        headers: {
+          Authorization: localStorage.getItem('TOKEN'),
+        },
+        body: JSON.stringify({
+          quantity: cart.quantity >= 99 ? 99 : cart.quantity + 1,
+        }),
+      };
+      fetch(`${CART_API}/${cart.option_id}`, requestOptions);
+    } else {
+      alert('재고가 부족합니다.');
+    }
   };
 
   handleDecrement = cart => {

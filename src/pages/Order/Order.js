@@ -13,6 +13,7 @@ class Order extends Component {
     address: '',
     coupon: '',
     discount_percent: 0,
+    discount_price: 0,
     isDaumPost: false,
     cartList: [],
   };
@@ -59,11 +60,11 @@ class Order extends Component {
       method: 'GET',
     };
     const { coupon } = this.state;
-    console.log(coupon);
     fetch(`${COUPON_API}/${coupon}`, requestOptions)
       .then(res => res.json())
       .then(data => {
         this.setState({
+          discount_price: data.results.discount_price,
           discount_percent: data.results.discount_percent,
         });
       });
@@ -78,6 +79,7 @@ class Order extends Component {
       address,
       coupon,
       discount_percent,
+      discount_price,
       isDaumPost,
       cartList,
     } = this.state;
@@ -201,7 +203,7 @@ class Order extends Component {
               <div className="finalPriceArea">
                 <div className="finalTotal">TOTAL</div>
                 <div className="finalPrice">
-                  {USDfomating(total * (1 - discount_percent))}
+                  {USDfomating(total * (1 - discount_percent) - discount_price)}
                 </div>
               </div>
             </ul>
