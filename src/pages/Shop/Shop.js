@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { API } from '../../config';
 import CategoryImg from '../../components/CategoryImg/CategoryImg';
 import SideMenuList from './SideMenuList/SideMenuList';
 import ProductList from './ProductList/ProductList';
 import Footer from '../../components/Footer/Footer';
 import { isValidObject } from '../../utils';
-
+import { PRODUCT_API } from '../../config';
+import { API } from '../../config';
 import '../Shop/Shop.scss';
 
 export default class Shop extends Component {
@@ -42,7 +42,7 @@ export default class Shop extends Component {
         });
       });
 
-    fetch(`${API}/products?category=${this.props.match.params.id}`)
+    fetch(`${PRODUCT_API}?category=${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -52,9 +52,6 @@ export default class Shop extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const API = 'http://13.124.4.250:8000';
-    let PRODUCTS_API = `${API}/products?category=${this.props.match.params.id}`;
-
     if (this.props.match.params.id !== prevProps.match.params.id) {
       fetch(`${API}/categories/${this.props.match.params.id}`)
         .then(res => res.json())
@@ -64,7 +61,7 @@ export default class Shop extends Component {
           })
         );
 
-      fetch(PRODUCTS_API)
+      fetch(`${API}/products?category=${this.props.match.params.id}`)
         .then(res => res.json())
         .then(data => {
           this.setState({
@@ -73,12 +70,6 @@ export default class Shop extends Component {
         });
     }
   }
-
-  handleChange = e => {
-    this.setState({
-      selectedOption: e.target.value,
-    });
-  };
 
   render() {
     const { currentCategory, productList, milkList, styleList, countriesList } =
@@ -116,10 +107,16 @@ export default class Shop extends Component {
                           className="sort"
                           onChange={option => this.handleChange(option)}
                         >
-                          <option value="price_descending">
+                          <option
+                            value="price-descending"
+                            onChange={this.sortPriceDesc}
+                          >
                             Price, High to Low
                           </option>
-                          <option value="price_ascending">
+                          <option
+                            value="price-ascending"
+                            onChange={this.sortPriceAsc}
+                          >
                             Price, Low to High
                           </option>
                         </select>
