@@ -8,6 +8,11 @@
   z-index: 999;
   background-color: white;
 
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
   .navContainer {
     @include display-flex(space-between, center);
     width: 1240px;
@@ -24,7 +29,7 @@
 
     .navList {
       @include display-flex(center, flex-end);
-      flex: 4;
+      flex: 6;
       height: 80px;
       font-size: 18px;
 
@@ -58,12 +63,9 @@
       }
 
       .dropDownStyle {
-        // position: relative;
-
         &:hover .dropDownStyeList {
           display: flex;
           justify-content: center;
-          // position: absolute;
         }
 
         .dropDownStyeList {
@@ -72,13 +74,10 @@
       }
 
       .dropDownCountries {
-        // position: relative;
-
         &:hover .dropDownCountriesList {
           display: flex;
           justify-content: center;
           left: 20px;
-          // position: absolute;
         }
 
         .dropDownCountriesList {
@@ -105,10 +104,6 @@
         &:last-child {
           padding-right: 0;
         }
-      }
-
-      &:last-child {
-        padding-right: 0;
       }
     }
   }

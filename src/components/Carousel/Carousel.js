@@ -4,7 +4,6 @@ import './Carousel.scss';
 export default class Carousel extends Component {
   render() {
     const { img, title, description } = this.props;
-    console.log(`this.props`, this.props);
 
     return (
       <li className="carousel">
