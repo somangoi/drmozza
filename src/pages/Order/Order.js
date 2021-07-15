@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Address from './Address/Address';
 import Orderlist from './Orderlist/Orderlist';
 import { Link } from 'react-router-dom';
-import { usdFomating } from '../../Fomating';
+import { formatToUSD } from '../../Fomating';
 import { CART_API, COUPON_API } from '../../config';
 import './Order.scss';
 
@@ -204,7 +204,7 @@ class Order extends Component {
             <div className="shippingTotal">
               <div className="subTotalArea">
                 <div className="subTotalText">SUBTOTAL</div>
-                <div className="totalPrice">{usdFomating(total)}</div>
+                <div className="totalPrice">{formatToUSD(total)}</div>
               </div>
               <div className="shippingArea">
                 <div className="shippingText">SHIPPING</div>
@@ -214,7 +214,7 @@ class Order extends Component {
             <div className="finalPriceArea">
               <div className="finalTotal">TOTAL</div>
               <div className="finalPrice">
-                {usdFomating(total * (1 - discount_percent) - discount_price)}
+                {formatToUSD(total * (1 - discount_percent) - discount_price)}
               </div>
             </div>
           </ul>

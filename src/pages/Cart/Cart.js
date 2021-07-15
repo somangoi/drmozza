@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CartList from './CartlList/CartList';
 import { CART_API } from '../../config';
-import { usdFomating } from '../../Fomating';
+import { formatToUSD } from '../../Fomating';
 import './Cart.scss';
 
 export default class Cart extends Component {
@@ -184,7 +184,7 @@ export default class Cart extends Component {
             <div className="subTotal">
               <div className="subTotalArea">
                 <div className="subTotalText">Subtotal</div>
-                <div className="totalPrice">{usdFomating(total)}</div>
+                <div className="totalPrice">{formatToUSD(total)}</div>
               </div>
             </div>
             <div className="infoTax">
