@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import { CART_API } from '../../config';
 import './Card.scss';
 
 class Card extends Component {
@@ -10,7 +9,7 @@ class Card extends Component {
     this.state = {
       optionBtn: false,
       selected: false,
-      selectedOption: '',
+      selectedSize: '',
     };
   }
 
@@ -23,30 +22,38 @@ class Card extends Component {
   changeSmaller = e => {
     this.setState({
       selected: false,
-      selectedOption: e.target.value,
+      selectedSize: e.target.value,
     });
   };
 
   changeBigger = e => {
     this.setState({
       selected: true,
-      selectedOption: e.target.value,
+      selectedSize: e.target.value,
     });
   };
 
   addToCart = () => {
+    const API = 'http://13.124.4.250:8000';
     const requestOptions = {
       method: 'POST',
       headers: {
         Authorization: localStorage.getItem('TOKEN'),
       },
       body: JSON.stringify({
-        selectedOption: this.state.selectedOption,
+        product_id: this.props.id,
+        selectedSize: this.state.selectedSize,
       }),
     };
 
     alert(`${this.props.name}이 장바구니에 추가되었습니다.`);
-    fetch(CART_API, requestOptions);
+    fetch(`${API}/cart`, requestOptions)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          cartList: data.results.carts,
+        });
+      });
   };
 
   render() {
@@ -94,14 +101,14 @@ class Card extends Component {
                 <button
                   className={`btnOption ${selected ? '' : 'chosen'}`}
                   onClick={this.changeSmaller}
-                  value={option[0].id}
+                  value={option[0].weight}
                 >
                   {option[0].weight}g
                 </button>
                 <button
                   className={`btnOption ${selected ? 'chosen' : ''}`}
                   onClick={this.changeBigger}
-                  value={option[1].id}
+                  value={option[1].weight}
                 >
                   {option[1].weight}g
                 </button>

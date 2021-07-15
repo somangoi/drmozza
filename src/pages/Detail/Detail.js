@@ -7,7 +7,8 @@ import Routine from './Routine/Routine';
 import CategoryImg from '../../components/CategoryImg/CategoryImg';
 import CompareProduct from './CompareProduct/CompareProduct';
 import Footer from '../../components/Footer/Footer';
-import * as isValidObject from '../../../src/utils';
+import { PRODUCT_API } from '../../config';
+import { isValidObject } from '../../../src/utils';
 
 import './Detail.scss';
 
@@ -15,80 +16,55 @@ export default class Detail extends Component {
   constructor() {
     super();
     this.state = {
-      categoryList: [],
-      currentCategory: {},
-      imgList: [],
-      productName: '',
-      optionList: [],
-      summary: '',
-      description: '',
-      nutritionList: [],
-      descriptionImage: '',
-      routineList: [],
-      compareList: [],
+      data: {},
     };
   }
 
   componentDidMount() {
-    fetch('/data/detail.json', { method: 'GET' })
+    fetch(`${PRODUCT_API}/${this.props.match.params.id}`)
       .then(res => {
         return res.json();
       })
       .then(detail => {
         this.setState({
-          categoryList: detail.RESULT.categories,
-          currentCategory: detail.RESULT.categories[0],
-          imgList: detail.RESULT.image_urls,
-          productName: detail.RESULT.product_name,
-          optionList: detail.RESULT.option,
-          summary: detail.RESULT.summary,
-          description: detail.RESULT.description,
-          nutritionList: detail.RESULT.nutrition,
-          descriptionImage: detail.RESULT.description_image,
-          routineList: detail.RESULT_ROUTINE,
-          compareList: detail.RESULT_COMPARE,
+          data: detail,
         });
       });
   }
 
   render() {
-    console.log(this.state);
-    const {
-      categoryList,
-      currentCategory,
-      imgList,
-      productName,
-      summary,
-      description,
-      optionList,
-      nutritionList,
-      descriptionImage,
-      routineList,
-      compareList,
-    } = this.state;
+    const { data } = this.state;
     return (
       <>
         <Nav />
-        <div className="detailWrapper">
-          <ProductDetail
-            categoryList={categoryList}
-            imgList={imgList}
-            product_name={productName}
-            summary={summary}
-            description={description}
-            optionList={optionList}
-            nutritionList={nutritionList}
-          />
-          <article className="detailBody">
-            <ProductFunc />
-            <PromotionImg descriptionImage={descriptionImage} />
-            <Routine routineList={routineList} productName={productName} />
-            {isValidObject.isValidObject(currentCategory) && (
-              <CategoryImg currentCategory={currentCategory} />
-            )}
-            <CompareProduct compareList={compareList} />
-          </article>
-        </div>
+        {isValidObject(data) && (
+          <div className="detailWrapper">
+            <ProductDetail
+              categoryList={data.results.product.categories}
+              imgList={data.results.product.image_urls}
+              product_name={data.results.product.product_name}
+              summary={data.results.product.summary}
+              description={data.results.product.description}
+              optionList={data.results.product.option}
+              nutritionList={data.results.product.nutrition}
+            />
+
+            <article className="detailBody">
+              <ProductFunc />
+              <PromotionImg
+                descriptionImage={data.results.product.description_image}
+              />
+              <Routine
+                routineList={data.results.routine}
+                productName={data.results.product.product_name}
+              />
+              <CategoryImg
+                currentCategory={data.results.product.categories[0]}
+              />
+              <CompareProduct compareList={data.results.compare} />
+            </article>
+          </div>
+        )}
         <Footer />
       </>
     );

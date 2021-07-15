@@ -3,10 +3,17 @@ import './Carousel.scss';
 
 export default class Carousel extends Component {
   render() {
+    const { img, title, description } = this.props;
+    console.log(`this.props`, this.props);
+
     return (
       <li className="carousel">
         <div className="carouselInner">
-          <img alt="cheese" src={this.props.img} />
+          <div className="carouselTitle">
+            <p>{title}</p>
+            <span>{description}</span>
+          </div>
+          <img alt="cheese" src={img} />
         </div>
       </li>
     );
