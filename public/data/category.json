@@ -1,0 +1,119 @@
+{
+  "results": {
+    "milk": {
+      "menu_id": 1,
+      "categories": [
+        {
+          "category_id": 1,
+          "category_name": "cow",
+          "category_image_url": "https://images.unsplash.com/photo-1583308148203-85053ccd905f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+          "category_description": "Cow milk cheeses are as varied and rich as the producers who make them around the world. Starting with a base of rich, mild cow's milk, cheesemakers then let their imaginations lose to create cheeses that can be creamy and sweet, hard and salty, and everything in between"
+        },
+        {
+          "category_id": 2,
+          "category_name": "sheep",
+          "category_image_url": "https://images.unsplash.com/photo-1511117833895-4b473c0b85d6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+          "category_description": "Sheep milk cheese is a cheese prepared from sheep milk. Well-known cheeses made from sheep milk include the Feta of Greece, Roquefort of France, Manchego from Spain, the Pecorino Romano and Ricotta of Italy."
+        },
+        {
+          "category_id": 3,
+          "category_name": "goat",
+          "category_image_url": "https://images.unsplash.com/photo-1588466585717-f8041aec7875?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1867&q=80",
+          "category_description": "Goat cheese, or chevre (/Àà É…õvr…ô/ or /Àà É…õv/; from the French word for goat), is cheese made from goat's milk."
+        }
+      ]
+    },
+    "style": {
+      "menu_id": 2,
+      "categories": [
+        {
+          "category_id": 4,
+          "category_name": "fruit & savoury",
+          "category_image_url": "https://images.unsplash.com/photo-1499192424706-82662b9911f3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+          "category_description": "Sure, sweet fruit shines in desserts like crisps or cookies, but sometimes I just want to switch it up."
+        },
+        {
+          "category_id": 5,
+          "category_name": "soft",
+          "category_image_url": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1953&q=80",
+          "category_description": "Soft cheeses really offer a highly rich and unique taste, flavor, and aroma to every cheese connoisseur out there."
+        },
+        {
+          "category_id": 6,
+          "category_name": "hard",
+          "category_image_url": "https://images.unsplash.com/photo-1559560923-3b80329ea420?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2689&q=80",
+          "category_description": "Hard cheese has distinctive robust, concentrated flavours. It also keeps very well due to its lack of moisture. The longer hard cheese is aged, the more flavour and character it develops."
+        },
+        {
+          "category_id": 7,
+          "category_name": "blue",
+          "category_image_url": "https://images.unsplash.com/photo-1452195100486-9cc805987862?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80",
+          "category_description": "Blue cheese or bleu cheese is cheese made with cultures of the mold Penicillium, giving it spots or veins of the mold throughout the cheese, which can vary in color through various shades of blue and green. "
+        }
+      ]
+    },
+    "countries": {
+      "menu_id": 3,
+      "categories": [
+        {
+          "category_id": 8,
+          "category_name": "france",
+          "category_image_url": "https://images.unsplash.com/photo-1462837019796-6f0204b48d95?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGZyYW5jZSUyMGNoZWVzZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+          "category_description": "If French cheese for you just means brie, camembert, roquefort and the \"stuff that looks like cheddar or gouda\" in the local supermarch√© when you're on holiday, then you don't know what you're missing!"
+        },
+        {
+          "category_id": 9,
+          "category_name": "united kingdom",
+          "category_image_url": "https://images.unsplash.com/photo-1552767059-ce182ead6c1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80",
+          "category_description": "UK Cheese became popular overseas in the ‚Äô90s, after a group of British growers going by the name of Exodus reportedly took a phenotype of Skunk #1 and bred it to pull out more creamy, sweet notes. "
+        },
+        {
+          "category_id": 10,
+          "category_name": "netherlands",
+          "category_image_url": "https://images.unsplash.com/photo-1517999586990-2126f2b0c97d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+          "category_description": "The Dutch produce 650 million kilos of cheese every year. Two third is exported, which makes Holland the largest cheese exporter in the world."
+        },
+        {
+          "category_id": 11,
+          "category_name": "italy",
+          "category_image_url": "https://images.unsplash.com/photo-1608666565775-65cb1097627f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1976&q=80",
+          "category_description": "Italy is a country known for its great variety of cheeses, from the familiar soft cheeses such as mozzarella and harder varieties like Parmesan, as well as some types that you might be less familiar with."
+        },
+        {
+          "category_id": 12,
+          "category_name": "spain",
+          "category_image_url": "https://images.unsplash.com/photo-1577917632595-70b90d4db7e9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fGNoZWVzZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+          "category_description": "Want to know more about Spanish Cheese? Here‚Äôs a list of the most popular types of cheeses from Spain with a description of each one and more information about where they are from and their characteristics. "
+        },
+        {
+          "category_id": 13,
+          "category_name": "swiss",
+          "category_image_url": "https://images.unsplash.com/photo-1611933195643-bcc1ededbc24?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzF8fGNoZWVzZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+          "category_description": "Cheeses from Switzerland are popular all over the world ‚Äì for its unique flavour and undisputed quality."
+        }
+      ]
+    },
+    "all": {
+      "menu_id": 4,
+      "categories": [
+        {
+          "category_id": 14,
+          "category_name": "all",
+          "category_image_url": "https://images.unsplash.com/photo-1597530237719-cdc76f3dc96d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+          "category_description": "You can’t make everyone happy. You’re not cheese."
+        }
+      ]
+    },
+    "bestsellers": {
+      "menu_id": 5,
+      "categories": [
+        {
+          "category_id": 15,
+          "category_name": "bestsellers",
+          "category_image_url": "https://images.unsplash.com/photo-1577917632595-70b90d4db7e9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80",
+          "category_description": "Shop Dr.Mozza's best cheese products to keep healthy and happy."
+        }
+      ]
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
 import Gallery from './Gallery/Gallery';
 import './ProductDetail.scss';
 
@@ -8,12 +9,8 @@ export default class ProductDetail extends Component {
     super();
     this.state = {
       showDesc: false,
-      product_name: '',
-      optionList: [],
-      summary: '',
-      description: '',
-      nutritionList: [],
       showMoreClicked: false,
+      selected: false,
     };
   }
 
@@ -23,6 +20,14 @@ export default class ProductDetail extends Component {
 
   showMore = () => {
     this.setState({ showMoreClicked: !this.state.showMoreClicked });
+  };
+
+  changeToOptionSmall = () => {
+    this.setState({ selected: false });
+  };
+
+  changeToOptionBig = () => {
+    this.setState({ selected: true });
   };
 
   render() {
@@ -36,7 +41,7 @@ export default class ProductDetail extends Component {
       nutritionList,
     } = this.props;
 
-    const { select, showMoreClicked, showDesc } = this.state;
+    const { showMoreClicked, showDesc, selected } = this.state;
 
     return (
       <div className="detail">
@@ -49,7 +54,10 @@ export default class ProductDetail extends Component {
                   to={'/products?category=' + category.category_id}
                   key={category.category_id}
                 >
-                  <span>{category.category_name} </span>
+                  <span>
+                    {category.category_name.charAt(0).toUpperCase() +
+                      category.category_name.slice(1)}{' '}
+                  </span>
                 </Link>
               );
             })}{' '}
@@ -63,14 +71,14 @@ export default class ProductDetail extends Component {
           <div className="productDescSection">
             <div className="productDescWrapper">
               <div className="productMainPrice">
-                {optionList.map(option => {
-                  return (
-                    <span key={option.id} className="price">
-                      <span>${option.price}</span>
-                      <span> | {option.weight}g </span>
-                    </span>
-                  );
-                })}
+                <span className="price">
+                  <span>
+                    $
+                    {selected && optionList.length > 1
+                      ? optionList[1].price
+                      : optionList[0].price}
+                  </span>
+                </span>
               </div>
               <div className="productTitle">
                 <h1>{product_name}</h1>
@@ -84,6 +92,23 @@ export default class ProductDetail extends Component {
                   {showMoreClicked ? 'Show Less' : 'Show More'}
                 </button>
               </div>
+              {optionList.length > 1 && (
+                <div className="optionBtnWrapper">
+                  <button
+                    className={selected ? 'optionBtn' : 'optionBtn chosen'}
+                    onClick={this.changeToOptionSmall}
+                  >
+                    {optionList[0].weight}g
+                  </button>
+                  <button
+                    className={selected ? 'optionBtn chosen' : 'optionBtn'}
+                    onClick={this.changeToOptionBig}
+                  >
+                    {optionList[1].weight}g
+                  </button>
+                </div>
+              )}
+
               <button className="addToBag" type="button">
                 ADD TO BAG
               </button>
@@ -98,14 +123,15 @@ export default class ProductDetail extends Component {
                 <ul
                   className={`descContent ${showDesc ? '' : 'descContentHide'}`}
                 >
-                  {nutritionList.map((nutrition, idx) => {
-                    return (
-                      <li key={idx} className="nutritionDetail">
-                        <span>{Object.keys(nutrition)} : </span>
-                        <span>{nutrition[Object.keys(nutrition)]}</span>
-                      </li>
-                    );
-                  })}
+                  {nutritionList &&
+                    nutritionList.map((nutrition, idx) => {
+                      return (
+                        <li key={idx} className="nutritionDetail">
+                          <span>{Object.keys(nutrition)} : </span>
+                          <span>{nutrition[Object.keys(nutrition)]}</span>
+                        </li>
+                      );
+                    })}
                 </ul>
               </div>
               <div className="moreDetail">
