@@ -25,12 +25,7 @@ export default class Shop extends Component {
 
   componentDidMount() {
     const API = 'http://13.124.4.250:8000';
-    const requestOptions = {
-      method: 'GET',
-      headers: {
-        Authorization: localStorage.getItem('TOKEN'),
-      },
-    };
+
     fetch(`${API}/menus`)
       .then(res => res.json())
       .then(menu => {
