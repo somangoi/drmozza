@@ -17,15 +17,14 @@
     background-color: white;
 
     .navLogo {
-      flex: 1;
-      padding-left: 20px;
+      flex: 3;
       font-weight: 600;
       cursor: pointer;
     }
 
     .navList {
       @include display-flex(center, flex-end);
-      flex: 8;
+      flex: 4;
       height: 80px;
       font-size: 18px;
 
@@ -52,7 +51,7 @@
       }
 
       .dropDownStyle {
-        position: relative;
+        // position: relative;
 
         &:hover .dropDownStyeList {
           display: flex;
@@ -66,13 +65,13 @@
       }
 
       .dropDownCountries {
-        position: relative;
+        // position: relative;
 
         &:hover .dropDownCountriesList {
           display: flex;
           justify-content: center;
           left: 20px;
-          position: absolute;
+          // position: absolute;
         }
 
         .dropDownCountriesList {
@@ -82,16 +81,23 @@
     }
 
     .navRight {
-      @include display-flex;
-      flex: 1;
-      flex-direction: row;
-      align-items: flex-end;
+      display: flex;
+      justify-content: flex-end;
+      flex: 3;
       font-size: 16px;
 
       li {
         padding-right: 20px;
         padding-top: 2px;
         cursor: pointer;
+
+        .logInIcon {
+          width: 50px;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
       }
 
       &:last-child {
