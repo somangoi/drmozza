@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import './CardLarge.scss';
 
-export default class CardLage extends Component {
+class CardLage extends Component {
   render() {
     const { id, cardImage, title, description } = this.props;
 
@@ -23,3 +25,5 @@ export default class CardLage extends Component {
     );
   }
 }
+
+export default withRouter(CardLage);

@@ -1,19 +1,47 @@
 import React, { Component } from 'react';
 import DropDownNav from './DropDownNav';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import './Nav.scss';
 
-export default class Nav extends Component {
+class Nav extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      milkList: [],
+      styleList: [],
+      countriesList: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://13.124.4.250:8000/menus')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          milkList: data.results.milk.categories,
+          styleList: data.results.style.categories,
+          countriesList: data.results.countries.categories,
+        });
+      });
+  }
+
   render() {
-    const { milkList, styleList, countriesList } = this.props;
+    const { milkList, styleList, countriesList } = this.state;
 
     return (
       <div className="navBox">
         {milkList && (
           <>
             <div className="navContainer">
-              <div className="navLogo">Dr.Mozza+</div>
+              <Link className="navLogo" to="/main">
+                <div>Dr.Mozza+</div>
+              </Link>
               <ul className="navList">
-                <li>All</li>
+                <Link to="/shop/14">
+                  <li>All</li>
+                </Link>
 
                 <li className="dropDownMilk">
                   MILK <i className="fa fa-angle-down" />
@@ -36,16 +64,22 @@ export default class Nav extends Component {
                   </div>
                 </li>
 
-                <li>BESTSELLER</li>
+                <Link to="/shop/15">
+                  <li>BESTSELLER</li>
+                </Link>
               </ul>
 
               <ul className="navRight">
                 <li className="logInIcon">
-                  <p>LOG IN</p>
+                  <Link to="/signup">
+                    <p>LOG IN</p>
+                  </Link>
                 </li>
                 <li> SEARCH</li>
                 <li>
-                  <i className="fa fa-shopping-bag" />
+                  <Link to="/cart">
+                    <i className="fa fa-shopping-bag" />
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -56,3 +90,5 @@ export default class Nav extends Component {
     );
   }
 }
+
+export default withRouter(Nav);
