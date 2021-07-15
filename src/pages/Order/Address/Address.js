@@ -3,7 +3,7 @@ import DaumPostcode from 'react-daum-postcode';
 
 const Address = ({ setAddress }, isDaumPost) => {
   const handleComplete = data => {
-    let AllAddress = data.address;
+    let allAddress = data.address;
     let extraAddress = '';
     let zoneCodes = data.zonecode;
 
@@ -15,9 +15,9 @@ const Address = ({ setAddress }, isDaumPost) => {
         extraAddress +=
           extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName;
       }
-      AllAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
+      allAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
     }
-    setAddress(AllAddress, zoneCodes);
+    setAddress(allAddress, zoneCodes);
   };
 
   const width = 395;

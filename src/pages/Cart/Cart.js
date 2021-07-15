@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CartList from './CartlList/CartList';
 import { CART_API } from '../../config';
-import { USDfomating } from '../../Fomating';
+import { usdFomating } from '../../Fomating';
 import './Cart.scss';
 
 export default class Cart extends Component {
@@ -63,6 +63,7 @@ export default class Cart extends Component {
         return item;
       });
       this.setState({ cartList });
+
       const requestOptions = {
         method: 'PATCH',
         headers: {
@@ -105,6 +106,7 @@ export default class Cart extends Component {
       item => item.option_id !== cart.option_id
     );
     this.setState({ cartList });
+
     const requestOptions = {
       method: 'DELETE',
       headers: {
@@ -182,7 +184,7 @@ export default class Cart extends Component {
             <div className="subTotal">
               <div className="subTotalArea">
                 <div className="subTotalText">Subtotal</div>
-                <div className="totalPrice">{USDfomating(total)}</div>
+                <div className="totalPrice">{usdFomating(total)}</div>
               </div>
             </div>
             <div className="infoTax">
