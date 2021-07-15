@@ -6,7 +6,6 @@ import './CardLarge.scss';
 class CardLage extends Component {
   render() {
     const { id, cardImage, title, description } = this.props;
-    console.log(`this.props`, this.props);
 
     return (
       <div className="cardLargeContainer">
