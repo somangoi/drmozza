@@ -80,7 +80,6 @@
     .btnOptionWrapper {
       @include display-flex(space-between, center);
       margin-bottom: 5px;
-
       .btnOption {
         @include btn;
         display: block;

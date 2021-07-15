@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import CardLarge from './CardLarge/CardLarge';
 import Carousel from '../../components/Carousel/Carousel';
-import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import Card from '../../components/Card/Card';
 import CategoryImg from '../../components/CategoryImg/CategoryImg';
 import Slogan from './Slogan/Slogan';
+import Nav from '../../components/Nav/Nav';
 import './Main.scss';
 
 export default class Main extends Component {
@@ -13,22 +13,46 @@ export default class Main extends Component {
     super();
 
     this.state = {
+      milkList: [],
+      styleList: [],
+      countriesList: [],
       carouselImg: [],
-      sloganImg: [],
+      sloganImg: {},
       cardLarge: [],
+      dragCard: [],
       index: 0,
+      dragIndex: 0,
     };
   }
 
   componentDidMount() {
-    fetch('data/CarouselData.json')
-      // fetch('http://192.168.0.3:8000/events')
+    fetch('data/nav.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          milkList: data.results.milk.categories,
+          styleList: data.results.style.categories,
+          countriesList: data.results.countries.categories,
+        });
+      });
+
+    // fetch('data/CarouselData.json')
+    fetch('http://13.124.4.250:8000/events')
       .then(res => res.json())
       .then(data => {
         this.setState({
           carouselImg: data.results.product_events,
           cardLarge: data.results.category_events,
           sloganImg: data.results.slogan_events,
+        });
+      });
+
+    fetch('http://13.124.4.250:8000/products?category=15')
+      // fetch('http://13.124.4.250:8000/')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          dragCard: data.results,
         });
       });
   }
@@ -57,11 +81,51 @@ export default class Main extends Component {
     }
   };
 
+  dragClickPrev = () => {
+    if (this.state.dragIndex === 0) {
+      this.setState({
+        dragIndex: 0,
+      });
+    } else {
+      this.setState({
+        dragIndex: this.state.dragIndex - 1,
+      });
+    }
+  };
+
+  dragClickNext = () => {
+    if (this.state.dragIndex === 1) {
+      this.setState({
+        dragIndex: 1,
+      });
+    } else {
+      this.setState({
+        dragIndex: this.state.dragIndex + 1,
+      });
+    }
+  };
+
   render() {
-    const { carouselImg, cardLarge, sloganImg } = this.state;
+    const {
+      milkList,
+      styleList,
+      countriesList,
+      carouselImg,
+      sloganImg,
+      cardLarge,
+      dragCard,
+    } = this.state;
 
     return (
       <>
+        <div className="navWrapper">
+          <Nav
+            milkList={milkList}
+            styleList={styleList}
+            countriesList={countriesList}
+          />
+        </div>
+
         {/* <Nav /> */}
         <main className="mainContainer">
           <div className="carouselWrapper">
@@ -72,8 +136,13 @@ export default class Main extends Component {
                   transform: `translateX(-${100 * this.state.index}vw)`,
                 }}
               >
-                {carouselImg.map(img => (
-                  <Carousel key={img.product_id} img={img.image_url} />
+                {carouselImg.map((img, idx) => (
+                  <Carousel
+                    key={idx}
+                    img={img.image_url}
+                    title={img.product_name}
+                    description={img.product_description}
+                  />
                 ))}
               </ul>
             </div>
@@ -92,9 +161,9 @@ export default class Main extends Component {
 
           <div className="cardLargeBox">
             <ul className="cardLargeWrapper">
-              {cardLarge.map(card => (
+              {cardLarge.map((card, idx) => (
                 <CardLarge
-                  key={card.category_id}
+                  key={idx}
                   id={card.category_id}
                   cardImage={card.image_url}
                   title={card.title}
@@ -109,10 +178,58 @@ export default class Main extends Component {
             description={sloganImg.slogan}
           />
 
-          <div className="slideScd">드래그 슬라이드2</div>
+          <div className="dragWrapper">
+            <div className="dragbuttonWrapper">
+              <i
+                className="fas fa-chevron-left fa-4x"
+                onClick={this.dragClickPrev}
+              ></i>
+              <i
+                className="fas fa-chevron-right fa-4x"
+                onClick={this.dragClickNext}
+              ></i>
+            </div>
+            <div className="dragBox">
+              <p>Dr.Mozza's Choices</p>
+              <ul
+                className="dragFstWrapper"
+                style={{
+                  transform: `translateX(-${1252 * this.state.dragIndex}px)`,
+                }}
+              >
+                {dragCard.map((res, idx) => (
+                  <div className="dragCardWrapper" key={idx}>
+                    <Card
+                      name={res.product_name}
+                      thumbnail={res.thumbnail}
+                      option={res.option}
+                      score={res.score}
+                      id={res.product_id}
+                      hoverImg={res.hover_image}
+                    />
+                  </div>
+                ))}
+              </ul>
+            </div>
+          </div>
 
-          <div className="alignAd">
-            <CategoryImg />
+          <div className="categoryWrapper">
+            <div className="categoryDesc">
+              <h1>Ash Goat Pyramid 'Janier'</h1>
+              <p>
+                This award-winning sheep and cow's milk cheese is made thanks to
+                the combined efforts of Old Chatham's sheep and their neighbor's
+                BGH-free cows. Named for owner Nancy Clark, this cheese is a
+                delightful addition to a cheese plate and goes well in salads or
+                wrapped up in phyllo sheets.
+              </p>
+            </div>
+            <div className="categoryPic">
+              <img
+                src="https://images.unsplash.com/photo-1561043433-9265f73e685f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTZ8fGNoZWVzZXx8MHwyfHx8MTYyNTYzNzQ5NQ&ixlib=rb-1.2.1&q=80&w=1080"
+                alt="categoryImg"
+              />
+            </div>
           </div>
         </main>
         <Footer />
