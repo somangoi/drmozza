@@ -34,14 +34,6 @@ class Nav extends Component {
     }
   }
 
-  // componentDidUpdate() {
-  //   if (localStorage.getItem(‘TOKEN’) && !this.state.isLogin) {
-  //     this.setState({ isLogin: true });
-  //   } else if (localStorage.removeItem(‘TOKEN’) && this.state.isLogin) {
-  //     this.setState({ isLogin: false });
-  //   }
-  // }
-
   logout = () => {
     const loginStatus = this.state.loginStatus;
     console.log('logout');
