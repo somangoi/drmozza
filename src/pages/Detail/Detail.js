@@ -7,6 +7,7 @@ import Routine from './Routine/Routine';
 import CategoryImg from '../../components/CategoryImg/CategoryImg';
 import CompareProduct from './CompareProduct/CompareProduct';
 import Footer from '../../components/Footer/Footer';
+import { PRODUCT_API } from '../../config';
 import { isValidObject } from '../../../src/utils';
 
 import './Detail.scss';
@@ -20,11 +21,7 @@ export default class Detail extends Component {
   }
 
   componentDidMount() {
-    const API = 'http://13.124.4.250:8000/products';
-
-    fetch(`${API}/${this.props.match.params.id}`, {
-      method: 'GET',
-    })
+    fetch(`${PRODUCT_API}/${this.props.match.params.id}`)
       .then(res => {
         return res.json();
       })

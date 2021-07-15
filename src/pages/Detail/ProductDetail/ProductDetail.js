@@ -10,7 +10,7 @@ export default class ProductDetail extends Component {
     this.state = {
       showDesc: false,
       showMoreClicked: false,
-      selected: true,
+      selected: false,
     };
   }
 
@@ -22,19 +22,13 @@ export default class ProductDetail extends Component {
     this.setState({ showMoreClicked: !this.state.showMoreClicked });
   };
 
-  changeToOption1 = () => {
+  changeToOptionSmall = () => {
     this.setState({ selected: false });
   };
 
-  changeToOption2 = () => {
+  changeToOptionBig = () => {
     this.setState({ selected: true });
   };
-
-  componentDidMount() {
-    this.setState({
-      selectedOption: this.props.optionList[0],
-    });
-  }
 
   render() {
     const {
@@ -51,109 +45,101 @@ export default class ProductDetail extends Component {
 
     return (
       <div className="detail">
-        {/* {isValidObject(optionList) && ( */}
-        <>
-          <nav className="detailNav">
-            <span>
-              Products /{' '}
-              {categoryList.map(category => {
-                return (
-                  <Link
-                    to={'/products?category=' + category.category_id}
-                    key={category.category_id}
-                  >
-                    <span>
-                      {category.category_name.charAt(0).toUpperCase() +
-                        category.category_name.slice(1)}{' '}
-                    </span>
-                  </Link>
-                );
-              })}{' '}
-              / {product_name}
-            </span>
-          </nav>
-          <div className="productMain">
-            <div className="productImgSection">
-              <Gallery imgList={imgList} />
-            </div>
-            <div className="productDescSection">
-              <div className="productDescWrapper">
-                <div className="productMainPrice">
-                  <span className="price">
-                    <span>
-                      $
-                      {selected && optionList.length > 1
-                        ? optionList[1].price
-                        : optionList[0].price}
-                    </span>
+        <nav className="detailNav">
+          <span>
+            Products /{' '}
+            {categoryList.map(category => {
+              return (
+                <Link
+                  to={'/products?category=' + category.category_id}
+                  key={category.category_id}
+                >
+                  <span>
+                    {category.category_name.charAt(0).toUpperCase() +
+                      category.category_name.slice(1)}{' '}
                   </span>
+                </Link>
+              );
+            })}{' '}
+            / {product_name}
+          </span>
+        </nav>
+        <div className="productMain">
+          <div className="productImgSection">
+            <Gallery imgList={imgList} />
+          </div>
+          <div className="productDescSection">
+            <div className="productDescWrapper">
+              <div className="productMainPrice">
+                <span className="price">
+                  <span>
+                    $
+                    {selected && optionList.length > 1
+                      ? optionList[1].price
+                      : optionList[0].price}
+                  </span>
+                </span>
+              </div>
+              <div className="productTitle">
+                <h1>{product_name}</h1>
+              </div>
+              <div className="productDescWrapper">
+                <div className="summary">{summary}</div>
+                <div className={`productDesc ${showMoreClicked ? '' : 'hide'}`}>
+                  {description}
                 </div>
-                <div className="productTitle">
-                  <h1>{product_name}</h1>
-                </div>
-                <div className="productDescWrapper">
-                  <div className="summary">{summary}</div>
-                  <div
-                    className={`productDesc ${showMoreClicked ? '' : 'hide'}`}
-                  >
-                    {description}
-                  </div>
-                  <button className="showMore" onClick={this.showMore}>
-                    {showMoreClicked ? 'Show Less' : 'Show More'}
-                  </button>
-                </div>
-                {optionList.length > 1 && (
-                  <div className="optionBtnWrapper">
-                    <button
-                      className={selected ? 'optionBtn' : 'optionBtn chosen'}
-                      onClick={this.changeToOption1}
-                    >
-                      {optionList[0].weight}g
-                    </button>
-                    <button
-                      className={selected ? 'optionBtn chosen' : 'optionBtn'}
-                      onClick={this.changeToOption2}
-                    >
-                      {optionList[1].weight}g
-                    </button>
-                  </div>
-                )}
-
-                <button className="addToBag" type="button">
-                  ADD TO BAG
+                <button className="showMore" onClick={this.showMore}>
+                  {showMoreClicked ? 'Show Less' : 'Show More'}
                 </button>
-                <div className="descBox">
+              </div>
+              {optionList.length > 1 && (
+                <div className="optionBtnWrapper">
                   <button
-                    className="descTitleBtn"
-                    type="button"
-                    onClick={this.showDesc}
+                    className={selected ? 'optionBtn' : 'optionBtn chosen'}
+                    onClick={this.changeToOptionSmall}
                   >
-                    <span className="descTitle">NUTRITION</span>
+                    {optionList[0].weight}g
                   </button>
-                  <ul
-                    className={`descContent ${
-                      showDesc ? '' : 'descContentHide'
-                    }`}
+                  <button
+                    className={selected ? 'optionBtn chosen' : 'optionBtn'}
+                    onClick={this.changeToOptionBig}
                   >
-                    {nutritionList &&
-                      nutritionList.map((nutrition, idx) => {
-                        return (
-                          <li key={idx} className="nutritionDetail">
-                            <span>{Object.keys(nutrition)} : </span>
-                            <span>{nutrition[Object.keys(nutrition)]}</span>
-                          </li>
-                        );
-                      })}
-                  </ul>
+                    {optionList[1].weight}g
+                  </button>
                 </div>
-                <div className="moreDetail">
-                  <button className="moreDetailBtn">MORE DETAIL</button>
-                </div>
+              )}
+
+              <button className="addToBag" type="button">
+                ADD TO BAG
+              </button>
+              <div className="descBox">
+                <button
+                  className="descTitleBtn"
+                  type="button"
+                  onClick={this.showDesc}
+                >
+                  <span className="descTitle">NUTRITION</span>
+                </button>
+                <ul
+                  className={`descContent ${showDesc ? '' : 'descContentHide'}`}
+                >
+                  {nutritionList &&
+                    nutritionList.map((nutrition, idx) => {
+                      return (
+                        <li key={idx} className="nutritionDetail">
+                          <span>{Object.keys(nutrition)} : </span>
+                          <span>{nutrition[Object.keys(nutrition)]}</span>
+                        </li>
+                      );
+                    })}
+                </ul>
+              </div>
+              <div className="moreDetail">
+                <button className="moreDetailBtn">MORE DETAIL</button>
               </div>
             </div>
           </div>
-        </>
-        {/* )} */}
+        </div>
       </div>
     );
   }

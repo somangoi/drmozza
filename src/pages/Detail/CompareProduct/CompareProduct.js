@@ -18,29 +18,25 @@ export default class CompareProduct extends Component {
               <h3>HOW IT TASTES</h3>
             </div>
           </div>
-          {compareList
-            ? compareList.map((data, idx) => {
-                return (
-                  <div key={idx} className="tableColumn">
-                    <div className="tableRowImg">
-                      <img src={data.thumbnail_image} alt="productImg" />
-                    </div>
-                    <div className="tableRowName">
-                      <div className="compareName">{data.product_name}</div>
-                      <div className="comparePrice">
-                        ${data.option[0].price}
-                      </div>
-                    </div>
-                    <div className="tableRowDesc">
-                      <div className="compareDesc">{data.description}</div>
-                    </div>
-                    <div className="tableRowBtn">
-                      <button>ADD TO BAG</button>
-                    </div>
-                  </div>
-                );
-              })
-            : null}
+          {compareList.map((data, idx) => {
+            return (
+              <div key={idx} className="tableColumn">
+                <div className="tableRowImg">
+                  <img src={data.thumbnail_image} alt="productImg" />
+                </div>
+                <div className="tableRowName">
+                  <div className="compareName">{data.product_name}</div>
+                  <div className="comparePrice">${data.option[0].price}</div>
+                </div>
+                <div className="tableRowDesc">
+                  <div className="compareDesc">{data.description}</div>
+                </div>
+                <div className="tableRowBtn">
+                  <button>ADD TO BAG</button>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     );
