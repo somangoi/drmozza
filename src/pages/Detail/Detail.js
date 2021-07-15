@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Nav from '../../components/Nav/Nav';
 import ProductDetail from './ProductDetail/ProductDetail';
 import ProductFunc from './ProductFunc/ProductFunc';
 import PromotionImg from './PromotionImg/PromotionImg';
@@ -36,7 +35,6 @@ export default class Detail extends Component {
     const { data } = this.state;
     return (
       <>
-        <Nav />
         {isValidObject(data) && (
           <div className="detailWrapper">
             <ProductDetail
@@ -47,6 +45,7 @@ export default class Detail extends Component {
               description={data.results.product.description}
               optionList={data.results.product.option}
               nutritionList={data.results.product.nutrition}
+              id={data.results.product.product_id}
             />
 
             <article className="detailBody">
