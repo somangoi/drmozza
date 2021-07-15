@@ -1,0 +1,18 @@
+@import '../../styles/variable.scss';
+
+.titleListBox {
+  margin-top: 20px;
+  width: 100vw;
+  position: absolute;
+
+  .titleListContainer {
+    display: flex;
+    justify-content: center;
+
+    .categoryName {
+      padding: 25px 10px 10px 5px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+  }
+}
