@@ -14,6 +14,8 @@
     .thumbnailImage {
       width: 100%;
       height: 100%;
+      opacity: 1;
+      transition: opacity 0.5s linear;
       object-fit: cover;
     }
     .hoverImage {
@@ -66,7 +68,6 @@
     .btnOptionWrapper {
       @include display-flex(space-between, center);
       margin-bottom: 5px;
-
       .btnOption {
         @include btn;
         display: block;
