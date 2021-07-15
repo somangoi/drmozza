@@ -1,0 +1,218 @@
+.chekOutPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 80px;
+
+  a {
+    &:hover,
+    &:visited,
+    &:link {
+      color: black;
+      text-decoration: underline;
+    }
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  .checkOutTitle {
+    margin: 40px 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.6px;
+  }
+
+  .orderPage {
+    display: flex;
+
+    .checkOutContents {
+      display: flex;
+      flex-direction: column;
+
+      .shippingInfo {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.6px;
+        margin-bottom: 5px;
+      }
+
+      .linkContain {
+        margin: 10px 0 18px 0;
+        font-size: 13px;
+        color: #0a0101ab;
+
+        .goToLogin {
+          margin-left: 8px;
+          font-size: 13px;
+          font-weight: 400;
+          letter-spacing: 0.8px;
+          color: black;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .checkOutInput {
+      display: block;
+      width: 395px;
+      margin: 10px 0 20px 0;
+
+      .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 2px 2px 1.5px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+
+        .findZip {
+          width: 60px;
+          height: 20px;
+          border: 1px solid #000;
+          cursor: pointer;
+          font-size: 11px;
+        }
+      }
+
+      .orderInput {
+        width: 395px;
+        height: 43px;
+        padding: 18px;
+        margin-top: 8px;
+        border: 1px solid #d3d3d3;
+      }
+    }
+
+    .btnLink {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
+      width: 395px;
+
+      .goToCart {
+        margin: 10px 10px 18px 0;
+        font-size: 13px;
+        color: #0a0101ab;
+      }
+
+      .checkOutBtn {
+        width: 200px;
+        height: 34px;
+        margin: 22px 0 30px 0;
+        border: 1px solid #000;
+        cursor: pointer;
+
+        .btnText {
+          font-size: 11px;
+          font-weight: 500;
+          letter-spacing: 0.5px;
+        }
+      }
+    }
+  }
+  .orderList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .listTitle {
+      width: 395px;
+      justify-content: center;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: 0.6px;
+    }
+
+    .couponContain {
+      display: flex;
+      flex-direction: column;
+      padding: 16px 0;
+      margin: 20px 0 0 50px;
+      width: 395px;
+      border-top: 1px solid #d3d3d3;
+      border-bottom: 1px solid #d3d3d3;
+
+      .couponArea {
+        display: flex;
+        justify-content: space-between;
+
+        .couponInput {
+          padding-left: 10px;
+          width: 300px;
+          height: 40px;
+          border: 1px solid black;
+        }
+
+        .couponBtn {
+          width: 80px;
+          height: 40px;
+          font-size: 12px;
+          font-weight: 500;
+          letter-spacing: 0.8px;
+          border: 1px solid black;
+        }
+      }
+    }
+
+    .shippingTotal {
+      display: flex;
+      flex-direction: column;
+      padding: 24px 0;
+      margin: 20px 0 0 50px;
+      width: 395px;
+      border-top: 1px solid #d3d3d3;
+      border-bottom: 1px solid #d3d3d3;
+
+      .subTotalArea {
+        display: flex;
+        justify-content: space-between;
+
+        .subTotalText {
+          font-size: 12px;
+          font-weight: 500;
+          letter-spacing: 0.4px;
+        }
+
+        .totalPrice {
+          font-size: 12px;
+          font-weight: 300;
+          letter-spacing: 0.8px;
+        }
+      }
+
+      .shippingArea {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 14px;
+
+        .shippingText {
+          font-size: 12px;
+          font-weight: 500;
+          letter-spacing: 1px;
+        }
+
+        .shippingPrice {
+          font-size: 12px;
+          font-weight: 300;
+          letter-spacing: 0.8px;
+        }
+      }
+    }
+  }
+  .finalPriceArea {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0;
+    margin: 20px 0 0 50px;
+    width: 395px;
+  }
+}
