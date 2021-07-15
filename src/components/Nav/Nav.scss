@@ -107,25 +107,13 @@
           padding-right: 0;
         }
 
-        // position: relative;
         .cartCountingWrapper {
           text-align: center;
 
           i {
             position: relative;
-            font-size: 27px;
+            font-size: 24px;
             text-align: center;
-
-            .cartCounting {
-              position: absolute;
-              color: white;
-              font-size: 16px;
-              font-weight: 500;
-              top: 50%;
-              left: 50%;
-              bottom: 43%;
-              transform: translate(-50%, -50%);
-            }
           }
         }
       }
