@@ -5,30 +5,26 @@
   top: 0;
   left: 0;
   right: 0;
-  width: 100vw;
-  height: 80px;
+  z-index: 999;
   background-color: white;
-  z-index: 9999;
 
   .navContainer {
     @include display-flex(space-between, center);
     width: 1240px;
+    height: 80px;
     margin: 0 auto;
     font-size: 25px;
     background-color: white;
 
     .navLogo {
-      flex: 1;
+      flex: 3;
       font-weight: 600;
       cursor: pointer;
     }
 
     .navList {
-      @include display-flex;
-      flex-direction: row;
-      align-items: flex-end;
-      justify-content: center;
-      flex: 8;
+      @include display-flex(center, flex-end);
+      flex: 4;
       height: 80px;
       font-size: 18px;
 
@@ -36,27 +32,82 @@
         padding-right: 20px;
         padding-bottom: 28px;
         cursor: pointer;
+
+        div {
+          position: fixed;
+          left: 0;
+          right: 0;
+          background-color: rgb(243, 243, 243);
+        }
       }
 
-      li:last-child {
+      &:last-child {
         padding-right: 0;
+      }
+
+      .dropDownMilk {
+        &:hover .dropDownMilkList {
+          display: flex;
+          justify-content: center;
+          left: 0;
+        }
+
+        .dropDownMilkList {
+          display: none;
+        }
+      }
+
+      .dropDownStyle {
+        // position: relative;
+
+        &:hover .dropDownStyeList {
+          display: flex;
+          justify-content: center;
+          // position: absolute;
+        }
+
+        .dropDownStyeList {
+          display: none;
+        }
+      }
+
+      .dropDownCountries {
+        // position: relative;
+
+        &:hover .dropDownCountriesList {
+          display: flex;
+          justify-content: center;
+          left: 20px;
+          // position: absolute;
+        }
+
+        .dropDownCountriesList {
+          display: none;
+        }
       }
     }
 
     .navRight {
-      flex: 1;
-      @include display-flex;
-      flex-direction: row;
-      align-items: flex-end;
-      font-size: 18px;
+      display: flex;
+      justify-content: flex-end;
+      flex: 3;
+      font-size: 16px;
 
       li {
         padding-right: 20px;
         padding-top: 2px;
         cursor: pointer;
+
+        .logInIcon {
+          width: 50px;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
       }
 
-      li:last-child {
+      &:last-child {
         padding-right: 0;
       }
     }

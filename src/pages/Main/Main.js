@@ -13,6 +13,9 @@ export default class Main extends Component {
     super();
 
     this.state = {
+      milkList: [],
+      styleList: [],
+      countriesList: [],
       carouselImg: [],
       sloganImg: [],
       cardLarge: [],
@@ -21,8 +24,18 @@ export default class Main extends Component {
   }
 
   componentDidMount() {
-    fetch('data/CarouselData.json')
-      // fetch('http://192.168.0.3:8000/events')
+    fetch('data/nav.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          milkList: data.results.milk.categories,
+          styleList: data.results.style.categories,
+          countriesList: data.results.countries.categories,
+        });
+      });
+
+    // fetch('data/CarouselData.json')
+    fetch('http://13.124.4.250:8000/events')
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -58,10 +71,25 @@ export default class Main extends Component {
   };
 
   render() {
-    const { carouselImg, cardLarge, sloganImg } = this.state;
+    const {
+      milkList,
+      styleList,
+      countriesList,
+      carouselImg,
+      sloganImg,
+      cardLarge,
+    } = this.state;
 
     return (
       <>
+        <div className="navWrapper">
+          <Nav
+            milkList={milkList}
+            styleList={styleList}
+            countriesList={countriesList}
+          />
+        </div>
+
         {/* <Nav /> */}
         <main className="mainContainer">
           <div className="carouselWrapper">
@@ -111,9 +139,7 @@ export default class Main extends Component {
 
           <div className="slideScd">드래그 슬라이드2</div>
 
-          <div className="alignAd">
-            <CategoryImg />
-          </div>
+          <div className="alignAd"></div>
         </main>
         <Footer />
       </>
