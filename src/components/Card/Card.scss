@@ -6,16 +6,21 @@
 }
 .cardContainer {
   margin: 0 auto;
+
   .cardImage {
     position: relative;
     width: 300px;
     height: 300px;
     cursor: pointer;
+
     .thumbnailImage {
       width: 100%;
       height: 100%;
+      opacity: 1;
+      transition: opacity 0.5s linear;
       object-fit: cover;
     }
+
     .hoverImage {
       position: absolute;
       top: 0;
@@ -26,43 +31,53 @@
       transition: opacity 0.5s linear;
       object-fit: cover;
     }
+
     &:hover .hoverImage {
       opacity: 1;
     }
   }
+
   .cardTag {
     @include display-flex(space-between, center);
     padding-top: 10px;
     width: 300px;
+
     .cheeseName {
       flex: 7;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
     .cheesePrice {
       flex: 3;
       text-align: right;
       font-weight: 500;
     }
   }
+
   .starRatings {
     padding: 10px 0;
+
     i {
       color: #fec600;
       padding-right: 5px;
     }
   }
+
   .btnWrapper {
     opacity: 0;
+
     .hide {
       display: none;
     }
+
     .btnStatic {
       @include btn;
       width: 300px;
       transition: opacity 0.5s linear;
     }
+
     .btnOptionWrapper {
       @include display-flex(space-between, center);
       margin-bottom: 5px;
@@ -73,19 +88,23 @@
         width: 100%;
         margin-right: 5px;
         opacity: 0.2;
+
         &:last-child {
           margin-right: 0;
         }
       }
+
       .chosen {
         opacity: 1;
       }
     }
   }
+
   &:hover .btnWrapper {
     opacity: 1;
     transition: opacity 0.5s linear;
   }
+
   a {
     text-decoration: none;
     color: black;
