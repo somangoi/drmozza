@@ -5,7 +5,7 @@ import CategoryImg from '../../components/CategoryImg/CategoryImg';
 import SideMenuList from './SideMenuList/SideMenuList';
 import ProductList from './ProductList/ProductList';
 import Footer from '../../components/Footer/Footer';
-import { isValidObject } from '../../../src/utils';
+import { isValidObject } from '../../utils';
 
 import '../Shop/Shop.scss';
 

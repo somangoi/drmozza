@@ -9,6 +9,7 @@ class Card extends Component {
     this.state = {
       optionBtn: false,
       selected: false,
+      selectedSize: '',
     };
   }
   openOptionBtn = () => {
@@ -17,21 +18,25 @@ class Card extends Component {
     });
   };
 
-  changeSmaller = () => {
+  changeSmaller = e => {
     this.setState({
       selected: false,
+      selectedSize: e.target.value,
     });
   };
 
-  changeBigger = () => {
+  changeBigger = e => {
     this.setState({
       selected: true,
+      selectedSize: e.target.value,
     });
   };
 
   addToCart = () => {
-    alert('Add to Cart');
+    alert(`${this.props.name}이 장바구니에 추가되었습니다.`);
+    fetch();
   };
+
   render() {
     const { thumbnail, name, option, score, id, hoverImg } = this.props;
     const { optionBtn, selected } = this.state;
@@ -65,7 +70,9 @@ class Card extends Component {
             </>
           ) : (
             <>
-              <button className="btnStatic">ADD TO CART</button>
+              <button className="btnStatic" onClick={this.addToCart}>
+                ADD TO CART
+              </button>
             </>
           )}
 
@@ -75,12 +82,14 @@ class Card extends Component {
                 <button
                   className={`btnOption ${selected ? '' : 'chosen'}`}
                   onClick={this.changeSmaller}
+                  value={option[0].weight}
                 >
                   {option[0].weight}g
                 </button>
                 <button
                   className={`btnOption ${selected ? 'chosen' : ''}`}
                   onClick={this.changeBigger}
+                  value={option[1].weight}
                 >
                   {option[1].weight}g
                 </button>
