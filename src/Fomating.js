@@ -1,4 +1,4 @@
-export const usdFomating = number => {
+export const formatToUSD = number => {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
