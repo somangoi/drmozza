@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import DropDownNav from './DropDownNav';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import './Nav.scss';
 
-export default class Nav extends Component {
+class Nav extends Component {
+  // goToCategory = () => {
+  //   this.props.history.push(`/shop/${this.props.match.params.id}`);
+  //   console.log(`this.props`, this.props);
+  // };
+
   render() {
     const { milkList, styleList, countriesList } = this.props;
-
+    console.log(`this.props`, this.props);
     return (
       <div className="navBox">
         {milkList && (
@@ -13,7 +20,9 @@ export default class Nav extends Component {
             <div className="navContainer">
               <div className="navLogo">Dr.Mozza+</div>
               <ul className="navList">
-                <li>All</li>
+                <Link to="/shop/14">
+                  <li>All</li>
+                </Link>
 
                 <li className="dropDownMilk">
                   MILK <i className="fa fa-angle-down" />
@@ -36,7 +45,9 @@ export default class Nav extends Component {
                   </div>
                 </li>
 
-                <li>BESTSELLER</li>
+                <Link to="/shop/15">
+                  <li>BESTSELLER</li>
+                </Link>
               </ul>
 
               <ul className="navRight">
@@ -56,3 +67,5 @@ export default class Nav extends Component {
     );
   }
 }
+
+export default withRouter(Nav);

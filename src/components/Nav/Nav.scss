@@ -8,6 +8,11 @@
   z-index: 999;
   background-color: white;
 
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
   .navContainer {
     @include display-flex(space-between, center);
     width: 1240px;
