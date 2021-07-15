@@ -32,6 +32,13 @@
         padding-right: 20px;
         padding-bottom: 28px;
         cursor: pointer;
+
+        div {
+          position: fixed;
+          left: 0;
+          right: 0;
+          background-color: rgb(243, 243, 243);
+        }
       }
 
       &:last-child {

@@ -9,44 +9,48 @@ export default class Nav extends Component {
     return (
       <div className="navBox">
         {milkList && (
-          <div className="navContainer">
-            <div className="navLogo">Dr.Mozza+</div>
-            <ul className="navList">
-              <li>All</li>
+          <>
+            <div className="navContainer">
+              <div className="navLogo">Dr.Mozza+</div>
+              <ul className="navList">
+                <li>All</li>
 
-              <li className="dropDownMilk">
-                MILK <i className="fa fa-angle-down" />
-                <div className="dropDownMilkList">
-                  <DropDownNav titleList={milkList} />
-                </div>
-              </li>
+                <li className="dropDownMilk">
+                  MILK <i className="fa fa-angle-down" />
+                  <div className="dropDownMilkList">
+                    <DropDownNav titleList={milkList} />
+                  </div>
+                </li>
 
-              <li className="dropDownStyle">
-                STYLE <i className="fa fa-angle-down" />
-                <div className="dropDownStyeList">
-                  <DropDownNav titleList={styleList} />
-                </div>
-              </li>
+                <li className="dropDownStyle">
+                  STYLE <i className="fa fa-angle-down" />
+                  <div className="dropDownStyeList">
+                    <DropDownNav titleList={styleList} />
+                  </div>
+                </li>
 
-              <li className="dropDownCountries">
-                COUNTRIES <i className="fa fa-angle-down" />
-                <div className="dropDownCountriesList">
-                  <DropDownNav titleList={countriesList} />
-                </div>
-              </li>
+                <li className="dropDownCountries">
+                  COUNTRIES <i className="fa fa-angle-down" />
+                  <div className="dropDownCountriesList">
+                    <DropDownNav titleList={countriesList} />
+                  </div>
+                </li>
 
-              <li>BESTSELLER</li>
-            </ul>
-            <ul className="navRight">
-              <li className="logInIcon">
-                <p>LOG IN</p>
-              </li>
-              <li> SEARCH</li>
-              <li>
-                <i className="fa fa-shopping-bag" />
-              </li>
-            </ul>
-          </div>
+                <li>BESTSELLER</li>
+              </ul>
+
+              <ul className="navRight">
+                <li className="logInIcon">
+                  <p>LOG IN</p>
+                </li>
+                <li> SEARCH</li>
+                <li>
+                  <i className="fa fa-shopping-bag" />
+                </li>
+              </ul>
+            </div>
+            <div className="backgroundBox"></div>
+          </>
         )}
       </div>
     );

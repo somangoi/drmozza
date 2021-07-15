@@ -5,11 +5,11 @@ import './DropDownNav.scss';
 class DropDownNav extends Component {
   goToCategory = () => {
     this.props.history.push(`/shop/${this.props.match.params.id}`);
+    console.log(`this.props`, this.props);
   };
 
   render() {
     const { titleList } = this.props;
-    console.log(`this.props`, this.props);
     return (
       <div className="titleListBox">
         <ul className="titleListContainer">
