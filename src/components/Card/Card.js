@@ -47,8 +47,8 @@ class Card extends Component {
         option_id: this.state.selectedSize,
       }),
     };
-    alert(`${this.props.name}이 장바구니에 추가되었습니다.`);
     fetch(`${CART_API}`, requestOptions);
+    alert(`${this.props.name}이 장바구니에 추가되었습니다.`);
   };
 
   render() {
