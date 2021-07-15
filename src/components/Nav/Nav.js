@@ -12,18 +12,11 @@ class Nav extends Component {
       milkList: [],
       styleList: [],
       countriesList: [],
-      cartQuantity: [],
+      loginStatus: false,
     };
   }
 
   componentDidMount() {
-    const requestOptions = {
-      method: 'GET',
-      headers: {
-        Authorization: localStorage.getItem('TOKEN'),
-      },
-    };
-
     fetch('http://13.124.4.250:8000/menus')
       .then(res => res.json())
       .then(data => {
@@ -34,17 +27,41 @@ class Nav extends Component {
         });
       });
 
-    fetch(CART_API, requestOptions)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          cartQuantity: data.results.total,
-        });
-      });
+    if (localStorage.getItem('TOKEN')) {
+      this.setState({ loginStatus: false });
+    } else {
+      this.setState({ loginStatus: true });
+    }
   }
 
+  // componentDidUpdate() {
+  //   if (localStorage.getItem(‘TOKEN’) && !this.state.isLogin) {
+  //     this.setState({ isLogin: true });
+  //   } else if (localStorage.removeItem(‘TOKEN’) && this.state.isLogin) {
+  //     this.setState({ isLogin: false });
+  //   }
+  // }
+
+  logout = () => {
+    const loginStatus = this.state.loginStatus;
+    console.log('logout');
+
+    if (loginStatus) {
+      localStorage.removeItem('TOKEN');
+      this.setState({ loginStatus: false });
+    } else {
+      this.setState({ loginStatus: true });
+      // }
+      //   localStorage.removeItem('TOKEN') && this.loginStatus) {
+      //   this.setState({ loginStatus: false });
+      // }
+    }
+  };
+
   render() {
-    const { milkList, styleList, countriesList, cartQuantity } = this.state;
+    const { milkList, styleList, countriesList, loginStatus } = this.state;
+    console.log(`localStorage.getItem('TOKEN')`, localStorage.getItem('TOKEN'));
+    console.log(`this.state`, this.state);
 
     return (
       <div className="navBox">
@@ -87,17 +104,17 @@ class Nav extends Component {
 
               <ul className="navRight">
                 <li className="logInIcon">
-                  <Link to="/login">
-                    <p>LOG IN</p>
-                  </Link>
+                  <button onClick={this.logout} className="logoutBtn">
+                    <Link to="/login">
+                      {loginStatus ? 'LOG OUT' : 'LOG IN'}
+                    </Link>
+                  </button>
                 </li>
                 <li> SEARCH</li>
                 <li>
                   <Link to="/cart">
                     <div className="cartCountingWrapper">
-                      <i className="fa fa-shopping-bag">
-                        <div className="cartCounting">{cartQuantity}</div>
-                      </i>
+                      <i className="fa fa-shopping-bag" />
                     </div>
                   </Link>
                 </li>
