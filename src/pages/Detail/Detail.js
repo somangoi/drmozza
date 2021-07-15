@@ -10,8 +10,9 @@ import { PRODUCT_API } from '../../config';
 import { isValidObject } from '../../../src/utils';
 
 import './Detail.scss';
+import { withRouter } from 'react-router-dom';
 
-export default class Detail extends Component {
+class Detail extends Component {
   constructor() {
     super();
     this.state = {
@@ -29,6 +30,19 @@ export default class Detail extends Component {
           data: detail,
         });
       });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      fetch(`${PRODUCT_API}/${this.props.match.params.id}`)
+        .then(res => res.json())
+        .then(detail => {
+          this.setState({
+            data: detail,
+          });
+        });
+      window.scrollTo(0, 0);
+    }
   }
 
   render() {
@@ -69,3 +83,5 @@ export default class Detail extends Component {
     );
   }
 }
+
+export default withRouter(Detail);

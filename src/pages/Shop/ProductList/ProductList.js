@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component } from 'react';
 import Card from '../../../components/Card/Card';
 import './ProductList.scss';
 

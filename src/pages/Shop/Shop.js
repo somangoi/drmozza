@@ -19,7 +19,7 @@ export default class Shop extends Component {
       milkList: [],
       styleList: [],
       countriesList: [],
-      selectedOption: '',
+      // selectedOption: '',
     };
   }
 
@@ -53,9 +53,7 @@ export default class Shop extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.match.params.id !== prevProps.match.params.id) {
-      fetch(
-        `${API}/categories/${this.props.match.params.id}&offset=1&limit=10&sort=${this.state.selectedOption}`
-      )
+      fetch(`${API}/categories/${this.props.match.params.id}`)
         .then(res => res.json())
         .then(data =>
           this.setState({
@@ -74,8 +72,6 @@ export default class Shop extends Component {
   }
 
   sortingHandler = e => {
-    this.setState({ selectedOption: e.target.value });
-
     fetch(
       `${PRODUCT_API}?category=${this.props.match.params.id}&sort=${e.target.value}`
     )
@@ -131,6 +127,18 @@ export default class Shop extends Component {
                         <option value="price-ascending">
                           Price, Low to High
                         </option>
+                        <option value="score-descending">
+                          Score, High to Low
+                        </option>
+                        <option value="score-ascending">
+                          Score, Low to High
+                        </option>
+                        <option value="sales-descending">
+                          Sales, High to Low
+                        </option>
+                        <option value="sales-ascending">
+                          Sales, Low to High
+                        </option>
                       </select>
                     </span>
                   </div>
@@ -142,7 +150,6 @@ export default class Shop extends Component {
             </article>
           </section>
         </main>
-
         <Footer />
       </div>
     );
