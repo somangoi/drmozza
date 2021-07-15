@@ -71,7 +71,7 @@ class Nav extends Component {
 
               <ul className="navRight">
                 <li className="logInIcon">
-                  <Link to="/signup">
+                  <Link to="/login">
                     <p>LOG IN</p>
                   </Link>
                 </li>
