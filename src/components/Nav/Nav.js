@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DropDownNav from './DropDownNav';
-import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
+import { CART_API } from '../../config';
+import { Link, withRouter } from 'react-router-dom';
 import './Nav.scss';
 
 class Nav extends Component {
@@ -12,10 +12,18 @@ class Nav extends Component {
       milkList: [],
       styleList: [],
       countriesList: [],
+      cartQuantity: [],
     };
   }
 
   componentDidMount() {
+    const requestOptions = {
+      method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('TOKEN'),
+      },
+    };
+
     fetch('http://13.124.4.250:8000/menus')
       .then(res => res.json())
       .then(data => {
@@ -25,10 +33,18 @@ class Nav extends Component {
           countriesList: data.results.countries.categories,
         });
       });
+
+    fetch(CART_API, requestOptions)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          cartQuantity: data.results.total,
+        });
+      });
   }
 
   render() {
-    const { milkList, styleList, countriesList } = this.state;
+    const { milkList, styleList, countriesList, cartQuantity } = this.state;
 
     return (
       <div className="navBox">
@@ -80,7 +96,7 @@ class Nav extends Component {
                   <Link to="/cart">
                     <div className="cartCountingWrapper">
                       <i className="fa fa-shopping-bag">
-                        <div className="cartCounting">5</div>
+                        <div className="cartCounting">{cartQuantity}</div>
                       </i>
                     </div>
                   </Link>

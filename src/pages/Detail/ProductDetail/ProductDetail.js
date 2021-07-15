@@ -7,7 +7,6 @@ import './ProductDetail.scss';
 export default class ProductDetail extends Component {
   constructor(props) {
     super(props);
-    console.log('ProductDetail', props);
 
     this.state = {
       showDesc: false,
