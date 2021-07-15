@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import './CategoryImg.scss';
-
-export default class CategoryImg extends Component {
+class CategoryImg extends Component {
   render() {
     const { currentCategory } = this.props;
-
-    return currentCategory ? (
+    return (
       <div>
         <div className="categoryWrapper">
           <div className="categoryDesc">
@@ -17,6 +16,7 @@ export default class CategoryImg extends Component {
           </div>
         </div>
       </div>
-    ) : null;
+    );
   }
 }
+export default withRouter(CategoryImg);

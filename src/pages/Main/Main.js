@@ -139,9 +139,7 @@ export default class Main extends Component {
 
           <div className="slideScd">드래그 슬라이드2</div>
 
-          <div className="alignAd">
-            <CategoryImg />
-          </div>
+          <div className="alignAd"></div>
         </main>
         <Footer />
       </>
