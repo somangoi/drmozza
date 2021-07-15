@@ -88,11 +88,8 @@ export default class Shop extends Component {
   };
 
   render() {
-    console.log(this.state.productList);
     const { currentCategory, productList, milkList, styleList, countriesList } =
       this.state;
-
-    console.log('productList', productList);
 
     return (
       <div>
