@@ -1,23 +1,30 @@
 import React from 'react';
 import DaumPostcode from 'react-daum-postcode';
 
-const Address = ({ setAddress }, isDaumPost) => {
+const Address = ({ setAddress, isDaumPost }) => {
   const handleComplete = data => {
-    let allAddress = data.address;
-    let extraAddress = '';
-    let zoneCodes = data.zonecode;
+    const {
+      address,
+      jibunAddress,
+      zonecode,
+      userSelectedType,
+      bname,
+      buildingName,
+    } = data;
 
-    if (data.addressType === 'R') {
-      if (data.bname !== '') {
-        extraAddress += data.bname;
-      }
-      if (data.buildingName !== '') {
-        extraAddress +=
-          extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName;
-      }
-      allAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
+    const roadAddress = `${address} (${bname ? bname : ''} ${
+      buildingName ? buildingName : ''
+    })`;
+
+    const oldAddress = `${jibunAddress} (${bname ? bname : ''} ${
+      buildingName ? buildingName : ''
+    })`;
+
+    if (userSelectedType === 'R') {
+      setAddress(roadAddress, zonecode);
+    } else {
+      setAddress(oldAddress, zonecode);
     }
-    setAddress(allAddress, zoneCodes);
   };
 
   const width = 395;
