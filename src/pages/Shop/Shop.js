@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Nav from '../../components/Nav/Nav';
+import { API } from '../../config';
 import CategoryImg from '../../components/CategoryImg/CategoryImg';
 import SideMenuList from './SideMenuList/SideMenuList';
 import ProductList from './ProductList/ProductList';
@@ -24,8 +24,6 @@ export default class Shop extends Component {
   }
 
   componentDidMount() {
-    const API = 'http://13.124.4.250:8000';
-
     fetch(`${API}/menus`)
       .then(res => res.json())
       .then(menu => {
@@ -87,7 +85,6 @@ export default class Shop extends Component {
       this.state;
     return (
       <div>
-        <Nav />
         {isValidObject(currentCategory) && (
           <main className="shopContainer">
             <CategoryImg currentCategory={currentCategory} />

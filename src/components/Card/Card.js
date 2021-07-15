@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { CART_API } from '../../config';
 import { withRouter } from 'react-router';
 import './Card.scss';
 
 class Card extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
     this.state = {
       optionBtn: false,
       selected: false,
-      selectedSize: '',
+      selectedSize: props.option[0].option_id,
     };
   }
 
@@ -19,41 +21,34 @@ class Card extends Component {
     });
   };
 
-  changeSmaller = e => {
+  changeSmaller = () => {
     this.setState({
       selected: false,
-      selectedSize: e.target.value,
     });
   };
 
-  changeBigger = e => {
+  changeBigger = () => {
     this.setState({
       selected: true,
-      selectedSize: e.target.value,
     });
   };
 
   addToCart = () => {
-    const API = 'http://13.124.4.250:8000';
+    this.state.selected
+      ? this.setState({ selectedSize: this.props.option[1].option_id })
+      : this.setState({ selectedSize: this.props.option[0].option_id });
+
     const requestOptions = {
       method: 'POST',
       headers: {
         Authorization: localStorage.getItem('TOKEN'),
       },
       body: JSON.stringify({
-        product_id: this.props.id,
-        selectedSize: this.state.selectedSize,
+        option_id: this.state.selectedSize,
       }),
     };
-
     alert(`${this.props.name}이 장바구니에 추가되었습니다.`);
-    fetch(`${API}/cart`, requestOptions)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          cartList: data.results.carts,
-        });
-      });
+    fetch(`${CART_API}`, requestOptions);
   };
 
   render() {
@@ -101,14 +96,14 @@ class Card extends Component {
                 <button
                   className={`btnOption ${selected ? '' : 'chosen'}`}
                   onClick={this.changeSmaller}
-                  value={option[0].weight}
+                  value={option[0].option_id}
                 >
                   {option[0].weight}g
                 </button>
                 <button
                   className={`btnOption ${selected ? 'chosen' : ''}`}
                   onClick={this.changeBigger}
-                  value={option[1].weight}
+                  value={option[1].option_id}
                 >
                   {option[1].weight}g
                 </button>
