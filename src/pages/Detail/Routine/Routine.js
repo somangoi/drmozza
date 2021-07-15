@@ -36,7 +36,7 @@ export default class Routine extends Component {
                   currentItem={card.current}
                   name={card.product_name}
                   option={card.option}
-                  rating={card.score}
+                  score={card.score}
                 />
               </div>
             );

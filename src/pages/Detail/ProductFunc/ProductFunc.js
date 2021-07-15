@@ -8,8 +8,8 @@ export default class ProductFunc extends Component {
         <div className="productFuncDetail">
           <h2>DEEP MOISTURE FOR SERIOUSLY DRY CHEESE</h2>
           <p>
-            Our collection of dry skin solutions is powered by 5-Cera Complex to
-            deliver deep moisture that restores and repairs dry skin.
+            Our collection of dry cheese solutions is powered by organic milk to
+            deliver deep moisture that restores and repairs dry cheese.
           </p>
         </div>
         <div className="productFuncIconBox">

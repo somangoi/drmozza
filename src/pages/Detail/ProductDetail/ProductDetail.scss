@@ -116,10 +116,15 @@
 
         .descContent {
           padding: 10px;
+          height: 300px;
+          transition: all 0.5s ease-in-out;
         }
 
         .descContentHide {
           display: none;
+          transition: all 0.5s ease-in-out;
+          overflow: hidden;
+          padding: 0 10px;
         }
 
         .moreDetail {
