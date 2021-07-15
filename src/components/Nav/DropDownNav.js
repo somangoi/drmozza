@@ -6,14 +6,14 @@ import './DropDownNav.scss';
 class DropDownNav extends Component {
   render() {
     const { titleList } = this.props;
-    console.log(`this.props`, this.props);
+
     return (
       <div className="titleListBox">
         <ul className="titleListContainer">
           {titleList.map(list => (
-            <Link to={`/shop/${list.id}`}>
-              <li key={list.id} className="categoryName">
-                {list.name.toUpperCase()}
+            <Link to={`/shop/${list.category_id}`}>
+              <li key={list.category_id} className="categoryName">
+                {list.category_name.toUpperCase()}
               </li>
             </Link>
           ))}

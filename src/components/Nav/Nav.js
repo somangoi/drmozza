@@ -5,20 +5,39 @@ import { withRouter } from 'react-router';
 import './Nav.scss';
 
 class Nav extends Component {
-  // goToCategory = () => {
-  //   this.props.history.push(`/shop/${this.props.match.params.id}`);
-  //   console.log(`this.props`, this.props);
-  // };
+  constructor() {
+    super();
+
+    this.state = {
+      milkList: [],
+      styleList: [],
+      countriesList: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://13.124.4.250:8000/menus')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          milkList: data.results.milk.categories,
+          styleList: data.results.style.categories,
+          countriesList: data.results.countries.categories,
+        });
+      });
+  }
 
   render() {
-    const { milkList, styleList, countriesList } = this.props;
-    console.log(`this.props`, this.props);
+    const { milkList, styleList, countriesList } = this.state;
+
     return (
       <div className="navBox">
         {milkList && (
           <>
             <div className="navContainer">
-              <div className="navLogo">Dr.Mozza+</div>
+              <Link className="navLogo" to="/main">
+                <div>Dr.Mozza+</div>
+              </Link>
               <ul className="navList">
                 <Link to="/shop/14">
                   <li>All</li>
