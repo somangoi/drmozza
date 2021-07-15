@@ -17,6 +17,16 @@ class Order extends Component {
     discount_price: 0,
     isDaumPost: false,
     cartList: [],
+    width: 395,
+    height: 300,
+    modalStyle: {
+      position: 'absolute',
+      top: '140px',
+      left: '540px',
+      zIndex: '1000',
+      border: '1px solid #000000',
+      overflow: 'hidden',
+    },
   };
 
   componentDidMount() {
@@ -130,6 +140,9 @@ class Order extends Component {
                   <Address
                     setAddress={this.setAddress}
                     isDaumPost={this.state.isDaumPost}
+                    width={this.state.width}
+                    height={this.state.height}
+                    modalStyle={this.state.modalStyle}
                   />
                 ) : null}
               </label>
