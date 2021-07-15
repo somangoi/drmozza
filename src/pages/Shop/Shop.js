@@ -19,7 +19,7 @@ export default class Shop extends Component {
       milkList: [],
       styleList: [],
       countriesList: [],
-      selectedOption: 'price_desc',
+      selectedOption: 'price-descending',
     };
   }
 
@@ -44,9 +44,7 @@ export default class Shop extends Component {
         });
       });
 
-    fetch(
-      `${API}/products?id=${this.props.match.params.id}&offset=1&limit=10&sort_by=price_desc`
-    )
+    fetch(`${API}/products?category=${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -57,7 +55,7 @@ export default class Shop extends Component {
 
   componentDidUpdate(prevProps) {
     const API = 'http://13.124.4.250:8000';
-    let PRODUCTS_API = `${API}/products?id=${this.props.match.params.id}&offset=1&limit=10&sort_by=price_desc`;
+    let PRODUCTS_API = `${API}/products?category=${this.props.match.params.id}`;
 
     if (this.props.match.params.id !== prevProps.match.params.id) {
       fetch(`${API}/categories/${this.props.match.params.id}`)
@@ -82,7 +80,6 @@ export default class Shop extends Component {
     this.setState({
       selectedOption: e.target.value,
     });
-    console.log(this.state.selectedOption);
   };
 
   render() {
