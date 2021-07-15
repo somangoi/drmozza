@@ -3,11 +3,7 @@ import CardLarge from './CardLarge/CardLarge';
 import Carousel from '../../components/Carousel/Carousel';
 import Footer from '../../components/Footer/Footer';
 import Card from '../../components/Card/Card';
-import CategoryImg from '../../components/CategoryImg/CategoryImg';
 import Slogan from './Slogan/Slogan';
-import Nav from '../../components/Nav/Nav';
-import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
 import './Main.scss';
 
 class Main extends Component {
@@ -208,4 +204,4 @@ class Main extends Component {
   }
 }
 
-export default withRouter(Main);
+export default Main;

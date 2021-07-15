@@ -71,11 +71,15 @@ class Nav extends Component {
 
               <ul className="navRight">
                 <li className="logInIcon">
-                  <p>LOG IN</p>
+                  <Link to="/signup">
+                    <p>LOG IN</p>
+                  </Link>
                 </li>
                 <li> SEARCH</li>
                 <li>
-                  <i className="fa fa-shopping-bag" />
+                  <Link to="/cart">
+                    <i className="fa fa-shopping-bag" />
+                  </Link>
                 </li>
               </ul>
             </div>
