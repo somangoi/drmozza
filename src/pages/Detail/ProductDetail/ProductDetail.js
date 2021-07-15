@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import { CART_API } from '../../../config';
 import Gallery from './Gallery/Gallery';
 import './ProductDetail.scss';
 
 export default class ProductDetail extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    console.log('ProductDetail', props);
+
     this.state = {
       showDesc: false,
       showMoreClicked: false,
       selected: false,
+      selectedSize: props.optionList[0].option_id,
     };
   }
 
@@ -22,12 +25,30 @@ export default class ProductDetail extends Component {
     this.setState({ showMoreClicked: !this.state.showMoreClicked });
   };
 
-  changeToOptionSmall = () => {
-    this.setState({ selected: false });
+  changeToOptionSmall = e => {
+    this.setState({ selected: false, selectedSize: e.target.value });
   };
 
-  changeToOptionBig = () => {
-    this.setState({ selected: true });
+  changeToOptionBig = e => {
+    this.setState({ selected: true, selectedSize: e.target.value });
+  };
+
+  addToCart = () => {
+    this.state.selected
+      ? this.setState({ selectedSize: this.props.optionList[1].option_id })
+      : this.setState({ selectedSize: this.props.optionList[0].option_id });
+
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        Authorization: localStorage.getItem('TOKEN'),
+      },
+      body: JSON.stringify({
+        option_id: this.state.selectedSize,
+      }),
+    };
+    alert(`${this.props.product_name}이 장바구니에 추가되었습니다.`);
+    fetch(`${CART_API}`, requestOptions);
   };
 
   render() {
@@ -97,20 +118,26 @@ export default class ProductDetail extends Component {
                   <button
                     className={selected ? 'optionBtn' : 'optionBtn chosen'}
                     onClick={this.changeToOptionSmall}
+                    value={optionList[0].option_id}
                   >
                     {optionList[0].weight}g
                   </button>
                   <button
                     className={selected ? 'optionBtn chosen' : 'optionBtn'}
                     onClick={this.changeToOptionBig}
+                    value={optionList[1].option_id}
                   >
                     {optionList[1].weight}g
                   </button>
                 </div>
               )}
 
-              <button className="addToBag" type="button">
-                ADD TO BAG
+              <button
+                className="addToBag"
+                type="button"
+                onClick={this.addToCart}
+              >
+                ADD TO CART
               </button>
               <div className="descBox">
                 <button

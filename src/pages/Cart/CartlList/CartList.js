@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { USDfomating } from '../../../Fomating';
+import { formatToUSD } from '../../../Fomating';
 import './CartList.scss';
 
 class CartList extends Component {
@@ -20,7 +20,7 @@ class CartList extends Component {
             <div className="weight">{weight}g</div>
           </div>
         </div>
-        <div className="price">{USDfomating(price)}</div>
+        <div className="price">{formatToUSD(price)}</div>
         <div className="quantity">
           <div className="selector">
             <button
@@ -59,7 +59,7 @@ class CartList extends Component {
             Remove
           </button>
         </div>
-        <div className="total">{USDfomating(price * quantity)}</div>
+        <div className="total">{formatToUSD(price * quantity)}</div>
       </div>
     );
   }
