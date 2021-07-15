@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
+import { Link } from 'react-router-dom';
 import {
   chkEmail,
   chkPwd,
@@ -129,9 +130,9 @@ export default class Login extends Component {
           </button>
           <div className="linkContain">
             Already have an account?
-            <a className="goToSignIn" href="/Login">
+            <Link to="/Login" className="goToSignIn">
               SIGN IN HERE
-            </a>
+            </Link>
           </div>
           <Footer />
         </div>
