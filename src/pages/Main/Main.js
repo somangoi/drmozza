@@ -33,10 +33,10 @@ export default class Main extends Component {
         });
       });
 
-    fetch(
-      'http://13.124.4.250:8000/products?offset=1&limit=8&sort_by=sales_desc'
-    )
-      // fetch('data/bestSeller.json')
+    // fetch(
+    //   'http://13.124.4.250:8000/products?offset=1&limit=8&sort_by=sales_desc'
+    // )
+    fetch('data/bestSeller.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -95,6 +95,7 @@ export default class Main extends Component {
 
   render() {
     const { carouselImg, cardLarge, sloganImg, dragCard } = this.state;
+    console.log(`this.state`, this.state);
 
     return (
       <>
@@ -107,9 +108,9 @@ export default class Main extends Component {
                   transform: `translateX(-${100 * this.state.index}vw)`,
                 }}
               >
-                {carouselImg.map(img => (
+                {carouselImg.map((img, idx) => (
                   <Carousel
-                    key={img.product_id}
+                    key={idx}
                     img={img.image_url}
                     title={img.product_name}
                     description={img.product_summary}
@@ -132,9 +133,9 @@ export default class Main extends Component {
 
           <div className="cardLargeBox">
             <ul className="cardLargeWrapper">
-              {cardLarge.map(card => (
+              {cardLarge.map((card, idx) => (
                 <CardLarge
-                  key={card.category_id}
+                  key={idx}
                   id={card.category_id}
                   cardImage={card.image_url}
                   title={card.title}
@@ -168,10 +169,9 @@ export default class Main extends Component {
                   transform: `translateX(-${1252 * this.state.dragIndex}px)`,
                 }}
               >
-                {dragCard.map(res => (
-                  <div className="dragCardWrapper">
+                {dragCard.map((res, idx) => (
+                  <div className="dragCardWrapper" key={idx}>
                     <Card
-                      key={res.product_id}
                       name={res.product_name}
                       thumbnail={res.thumbnail}
                       option={res.option}

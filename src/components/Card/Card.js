@@ -7,25 +7,34 @@ class Card extends Component {
     super();
     this.state = {
       optionBtn: false,
-      chooseSize: true,
+      selected: false,
+      selectedSize: '',
     };
   }
-  btnHandler = () => {
+  openOptionBtn = () => {
     this.setState({
       optionBtn: true,
     });
   };
-  changeSize = () => {
+  changeSmaller = e => {
     this.setState({
-      chooseSize: !this.state.chooseSize,
+      selected: false,
+      selectedSize: e.target.value,
+    });
+  };
+  changeBigger = e => {
+    this.setState({
+      selected: true,
+      selectedSize: e.target.value,
     });
   };
   addToCart = () => {
-    alert('take me home');
+    alert(`${this.props.name}이 장바구니에 추가되었습니다.`);
+    fetch();
   };
   render() {
     const { thumbnail, name, option, score, id, hoverImg } = this.props;
-    const { optionBtn, chooseSize } = this.state;
+    const { optionBtn, selected } = this.state;
     return (
       <div className="cardContainer">
         <Link to={`/detail/${id}`}>
@@ -36,7 +45,7 @@ class Card extends Component {
           <div className="cardTag">
             <div className="cheeseName">{name}</div>
             <div className="cheesePrice">
-              ${chooseSize ? option[0].price : option[1].price}
+              ${!selected ? option[0].price : option[1].price}
             </div>
           </div>
           <div className="starRatings">
@@ -48,33 +57,33 @@ class Card extends Component {
           {option[1] ? (
             <>
               <button
-                className={optionBtn ? 'btnStatic hide' : 'btnStatic '}
-                onClick={this.btnHandler}
+                className={`btnStatic ${optionBtn ? 'hide' : ''}`}
+                onClick={this.openOptionBtn}
               >
                 CHOOSE SIZE
               </button>
             </>
           ) : (
             <>
-              <button className="btnStatic">ADD TO CART</button>
+              <button className="btnStatic" onClick={this.addToCart}>
+                ADD TO CART
+              </button>
             </>
           )}
-          {optionBtn ? (
+          {optionBtn && (
             <>
-              <div
-                className={
-                  optionBtn ? 'btnOptionWrapper' : 'btnOptionWrapper hide'
-                }
-              >
+              <div className={`btnOptionWrapper ${optionBtn ? '' : 'hide'}`}>
                 <button
-                  className={chooseSize ? 'btnOption chosen' : 'btnOption '}
-                  onClick={this.changeSize}
+                  className={`btnOption ${selected ? '' : 'chosen'}`}
+                  onClick={this.changeSmaller}
+                  value={option[0].weight}
                 >
                   {option[0].weight}g
                 </button>
                 <button
-                  className={chooseSize ? 'btnOption ' : 'btnOption chosen'}
-                  onClick={this.changeSize}
+                  className={`btnOption ${selected ? 'chosen' : ''}`}
+                  onClick={this.changeBigger}
+                  value={option[1].weight}
                 >
                   {option[1].weight}g
                 </button>
@@ -83,8 +92,6 @@ class Card extends Component {
                 {optionBtn ? 'ADD TO CART' : 'CHOOSE SIZE'}
               </button>
             </>
-          ) : (
-            <></>
           )}
         </div>
       </div>

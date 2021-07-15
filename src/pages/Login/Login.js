@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../../components/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
 import { chkEmail, chkPwd } from '../../Validation/Validation';
+import { LOGIN_API } from '../../config';
 import '../Login/Login.scss';
 
 class Login extends Component {
@@ -17,18 +18,29 @@ class Login extends Component {
     });
   };
 
-  goToMain = () => {
-    this.props.history.push('/main');
-  };
-
   checkAll = e => {
     const { email, password } = this.state;
     if (chkEmail(email) && chkPwd(password)) {
-      alert('로그인 완료');
-      this.goToMain();
-    } else {
-      alert('입력하신 정보를 다시 확인해주세요.');
-      this.setState({ email: '', password: '' });
+      fetch(LOGIN_API, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: this.state.email,
+          password: this.state.password,
+        }),
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (res.TOKEN) {
+            localStorage.setItem('TOKEN', res.TOKEN);
+            this.props.history.push('/main');
+          } else {
+            alert('입력하신 정보를 다시 확인해주세요.');
+            this.setState({ email: '', password: '' });
+          }
+        });
     }
   };
 
