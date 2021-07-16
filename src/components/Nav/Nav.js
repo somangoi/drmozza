@@ -43,10 +43,6 @@ class Nav extends Component {
       this.setState({ loginStatus: false });
     } else {
       this.setState({ loginStatus: true });
-      // }
-      //   localStorage.removeItem('TOKEN') && this.loginStatus) {
-      //   this.setState({ loginStatus: false });
-      // }
     }
   };
 
