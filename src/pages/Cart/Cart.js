@@ -20,7 +20,7 @@ export default class Cart extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          cartList: data.results.carts,
+          cartList: data.results?.carts,
         });
       });
   }
@@ -128,10 +128,10 @@ export default class Cart extends Component {
   render() {
     const { cartList } = this.state;
     const total = cartList
-      .map(cart => cart.price * cart.quantity)
+      ?.map(cart => cart.price * cart.quantity)
       .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
-    if (!this.state.cartList.length) {
+    if (!this.state.cartList?.length) {
       return (
         <>
           <div className="cartPage">
@@ -191,7 +191,7 @@ export default class Cart extends Component {
               Shipping and taxes calculated at checkout
             </div>
             <div className="checkOutArea">
-              <a className="goToShop" href="/main">
+              <a className="goToShop" href="/">
                 Keep Shopping
               </a>
               <button

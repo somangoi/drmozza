@@ -17,7 +17,7 @@ class Nav extends Component {
   }
 
   componentDidMount() {
-    fetch('http://13.124.4.250:8000/menus')
+    fetch('http://3.35.149.173:8000/menus')
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -56,7 +56,7 @@ class Nav extends Component {
         {milkList && (
           <>
             <div className="navContainer">
-              <Link className="navLogo" to="/main">
+              <Link className="navLogo" to="/">
                 <div>Dr.Mozza+</div>
               </Link>
               <ul className="navList">

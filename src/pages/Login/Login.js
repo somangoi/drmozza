@@ -35,7 +35,7 @@ class Login extends Component {
         .then(res => {
           if (res.TOKEN) {
             localStorage.setItem('TOKEN', res.TOKEN);
-            this.props.history.push('/main');
+            this.props.history.push('/');
           } else {
             alert('입력하신 정보를 다시 확인해주세요.');
             this.setState({ email: '', password: '' });
@@ -97,7 +97,7 @@ class Login extends Component {
               Register Now
             </a>
           </div>
-          <a className="goToMain" href="/main">
+          <a className="goToMain" href="/">
             Return to Home
           </a>
           <Footer />

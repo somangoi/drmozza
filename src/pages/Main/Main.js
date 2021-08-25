@@ -21,7 +21,7 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    fetch('http://13.124.4.250:8000/events')
+    fetch('http://3.35.149.173:8000/events')
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -31,7 +31,7 @@ class Main extends Component {
         });
       });
 
-    fetch('http://13.124.4.250:8000/products?category=15')
+    fetch('http://3.35.149.173:8000/products?category=15')
       .then(res => res.json())
       .then(data => {
         this.setState({

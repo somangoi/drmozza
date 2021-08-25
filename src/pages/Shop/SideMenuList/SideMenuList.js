@@ -10,7 +10,7 @@ class SideMenuList extends Component {
     };
   }
   componentDidMount() {
-    const API = 'http://13.124.4.250:8000/';
+    const API = 'http://3.35.149.173:8000/';
     fetch(`${API}menus`)
       // fetch('/data/category.json')
       .then(res => res.json())
